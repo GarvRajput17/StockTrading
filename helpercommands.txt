@@ -1,0 +1,13 @@
+//COMPILE JAVA WITH JSON EXECUTABLE
+javac -cp .:lib/json-20240303.jar AlphaVantageAPI.java 
+
+//RUN JAVA FILE DIRECTLY
+java -cp .:lib/json-20240303.jar AlphaVantageAPI.java <stock-symbol>
+
+--- DOCKER COMMANDS ---
+
+//BUILD THE DOCKER IMAGE
+docker build -t stock-app .
+
+//RUN DOCKER CONTAINER
+docker run -it stock-app

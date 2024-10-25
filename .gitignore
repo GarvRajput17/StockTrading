@@ -1,0 +1,31 @@
+# API and sensitive data
+api.txt
+**/api_key.txt
+*.env
+**/config.properties
+
+# Compiled files
+*.class
+AlphaVantageAPI.class
+a.out
+*.exe
+
+# IDE and system files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Build directories
+out/
+build/
+target/
+bin/
+
+# Project specific
+oops.java
+Dockerfile
+
+# Temporary files
+*.log
+*.tmp

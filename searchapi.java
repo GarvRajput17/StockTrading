@@ -8,7 +8,7 @@ import java.awt.Desktop; // used to connect the html files to generate a local s
 import java.io.File; // file input output
 
 public class searchapi {
-    private static final String API_KEY = "your_api_key";
+    private static final String API_KEY = "6dsr6B5zEEUuXkBPrC7pHPLU";
     private static final String BASE_URL = "https://www.searchapi.io/api/v1/search?engine=google_finance&q=";
 
     private static void displayHelp() {
@@ -42,9 +42,9 @@ public class searchapi {
             JSONObject summary = jsonResponse.getJSONObject("summary");
             JSONObject priceChange = summary.getJSONObject("price_change");
             JSONObject financials = jsonResponse.getJSONObject("financials");
-            JSONObject annual = financials.getJSONObject("annual");
-            JSONObject revenue = annual.getJSONObject("revenue");
-            JSONObject net_income = annual.getJSONObject("net_income");
+            //JSONObject annual = financials.getJSONObject("annual");
+            //JSONObject revenue = annual.getJSONObject("revenue");
+            //JSONObject net_income = annual.getJSONObject("net_income");
 
             
             System.out.println("\nBasic Stock Information:");
@@ -119,10 +119,7 @@ public class searchapi {
                         displayHelp();
                         break;
                     
-                    case "8":
-                        System.out.println("\nCompany Financials:");
-                        System.out.println("Annual Statistics: " + getValueOrNull(annual, "year"));
-                        //System.out.println("")
+                    
 
                     
                         

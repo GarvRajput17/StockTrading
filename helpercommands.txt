@@ -11,3 +11,9 @@ docker build -t stock-app .
 
 //RUN DOCKER CONTAINER
 docker run -it stock-app
+
+//compile cpp with curl
+g++ main1.cpp -lcurl -o program
+
+// compile cpp with JNI
+g++ main1.cpp -ljvm

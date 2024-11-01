@@ -3,12 +3,22 @@ api.txt
 **/api_key.txt
 *.env
 **/config.properties
+Firebase_files
+.firebaserc
+pub-dir
+public
+firebase.json
+firestore.rules
 
 # Compiled files
 *.class
 AlphaVantageAPI.class
 a.out
 *.exe
+authentication/*.o
+Firebase_files/*.o
+program
+
 
 # IDE and system files
 .DS_Store
@@ -21,11 +31,23 @@ out/
 build/
 target/
 bin/
+authentication/build/
+Firebase_files/build/
 
 # Project specific
 oops.java
 Dockerfile
+Firebase_files/credentials/
+authentication/keys/
 
 # Temporary files
 *.log
 *.tmp
+Firebase_files/*.cache
+authentication/*.cache
+
+# Firebase specific
+.firebase/
+firebase-debug.log
+
+# 

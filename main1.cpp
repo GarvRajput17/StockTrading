@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include<jni.h>
+//#include<jni.h>
 #include "user.cpp"
 using namespace std;
 

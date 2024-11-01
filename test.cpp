@@ -1,3 +1,5 @@
+//EDIT THIS FILE IF ANY ATTRIBUTES/METHODS ARE CHANGED TO MAINTAIN CONSISTENCY
+
 /*#include<bits/stdc++.h>
 using namespace std;
 
@@ -15,6 +17,7 @@ private:
     vector<Stock> watching;
     vector<Transaction> transactionHistory;
     double walletBalance;
+    bool isAuthenticated;   ****added this****
 
 public:
     bool login(string userID, string password);
@@ -22,6 +25,7 @@ public:
     bool registerUser(string userID, string password);
     bool deleteAccount();
     void addMoneyToWallet(double amount);
+    void processPayment(double amount, int paymentMethod); ****added this method****
     void withdrawMoneyFromWallet(double amount);
     void viewTransactionHistory();
     void displayWatchlist();

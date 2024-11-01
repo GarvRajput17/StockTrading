@@ -8,7 +8,7 @@ import java.awt.Desktop; // used to connect the html files to generate a local s
 import java.io.File; // file input output
 
 public class searchapi {
-    private static final String API_KEY = "6dsr6B5zEEUuXkBPrC7pHPLU";
+    private static final String API_KEY = "";
     private static final String BASE_URL = "https://www.searchapi.io/api/v1/search?engine=google_finance&q=";
 
     private static void displayHelp() {

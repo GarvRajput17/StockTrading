@@ -3,10 +3,18 @@
 #include "user.cpp"
 using namespace std;
 
-void displayMenu() {
-    cout << "\n Stock Trading Authentication \n";
+void displayMenuBeforeLogin() {
+    cout << "\n=== Stock Trading System ===\n";
     cout << "1. Register New User\n";
     cout << "2. Login\n";
+    cout << "3. Exit\n";
+    cout << "Choice: ";
+}
+
+void displayMenuAfterLogin() {
+    cout << "\n=== Stock Trading System ===\n";
+    cout << "1. Add Money to Wallet\n";
+    cout << "2. Check Wallet Balance\n";
     cout << "3. Logout\n";
     cout << "4. Delete Account\n";
     cout << "5. Exit\n";
@@ -28,38 +36,57 @@ string getPassword() {
 }
 
 int main() {
-    User user;
+    User user("", "", "");  // Initialize with empty strings
     string choice;
 
     while(true) {
-        displayMenu();
-        cin.clear();
-        cin >> choice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        if(!user.isLoggedIn()) {
+            displayMenuBeforeLogin();
+            cin >> choice;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        if(choice == "5") {
-            cout << "Exiting program.\n";
-            break;
-        }
-
-        if(choice == "1") {
-            string userID = getUserID();
-            string password = getPassword();
-            user.registerUser(userID, password);
-        }
-        else if(choice == "2") {
-            string userID = getUserID();
-            string password = getPassword();
-            user.login(userID, password);
-        }
-        else if(choice == "3") {
-            user.logout();
-        }
-        else if(choice == "4") {
-            user.deleteAccount();
+            if(choice == "3") {
+                cout << "Exiting program.\n";
+                break;
+            }
+            else if(choice == "1") {
+                string userID = getUserID();
+                string password = getPassword();
+                user.registerUser(userID, password);
+            }
+            else if(choice == "2") {
+                string userID = getUserID();
+                string password = getPassword();
+                user.login(userID, password);
+            }
+            else {
+                cout << "Invalid choice. Select 1-3.\n";
+            }
         }
         else {
-            cout << "Invalid choice. Select 1-5.\n";
+            displayMenuAfterLogin();
+            cin >> choice;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            if(choice == "5") {
+                cout << "Exiting program.\n";
+                break;
+            }
+            else if(choice == "1") {
+                user.addMoneyToWallet(0);  // Changed to use class method directly
+            }
+            else if(choice == "2") {
+                cout << "Current Wallet Balance: Rs." << user.checkWalletBalance() << endl;
+            }
+            else if(choice == "3") {
+                user.logout();
+            }
+            else if(choice == "4") {
+                user.deleteAccount();
+            }
+            else {
+                cout << "Invalid choice. Select 1-5.\n";
+            }
         }
 
         if(user.isLoggedIn()) {

@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
 #include "authentication/auth.cpp"
+#include<openssl/rand.h>
+#include<iomanip>
+#include<sstream>
+#include<utils/uuid.cpp>
+#include<utils/chrono.cpp>
+#include<Firebase_files/curl_request.cpp>
+
 using namespace std;
 
 class User {
@@ -10,6 +17,23 @@ private:
     double walletBalance;
     Auth auth;
     bool isAuthenticated;
+
+    void saveTransactionToFirestore(double amount, const string& paymentMethod) {
+        string transactionId = guuid();
+        string timestamp = gettime();
+        
+        string url = auth.getFirestoreEndpoint() + "/users/" + userID + "/transactions/" + transactionId;
+        string data = "{\"fields\": {"
+                      "\"transactionId\": {\"stringValue\": \"" + transactionId + "\"},"
+                      "\"amount\": {\"doubleValue\": " + to_string(amount) + "},"
+                      "\"timestamp\": {\"stringValue\": \"" + timestamp + "\"},"
+                      "\"paymentMethod\": {\"stringValue\": \"" + paymentMethod + "\"},"
+                      "\"userId\": {\"stringValue\": \"" + userID + "\"}"
+                      "}}";
+        
+        makeRequest(url, data);
+    }
+
 
 public:
     User(const string& userID, const string& name, const string& password)
@@ -58,7 +82,7 @@ public:
             cout << "Account deleted successfully!" << endl;
             return true;
         }
-        cout << "Account deletion failed." << endl;
+        //cout << "Account deletion failed." << endl;
         return false;
     }
 
@@ -79,11 +103,13 @@ public:
 
         string cardNumber, expiryDate, cvv, name, upiId;
         char saveChoice;
+        string paymentMethod;
 
         switch(paymentChoice) {
             case 1: // Credit Card
             case 2: // Debit Card
-                cout << "\n=== " << (paymentChoice == 1 ? "Credit" : "Debit") << " Card Payment ===\n";
+                paymentMethod = (paymentChoice == 1) ? "Credit Card" : "Debit Card";
+                cout << "\n=== " << paymentMethod << " Payment ===\n";
                 cout << "Enter card number (16 digits): ";
                 cin >> cardNumber;
                 cout << "Enter expiry date (MM/YY): ";
@@ -98,6 +124,7 @@ public:
                 break;
 
             case 3: // UPI
+                paymentMethod = "UPI";
                 cout << "\n=== UPI Payment ===\n";
                 cout << "Enter UPI ID: ";
                 cin >> upiId;
@@ -106,6 +133,7 @@ public:
                 break;
 
             case 4: // Net Banking
+                paymentMethod = "Net Banking";
                 cout << "\n=== Net Banking ===\n";
                 cout << "Select your bank:\n";
                 cout << "1. SBI\n2. HDFC\n3. ICICI\n4. Axis\n5. Other\n";
@@ -115,6 +143,7 @@ public:
                 break;
 
             case 5: // Digital Wallet
+                paymentMethod = "Digital Wallet";
                 cout << "\n=== Digital Wallet ===\n";
                 cout << "Select wallet:\n";
                 cout << "1. PayTM\n2. PhonePe\n3. Google Pay\n4. Amazon Pay\n";
@@ -127,14 +156,39 @@ public:
         }
 
         cout << "\nProcessing payment";
+        string dots = "";
         for(int i = 0; i < 3; i++) {
-            cout << ".";
+            dots += ".";
+            cout << "\rProcessing payment" << dots << string(3 - dots.length(), ' ');
+            cout.flush();
             this_thread::sleep_for(chrono::seconds(1));
         }
-        cout << "\nPayment successful!\n";
+
         walletBalance += amount;
+        
+        // Save to Firestore
+        addWalletToFirestore(amount, paymentMethod);
+        
+        cout << "\nPayment successful!\n";
         cout << "Rs." << amount << " added to wallet successfully\n";
         cout << "Current wallet balance: Rs." << walletBalance << "\n";
+    }
+
+    void addWalletToFirestore(double amount, const string& paymentMethod) {
+        string transactionId = guuid();
+        string timestamp = gettime();
+        
+        string jsonData = "{\"fields\": {"
+                        "\"userId\": {\"stringValue\": \"" + userID + "\"},"
+                        "\"amount\": {\"doubleValue\": " + to_string(amount) + "},"
+                        "\"walletBalance\": {\"doubleValue\": " + to_string(walletBalance) + "},"
+                        "\"paymentMethod\": {\"stringValue\": \"" + paymentMethod + "\"},"
+                        "\"timestamp\": {\"stringValue\": \"" + timestamp + "\"},"
+                        "\"transactionId\": {\"stringValue\": \"" + transactionId + "\"}"
+                        "}}";
+
+        auth.saveToFirestore("users", userID + "/transactions/" + transactionId, jsonData);
+
     }
 
     void addMoneyToWallet(double amount) {

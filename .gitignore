@@ -3,7 +3,13 @@ api.txt
 **/api_key.txt
 *.env
 **/config.properties
-Firebase_files
+Firebase_files/.firebaserc
+Firebase_files/database.rules.json
+Firebase_files/firebase_config.h
+Firebase_files/firebase.json
+Firebase_files/firestore.indexes.json
+Firebase_files/firestore.rules
+Firebase_files/firestore.cpp
 .firebaserc
 pub-dir
 public

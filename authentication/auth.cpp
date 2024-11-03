@@ -5,22 +5,18 @@
 #pragma comment(lib, "curl")
 using namespace std;
 
-//refer to libcurl documentation of c++
 class Auth {
 private:
     string userid;
     bool isloggedin;
+    string idToken;
 
-    // helper function to get the data from the server, taken exactly same as given in the documentation
-    // contents is the pointer to the data 
-    // size is the size of the data
-    // nmeb is the number of the data
-    // userp  is the pointer to the string obj that keeps the data
+    
+    
     static size_t WriteCallback(void* contents, size_t size, size_t nmemb, string* userp) {
         userp->append((char*)contents, size * nmemb);
         return size * nmemb;
     }
-    
 
     string makeRequest(const string& url, const string& data) {
         CURL* curl = curl_easy_init();
@@ -48,10 +44,15 @@ private:
 
     bool verifyUserExists(const string& userID) {
         string url = "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=" + string(FIREBASE_API_KEY);
-        string data = "{\"email\":\"" + userID + "\"}";
+        string data = "{\"idToken\":\"" + userid + "\"}";
         string response = makeRequest(url, data);
+        
+        // Print response for debugging
+        cout << "Verification response: " << response << endl;
+        
         return response.find("users") != string::npos;
     }
+
 
 public:
     Auth() : isloggedin(false) {
@@ -62,14 +63,74 @@ public:
         curl_global_cleanup();
     }
 
-    bool login(string userID, string password) {
-        /*
-        if (!verifyUserExists(userID)) {
-            cout << "User does not exist in Firebase" << endl;
+    string getFirestoreEndpoint() const {
+        return "https://firestore.googleapis.com/v1/projects/" + string(FIREBASE_PROJECT_ID) + "/databases/(default)/documents";
+    }
+
+    bool saveToFirestore(const string& collection, const string& document, const string& jsonData) {
+    // Replace @ with %40 in email addresses for URL encoding
+        string encodedDocument = document;
+        size_t atPos = encodedDocument.find("@");
+        if(atPos != string::npos) {
+            encodedDocument.replace(atPos, 1, "%40");
+        }
+        
+        string documentPath = (encodedDocument[0] == '/') ? encodedDocument : "/" + encodedDocument;
+        string url = getFirestoreEndpoint() + "/" + collection + documentPath;
+        
+        //cout << "DEBUG - Final URL: " << url << endl;
+        string response = makeRequest(url, jsonData);
+        
+       // cout << "\nFirestore Response: " << response << endl;
+        if(response.find("error") != string::npos) {
+            //cout << "Failed to save data to Firestore" << endl;
             return false;
         }
-        */
+        
+        cout << "Data successfully saved to Firestore" << endl;
+        return true;
+    }
 
+
+
+
+    bool updateFirestoreDocument(const string& collection, const string& document, const string& jsonData) {
+        string url = getFirestoreEndpoint() + "/" + collection + "/" + document;
+        string response = makeRequest(url, jsonData);
+        
+        cout << "\nFirestore Update Response: " << response << endl;
+        
+        if(response.find("error") != string::npos) {
+            cout << "Failed to update document in Firestore" << endl;
+            return false;
+        }
+        
+        cout << "Document successfully updated in Firestore" << endl;
+        cout << "Collection: " << collection << endl;
+        cout << "Document ID: " << document << endl;
+        cout << "Updated Data: " << jsonData << endl;
+        return true;
+    }
+
+    bool deleteFirestoreDocument(const string& collection, const string& document) {
+        string url = getFirestoreEndpoint() + "/" + collection + "/" + document;
+        string response = makeRequest(url, "");
+        
+        cout << "\nFirestore Delete Response: " << response << endl;
+        
+        if(response.find("error") != string::npos) {
+            cout << "Failed to delete document from Firestore" << endl;
+            return false;
+        }
+        
+        cout << "Document successfully deleted from Firestore" << endl;
+        cout << "Collection: " << collection << endl;
+        cout << "Document ID: " << document << endl;
+        return true;
+    }
+
+
+    bool login(string userID, string password) {
         string url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + string(FIREBASE_API_KEY);
         string data = "{\"email\":\"" + userID + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
         string response = makeRequest(url, data);
@@ -77,12 +138,19 @@ public:
         if(response.find("idToken") != string::npos) {
             userid = userID;
             isloggedin = true;
+            // Extract and store the ID token
+            size_t tokenStart = response.find("\"idToken\":\"") + 11;
+            size_t tokenEnd = response.find("\"", tokenStart);
+            string idToken = response.substr(tokenStart, tokenEnd - tokenStart);
+            
             cout << "Firebase authentication successful" << endl;
             return true;
         }
+        
         cout << "Firebase authentication failed" << endl;
         return false;
     }
+
 
     bool registerUser(string userID, string password) {
         if (verifyUserExists(userID)) {
@@ -105,24 +173,46 @@ public:
     }
 
     bool deleteAccount() {
-        if(!isloggedin || !verifyUserExists(userid)) {
-            cout << "User not found in Firebase" << endl;
+        if(!isloggedin) {
+            cout << "Must be logged in to delete account." << endl;
             return false;
         }
         
-        string url = "https://identitytoolkit.googleapis.com/v1/accounts:delete?key=" + string(FIREBASE_API_KEY);
-        string data = "{\"idToken\":\"" + userid + "\"}";
-        string response = makeRequest(url, data);
+        string password;
+        cout << "\n=== Account Deletion ===\n";
+        cout << "This action cannot be undone.\n";
+        cout << "Enter your password to confirm permanent deletion: ";
+        cin >> password;
         
-        if(response.empty()) {
+        // Get fresh token for deletion
+        string tokenUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + string(FIREBASE_API_KEY);
+        string tokenData = "{\"email\":\"" + userid + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
+        string tokenResponse = makeRequest(tokenUrl, tokenData);
+        
+        if(tokenResponse.find("idToken") == string::npos) {
+            cout << "Incorrect password. Deletion aborted." << endl;
+            return false;
+        }
+        
+        string deleteUrl = "https://identitytoolkit.googleapis.com/v1/accounts:delete?key=" + string(FIREBASE_API_KEY);
+        string deleteData = "{\"idToken\":\"" + idToken + "\"}";
+        string deleteResponse = makeRequest(deleteUrl, deleteData);
+        
+        if(deleteResponse.empty() || deleteResponse.find("error") == string::npos) {
             userid.clear();
             isloggedin = false;
-            cout << "User successfully deleted from Firebase" << endl;
+            idToken.clear();
+            cout << "Account deleted successfully!" << endl;
             return true;
         }
-        cout << "Firebase deletion failed" << endl;
+        
+        cout << "Account deletion failed." << endl;
         return false;
     }
+
+
+
+
 
     void logout() {
         isloggedin = false;
@@ -136,5 +226,12 @@ public:
 
     string getUserId() const {
         return userid;
+    }
+    void setIdToken(const string& token) {
+        idToken = token;
+    }
+    
+    string getIdToken() const {
+        return idToken;
     }
 };

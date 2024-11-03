@@ -25,6 +25,7 @@ program
 .vscode/
 .idea/
 *.swp
+program.dSYM
 
 # Build directories
 out/
@@ -39,6 +40,7 @@ oops.java
 Dockerfile
 Firebase_files/credentials/
 authentication/keys/
+functions
 
 # Temporary files
 *.log

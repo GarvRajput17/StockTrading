@@ -24,6 +24,7 @@ a.out
 authentication/*.o
 Firebase_files/*.o
 program
+main
 
 
 # IDE and system files

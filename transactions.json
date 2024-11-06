@@ -1,0 +1,27 @@
+{
+    "users": {
+        "abcd@gmail.com": {
+            "transactions": {
+                "f66305a5-d482-b5c9-1777-925d32658d7f": {
+                    "amount": 100.0,
+                    "date": "2024-11-06 12:04:37",
+                    "paymentMethod": "UPI",
+                    "type": "UPI"
+                }
+            },
+            "walletBalance": 100.0
+        },
+        "userID": {
+            "cards": {},
+            "transactions": {
+                "transactionID": {
+                    "amount": 0,
+                    "date": "",
+                    "paymentMethod": "",
+                    "type": ""
+                }
+            },
+            "walletBalance": 0
+        }
+    }
+}

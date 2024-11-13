@@ -11,6 +11,23 @@
             },
             "walletBalance": 100.0
         },
+        "ansh@gmail.com": {
+            "transactions": {
+                "634bc55c-f9a1-bf88-a63d-324e80b11dba": {
+                    "amount": 10000.0,
+                    "date": "2024-11-06 12:16:02",
+                    "paymentMethod": "Debit Card",
+                    "type": "Debit Card"
+                },
+                "84611aa5-cadd-1019-aef9-f06e07492050": {
+                    "amount": 100.0,
+                    "date": "2024-11-06 12:16:27",
+                    "paymentMethod": "UPI",
+                    "type": "UPI"
+                }
+            },
+            "walletBalance": 10100.0
+        },
         "userID": {
             "cards": {},
             "transactions": {
@@ -21,7 +38,14 @@
                     "type": ""
                 }
             },
-            "walletBalance": 0
+            "walletBalance": 0,
+            "StocksOwned" : {
+                "StockName" : {
+                    "BuyPrice" : 0,
+                    "Quantity" : 0,
+                    "BuyDateandTime" : ""        
+                }
+            }
         }
     }
 }

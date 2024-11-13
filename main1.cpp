@@ -1,6 +1,11 @@
-#include<bits/stdc++.h>
-#include<jni.h>
-#include "user.cpp"
+#include <iostream>
+#include <string>
+#include <limits>
+#include <chrono>
+#include <thread>
+#include <jni.h>
+#include "user.hpp"
+#include "stock.hpp"
 using namespace std;
 
 void displayMenuBeforeLogin() {
@@ -15,9 +20,13 @@ void displayMenuAfterLogin() {
     cout << "\n=== Stock Trading System ===\n";
     cout << "1. Add Money to Wallet\n";
     cout << "2. Check Wallet Balance\n";
-    cout << "3. Logout\n";
-    cout << "4. Delete Account\n";
-    cout << "5. Exit\n";
+    cout << "3. View Available Stocks\n";
+    cout << "4. Buy Stocks\n";
+    cout << "5. Sell Stocks\n";
+    cout << "6. View Portfolio & Returns\n";
+    cout << "7. Logout\n";
+    cout << "8. Delete Account\n";
+    cout << "9. Exit\n";
     cout << "Choice: ";
 }
 
@@ -36,7 +45,8 @@ string getPassword() {
 }
 
 int main() {
-    User user("", "", "");  // Initialize with empty strings
+    User user("", "", "");
+    Stock stock;
     string choice;
 
     while(true) {
@@ -68,24 +78,58 @@ int main() {
             cin >> choice;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-            if(choice == "5") {
+            if(choice == "9") {
                 cout << "Exiting program.\n";
                 break;
             }
             else if(choice == "1") {
-                user.addMoneyToWallet(0);  // Changed to use class method directly
+                user.addMoneyToWallet(0);
             }
             else if(choice == "2") {
                 cout << "Current Wallet Balance: Rs." << user.checkWalletBalance() << endl;
             }
             else if(choice == "3") {
-                user.logout();
+                //string stockname;
+                //cin >> stockname;
+                stock.displayDetails();
             }
             else if(choice == "4") {
+                string stockName;
+                int quantity;
+                cout << "Enter stock symbol (e.g., AAPL): ";
+                cin >> stockName;
+                cout << "Enter quantity to buy: ";
+                cin >> quantity;
+                stock.buyStock(stockName, quantity);
+            }
+            else if(choice == "5") {
+                OwnedStock ownedStock;
+                string stockName;
+                int quantity;
+                double currentPrice;
+                
+                cout << "Enter stock symbol to sell: ";
+                cin >> stockName;
+                cout << "Enter quantity to sell: ";
+                cin >> quantity;
+                cout << "Current market price: ";
+                cin >> currentPrice;
+                
+                ownedStock.sell(quantity, currentPrice);
+            }
+            else if(choice == "6") {
+                OwnedStock ownedStock;
+                double returns = ownedStock.calculateIndividualReturns();
+                cout << "\nTotal Returns: Rs." << returns << endl;
+            }
+            else if(choice == "7") {
+                user.logout();
+            }
+            else if(choice == "8") {
                 user.deleteAccount();
             }
             else {
-                cout << "Invalid choice. Select 1-5.\n";
+                cout << "Invalid choice. Select 1-9.\n";
             }
         }
 

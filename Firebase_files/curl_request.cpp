@@ -1,7 +1,8 @@
-#include<bits/stdc++.h>
-using namespace std;
-#include<curl/curl.h>
+#include <iostream>
+#include <string>
+#include <curl/curl.h>
 
+using namespace std;
 
 static size_t WriteCallback(void* contents, size_t size, size_t nmemb, string* userp) {
     userp->append((char*)contents, size * nmemb);

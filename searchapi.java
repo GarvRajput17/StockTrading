@@ -5,10 +5,15 @@ import java.net.http.HttpResponse;
 import java.util.Scanner;
 import org.json.JSONObject;
 import java.awt.Desktop; // used to connect the html files to generate a local server
+import java.io.BufferedReader;
 import java.io.File; // file input output
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class searchapi {
-    private static final String API_KEY = "6dsr6B5zEEUuXkBPrC7pHPLU";
+    private static final String API_KEY = "";
     private static final String BASE_URL = "https://www.searchapi.io/api/v1/search?engine=google_finance&q=";
 
     private static void displayHelp() {
@@ -29,6 +34,7 @@ public class searchapi {
         try {
             scanner = new Scanner(System.in);
             
+            
             System.out.print("Enter stock symbol: ");
             String stockSymbol = scanner.nextLine().trim().toUpperCase() + ":NASDAQ";
             
@@ -38,10 +44,12 @@ public class searchapi {
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            String jsonResponseStr = response.body();
+            saveToJson(stockSymbol, jsonResponseStr);
             JSONObject jsonResponse = new JSONObject(response.body());
             JSONObject summary = jsonResponse.getJSONObject("summary");
             JSONObject priceChange = summary.getJSONObject("price_change");
-            JSONObject financials = jsonResponse.getJSONObject("financials");
+            //SONObject financials = jsonResponse.getJSONObject("financials");
             //JSONObject annual = financials.getJSONObject("annual");
             //JSONObject revenue = annual.getJSONObject("revenue");
             //JSONObject net_income = annual.getJSONObject("net_income");
@@ -119,7 +127,7 @@ public class searchapi {
                         displayHelp();
                         break;
                     
-                    
+                    //case "8":
 
                     
                         
@@ -128,10 +136,12 @@ public class searchapi {
                 }
             }
             
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.out.println("Error details: " + e.getMessage());
             e.printStackTrace();
-        } finally {
+        } 
+        finally {
             if (scanner != null) {
                 scanner.close();
             }
@@ -144,4 +154,47 @@ public class searchapi {
     private static String getValueOrNull(JSONObject obj, String key) {
         return obj.has(key) ? obj.get(key).toString() : "null";
     }
+
+    //private static void saveToJson;
+    private static void saveToJson(String stockSymbol, String jsonResponse) {
+    JSONObject stockdata = new JSONObject();
+    File jsonfile = new File("stockdetails.json");
+    
+    // Read existing data if file exists
+    if (jsonfile.exists()) {
+        try {
+            FileReader reader = new FileReader(jsonfile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            StringBuilder content = new StringBuilder();
+            String line;
+            
+            while ((line = bufferedReader.readLine()) != null) {
+                content.append(line);
+            }
+            bufferedReader.close();
+            reader.close();
+            
+            stockdata = new JSONObject(content.toString());
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+    
+    // Add new stock data
+    JSONObject newStockData = new JSONObject(jsonResponse);
+    stockdata.put(stockSymbol, newStockData);
+    
+    // Write updated data back to file
+    try {
+        FileWriter writer = new FileWriter(jsonfile);
+        writer.write(stockdata.toString(4)); // Pretty print with 4 spaces
+        writer.close();
+        System.out.println("Stock data saved successfully");
+    } catch (IOException e) {
+        System.out.println("Error writing to file: " + e.getMessage());
+    }
 }
+
+}
+
+

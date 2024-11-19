@@ -23,6 +23,8 @@ public:
     // Constructors
     User();
     User(const string& userID, const string& name, const string& password);
+    void setUserID(const string& id);
+
 
     // Authentication methods
     bool login(string userID, string password);

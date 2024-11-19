@@ -14,11 +14,15 @@ private:
     double currentPrice;
     double fiftyTwoWeekHigh;
     double fiftyTwoWeekLow;
+    string userID;
 
 public:
     User user;
     Stock();
     string getstockname();
+    void setUserID(const string& id);
+    string getUserID();
+    void setStockName(const string& name);
     void saveStockDataToLocal(string stockName, int quantity);
     void displayDetails();
     void buyStock(string stockName, int quantity);

@@ -67,7 +67,9 @@ int main() {
             else if(choice == "2") {
                 string userID = getUserID();
                 string password = getPassword();
-                user.login(userID, password);
+                if(user.login(userID, password)) {
+                    stock.setUserID(userID);
+                }
             }
             else {
                 cout << "Invalid choice. Select 1-3.\n";
@@ -89,8 +91,6 @@ int main() {
                 cout << "Current Wallet Balance: Rs." << user.checkWalletBalance() << endl;
             }
             else if(choice == "3") {
-                //string stockname;
-                //cin >> stockname;
                 stock.displayDetails();
             }
             else if(choice == "4") {
@@ -104,21 +104,21 @@ int main() {
             }
             else if(choice == "5") {
                 OwnedStock ownedStock;
+                ownedStock.setUserID(user.getUserID());
                 string stockName;
                 int quantity;
                 double currentPrice;
-                
                 cout << "Enter stock symbol to sell: ";
                 cin >> stockName;
                 cout << "Enter quantity to sell: ";
                 cin >> quantity;
                 cout << "Current market price: ";
                 cin >> currentPrice;
-                
                 ownedStock.sell(quantity, currentPrice);
             }
             else if(choice == "6") {
                 OwnedStock ownedStock;
+                ownedStock.setUserID(user.getUserID());
                 double returns = ownedStock.calculateIndividualReturns();
                 cout << "\nTotal Returns: Rs." << returns << endl;
             }
@@ -139,3 +139,4 @@ int main() {
     }
     return 0;
 }
+

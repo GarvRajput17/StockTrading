@@ -1,31 +1,119 @@
 {
     "ansh@gmail.com": {
-        "transactions": {
-            "c5ada2e0-c99e-4858-98f4-a53b05c58983": {
-                "amount": 100.0,
-                "date": "Fri Nov 22 19:15:37 2024\n",
-                "paymentMethod": "UPI",
-                "type": "UPI"
-            }
-        },
         "portfolio": {
-            "OwnedStockId":{
-                "Quantity":0,
-                "AveragePrice":0,
-                "CurrentPrice":0
+            "GOOGL": {
+                "AveragePrice": 164.76,
+                "CurrentPrice": 13675.08,
+                "Quantity": 1
+            },
+            "NVDA": {
+                "AveragePrice": 141.95,
+                "CurrentPrice": 11781.849999999999,
+                "Quantity": 5
+            },
+            "OwnedStockId": {
+                "AveragePrice": 0,
+                "CurrentPrice": 0,
+                "Quantity": 0
             }
         },
+        "transactions": {
+            "11e22ca0-7ca9-4b2d-8cf0-392a9a8f8b4b": {
+                "amount": 56000.0,
+                "date": "Sat Nov 23 12:31:37 2024\n",
+                "paymentMethod": "UPI",
+                "type": "CREDIT"
+            },
+            "43d8e94c-a809-45cb-8373-1def92118b29": {
+                "amount": 27350.16,
+                "date": "Sat Nov 23 20:00:32 2024\n",
+                "paymentMethod": "Wallet Deduction",
+                "type": "DEBIT"
+            },
+            "4a468694-7bdc-49dc-b3e3-32d4fd37a7c4": {
+                "amount": 117818.49999999999,
+                "date": "Sat Nov 23 22:20:47 2024\n",
+                "paymentMethod": "Wallet Deduction",
+                "type": "DEBIT"
+            },
+            "6c923a03-4926-4cc8-a107-cfa0b134efe6": {
+                "amount": 10000.0,
+                "date": "Sat Nov 23 15:44:15 2024\n",
+                "paymentMethod": "UPI",
+                "type": "CREDIT"
+            },
+            "c9c28de0-e66f-490f-9411-bb8b0928e90e": {
+                "amount": 100.0,
+                "date": "Sat Nov 23 15:54:46 2024\n",
+                "paymentMethod": "Credit Card",
+                "type": "CREDIT"
+            }
+        },
+        "walletBalance": 153840.59,
         "watchlist": {
             "StockId": ""
+        }
+    },
+    "stock_transactions": {
+        "48a7d885-a1cd-4020-86c9-64a2c27a3f30": {
+            "amount": 27350.16,
+            "date": "Sat Nov 23 22:12:24 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
         },
-        "walletBalance": 100.0
+        "51202406-3864-4940-a18b-189595415130": {
+            "amount": 58909.24999999999,
+            "date": "Sat Nov 23 22:21:10 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "NVDA"
         },
-        "stock_transactions": {
-            "transactionID": {
-                "amount": 0,
-                "date": "",
-                "paymentMethod": "",
-                "stock_name": ""
-            }
+        "7977312b-2cf4-405f-9df4-fbc1eec56d4c": {
+            "amount": 13675.08,
+            "date": "Sat Nov 23 22:06:12 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "94e97ee4-e95b-417a-a634-c7e2c20947fc": {
+            "amount": 117818.49999999999,
+            "date": "Sat Nov 23 22:20:47 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "NVDA"
+        },
+        "97b5b02d-afa8-4f60-8041-dcbaaaaf0822": {
+            "amount": 13675.08,
+            "date": "Sat Nov 23 22:10:52 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "cb5726ab-33af-414a-be93-06d9662cd382": {
+            "amount": 13675.08,
+            "date": "Sat Nov 23 22:04:12 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "d27e5e07-11ea-44a1-b2da-db06988419cc": {
+            "amount": 27350.16,
+            "date": "Sat Nov 23 20:00:32 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "d3533330-4b9d-4012-9ef6-dcff86ef163b": {
+            "amount": 27350.16,
+            "date": "Sat Nov 23 22:17:53 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "fb95dbb6-5b8e-465d-9c70-ea51e3aeacad": {
+            "amount": 13675.08,
+            "date": "Sat Nov 23 22:09:32 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "GOOGL"
+        },
+        "transactionID": {
+            "amount": 0,
+            "date": "",
+            "paymentMethod": "",
+            "stock_name": ""
+        }
     }
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 #include "authentication/auth.hpp"
+#include<Transaction.hpp>
 
 using json = nlohmann::json;
 using std::string;
@@ -15,6 +16,7 @@ private:
     double walletBalance;
     Auth auth;
     bool isAuthenticated;
+    Transaction transactionManager;
 
     void saveTransactionToLocal(double amount, const string& paymentMethod);
     void loadUserData();
@@ -41,6 +43,9 @@ public:
     // Getters
     string getUserID() const;
     bool isLoggedIn() const;
+
+    //Transaction methods
+    void displayTransactionHistory();
 };
 
 #endif // USER_HPP

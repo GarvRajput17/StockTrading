@@ -1,92 +1,31 @@
 {
-    "users": {
-        "abcd@gmail.com": {
-            "transactions": {
-                "f66305a5-d482-b5c9-1777-925d32658d7f": {
-                    "amount": 100.0,
-                    "date": "2024-11-06 12:04:37",
-                    "paymentMethod": "UPI",
-                    "type": "UPI"
-                }
-            },
-            "walletBalance": 100.0
+    "ansh@gmail.com": {
+        "transactions": {
+            "c5ada2e0-c99e-4858-98f4-a53b05c58983": {
+                "amount": 100.0,
+                "date": "Fri Nov 22 19:15:37 2024\n",
+                "paymentMethod": "UPI",
+                "type": "UPI"
+            }
         },
-        "ansh@gmail.com": {
-            "StocksOwned": {
-                "": {
-                    "transactions": [
-                        {
-                            "quantity": 1,
-                            "saleProceeds": 18925.66,
-                            "sellPrice": 228.02,
-                            "sellPriceINR": 18925.66,
-                            "sellTime": "Tue Nov 19 16:23:01 2024\n",
-                            "transactionId": "871844cd-2fc4-477a-94db-d3b522802d59",
-                            "type": "SELL"
-                        }
-                    ]
-                },
-                "AAPL": {
-                    "buyPrice": 228.02,
-                    "buyTime": "Tue Nov 19 16:21:58 2024\n",
-                    "currency": "USD",
-                    "quantity": 2,
-                    "stockName": "AAPL",
-                    "transactionId": "b54b5f7a-c302-46f8-acd9-19bcb57fe1f8"
-                }
-            },
-            "transactions": {
-                "3c9e98f4-8faa-41b6-932a-9325dc21d8f7": {
-                    "amount": 61000.0,
-                    "date": "Tue Nov 19 16:21:43 2024\n",
-                    "paymentMethod": "UPI",
-                    "type": "UPI"
-                },
-                "4de530ee-7397-4edf-be55-fd46ac6fe7ca": {
-                    "amount": 50000.0,
-                    "date": "Tue Nov 19 14:47:59 2024\n",
-                    "paymentMethod": "UPI",
-                    "type": "UPI"
-                },
-                "634bc55c-f9a1-bf88-a63d-324e80b11dba": {
-                    "amount": 10000.0,
-                    "date": "2024-11-06 12:16:02",
-                    "paymentMethod": "Debit Card",
-                    "type": "Debit Card"
-                },
-                "84611aa5-cadd-1019-aef9-f06e07492050": {
-                    "amount": 100.0,
-                    "date": "2024-11-06 12:16:27",
-                    "paymentMethod": "UPI",
-                    "type": "UPI"
-                },
-                "e4c80e94-b6bc-429e-8eb1-bfd44ed8755d": {
-                    "amount": 100.0,
-                    "date": "Tue Nov 19 14:34:45 2024\n",
-                    "paymentMethod": "Net Banking",
-                    "type": "Net Banking"
-                }
-            },
-            "walletBalance": 45497.35999999999
+        "portfolio": {
+            "OwnedStockId":{
+                "Quantity":0,
+                "AveragePrice":0,
+                "CurrentPrice":0
+            }
         },
-        "userID": {
-            "StocksOwned": {
-                "StockName": {
-                    "BuyDateandTime": "",
-                    "BuyPrice": 0,
-                    "Quantity": 0
-                }
-            },
-            "cards": {},
-            "transactions": {
-                "transactionID": {
-                    "amount": 0,
-                    "date": "",
-                    "paymentMethod": "",
-                    "type": ""
-                }
-            },
-            "walletBalance": 0
-        }
+        "watchlist": {
+            "StockId": ""
+        },
+        "walletBalance": 100.0
+        },
+        "stock_transactions": {
+            "transactionID": {
+                "amount": 0,
+                "date": "",
+                "paymentMethod": "",
+                "stock_name": ""
+            }
     }
 }

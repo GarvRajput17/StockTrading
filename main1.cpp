@@ -26,7 +26,8 @@ void displayMenuAfterLogin() {
     cout << "6. View Portfolio & Returns\n";
     cout << "7. Logout\n";
     cout << "8. Delete Account\n";
-    cout << "9. Exit\n";
+    cout << "9. Show Transaction History\n";
+    cout << "10. Exit\n";
     cout << "Choice: ";
 }
 
@@ -47,6 +48,7 @@ string getPassword() {
 int main() {
     User user("", "", "");
     Stock stock;
+    Transaction transactionManager;
     string choice;
 
     while(true) {
@@ -80,7 +82,7 @@ int main() {
             cin >> choice;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-            if(choice == "9") {
+            if(choice == "10") {
                 cout << "Exiting program.\n";
                 break;
             }
@@ -112,22 +114,46 @@ int main() {
                 cin >> stockName;
                 cout << "Enter quantity to sell: ";
                 cin >> quantity;
-                cout << "Current market price: ";
-                cin >> currentPrice;
-                ownedStock.sell(quantity, currentPrice);
+                ownedStock.sell(stockName, quantity);
             }
             else if(choice == "6") {
-                OwnedStock ownedStock;
-                ownedStock.setUserID(user.getUserID());
-                double returns = ownedStock.calculateIndividualReturns();
-                cout << "\nTotal Returns: Rs." << returns << endl;
-            }
+    OwnedStock ownedStock;
+    ownedStock.setUserID(user.getUserID());
+    vector<StockMetrics> portfolioMetrics = ownedStock.calculateIndividualReturns();
+    
+    cout << "\nPortfolio Performance:\n";
+    cout << string(80, '-') << endl;
+    
+    for(const auto& stock : portfolioMetrics) {
+        cout << "Stock: " << stock.stockName << endl;
+        cout << "Quantity: " << stock.quantity << endl;
+        cout << "Average Cost: Rs." << stock.averageCost << endl;
+        cout << "Current Price: Rs." << stock.currentPrice << endl;
+        cout << "Total Invested: Rs." << stock.totalInvested << endl;
+        cout << "Current Value: Rs." << stock.currentValue << endl;
+        cout << "Today's Change: Rs." << stock.dayChange << " (" << stock.dayChangePercentage << "%)" << endl;
+        //cout << stock.profitLossType << ": Rs." << abs(stock.profitLoss) << endl;
+        cout << "Returns: " << stock.profitLossPercentage << "%" << endl;
+        //cout << "1 Day Change: " << stock.oneDayChangePercentage << "% (Rs." << stock.oneDayProfitLoss << ")" << endl;
+        //cout << "Weekly Change: " << stock.weeklyChangePercentage << "% (Rs." << stock.weeklyProfitLoss << ")" << endl;
+        //cout << "52-Week Range: Rs." << stock.lowestPrice52Week << " - Rs." << stock.highestPrice52Week << endl;
+        cout << string(80, '-') << endl;
+    }
+}
+
             else if(choice == "7") {
                 user.logout();
             }
             else if(choice == "8") {
                 user.deleteAccount();
             }
+            else if(choice == "9") {
+            Transaction transactionManager("", "", 0.0, "", "");
+            transactionManager.loadTransactions(user.getUserID());
+            transactionManager.displayTransaction();
+        }
+
+
             else {
                 cout << "Invalid choice. Select 1-9.\n";
             }

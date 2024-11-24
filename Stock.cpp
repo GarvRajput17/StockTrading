@@ -12,13 +12,21 @@ using namespace std;
 
 Stock::Stock() : user() {}
 
+Stock::Stock(const string& id, const string& name, double price) 
+    : stockID(id), 
+      stockName(name), 
+      currentPrice(price),
+      fiftyTwoWeekHigh(0.0),
+      fiftyTwoWeekLow(0.0),
+      userID("") {}
+
+
 void Stock::setUserID(const string& id) {
     userID = id;
 }
 string Stock::getUserID() {
     return userID;
 }
-
 
 string Stock::getstockname() {
     return stockName;
@@ -235,8 +243,6 @@ cout << "Sale proceeds: Rs." << saleProceeds << " added to wallet\n";
 cout << "Updated wallet balance: Rs." << (currentBalance + saleProceeds) << "\n";
 
 }
-
-
 
 
 vector<StockMetrics> OwnedStock::calculateIndividualReturns() {

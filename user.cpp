@@ -8,12 +8,8 @@
 #include<utils/utils.hpp>
 #include <nlohmann/json.hpp>
 //#include"authentication/Auth.hpp"
-
-
 using namespace std;
 using json = nlohmann::json;
-
-
 
 
 void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
@@ -21,12 +17,12 @@ void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
     string timestamp = gettime();
     json userData;
     
-    ifstream inFile("transactions.json");
+    ifstream inFile("test.json");
     if (inFile.good()) {
         inFile >> userData;
     } else {
         json userData = {
-            {"users", json::object()}
+            {"userID", json::object()}
         };
     }
     inFile.close();
@@ -38,23 +34,23 @@ void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
         {"paymentMethod", paymentMethod}
     };
 
-    userData["users"][userID]["walletBalance"] = walletBalance;
-    userData["users"][userID]["transactions"][transactionId] = transaction;
+    userData[userID]["walletBalance"] = walletBalance;
+    userData[userID]["transactions"][transactionId] = transaction;
 
-    ofstream outFile("transactions.json");
+    ofstream outFile("test.json");
     outFile << userData.dump(4);
     outFile.close();
 }
 
 void User::loadUserData() {
-    ifstream inFile("transactions.json");
+    ifstream inFile("test.json");
     if (inFile.good()) {
         json userData;
         inFile >> userData;
         string currentUserID = getUserID();  // Get current logged in user
         
-        if (userData["users"].contains(currentUserID)) {
-            walletBalance = userData["users"][currentUserID]["walletBalance"].get<double>();
+        if (userData.contains(currentUserID)) {
+            walletBalance = userData[currentUserID]["walletBalance"].get<double>();
             cout << "Loaded wallet balance: Rs." << walletBalance << endl;
         }
     }
@@ -206,7 +202,24 @@ void User::processPayment(double amount) {
     }
 
     walletBalance += amount;
-    saveTransactionToLocal(amount, paymentMethod);
+    json userData;
+    ifstream inFile("test.json");
+    if (inFile.good()) {
+        inFile >> userData;
+    }
+    inFile.close();
+    
+    userData[userID]["walletBalance"] = walletBalance;
+    
+    // Record transaction
+    string transactionId = guuid();
+    string timestamp = gettime();
+    transactionManager.recordTransaction(userID, transactionId, "CREDIT", amount, timestamp, paymentMethod);
+    
+    ofstream outFile("test.json");
+    outFile << setw(4) << userData << endl;
+    outFile.close();
+    
 
     cout << "\nPayment successful! ✅\n";
     cout << "Rs." << amount << " added to wallet successfully\n";
@@ -254,35 +267,39 @@ void User::addMoneyToWallet(double amount) {
 
 double User::checkWalletBalance() {
     string currentUserID = getUserID();
-    ifstream inFile("transactions.json");
+    ifstream inFile("test.json");
     if (inFile.good()) {
         json userData;
         inFile >> userData;
-        if (userData["users"].contains(currentUserID)) {
-            walletBalance = userData["users"][currentUserID]["walletBalance"].get<double>();
+        if (userData.contains(currentUserID)) {
+            walletBalance = userData[currentUserID]["walletBalance"].get<double>();
         }
     }
     inFile.close();
     return walletBalance;
 }
 void User::removeMoneyfromWallet(double amount) {
-    loadUserData();  // Load current balance
+    loadUserData(); // Load current balance
     if (walletBalance >= amount) {
         walletBalance -= amount;
         
         // Save the updated balance immediately
         json userData;
-        ifstream inFile("transactions.json");
+        ifstream inFile("test.json");
         if (inFile.good()) {
             inFile >> userData;
         }
         inFile.close();
         
-        userData["users"][userID]["walletBalance"] = walletBalance;
-        
-        ofstream outFile("transactions.json");
+        userData[userID]["walletBalance"] = walletBalance;
+        ofstream outFile("test.json");
         outFile << setw(4) << userData << endl;
         outFile.close();
+
+        // Record the deduction transaction
+        string transactionId = guuid();
+        string timestamp = gettime();
+        transactionManager.recordTransaction(userID, transactionId, "DEBIT", amount, timestamp, "Wallet Deduction");
         
         cout << "Transaction successful! ✅\n";
         cout << "Your updated wallet balance is Rs." << walletBalance << "\n";
@@ -292,10 +309,20 @@ void User::removeMoneyfromWallet(double amount) {
 }
 
 
+
 string User::getUserID() const {
     return userID;
 }
 
 bool User::isLoggedIn() const {
     return isAuthenticated;
+}
+
+void User::displayTransactionHistory() {
+    cout << "\n=== Transaction History ===\n";
+    cout << "UserID: " << userID << "\n\n";
+    
+    Transaction transactionManager("", "", 0.0, "", "");
+    //transactionManager.loadTransactions(userID);
+    transactionManager.displayTransaction();
 }

@@ -46,7 +46,7 @@ public class StockMetrics {
             double profitLoss = (currentPriceINR * quantity) - (averagePriceINR * quantity);
             metrics.put("profitLoss", profitLoss);
             metrics.put("profitLossPercentage", ((currentPriceINR - averagePriceINR) / averagePriceINR) * 100);
-            metrics.put("dayChange", priceChange.getDouble("amount") * USD_TO_INR);
+            metrics.put("dayChange", priceChange.getDouble("amount"));
             metrics.put("dayChangePercentage", priceChange.getDouble("percentage"));
             metrics.put("movement", priceChange.getString("movement"));
 

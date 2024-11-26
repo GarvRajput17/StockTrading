@@ -6,6 +6,11 @@
                 "CurrentPrice": 13675.08,
                 "Quantity": 1
             },
+            "MSFT": {
+                "AveragePrice": 426.14,
+                "CurrentPrice": 426.14,
+                "Quantity": 2
+            },
             "NVDA": {
                 "AveragePrice": 141.95,
                 "CurrentPrice": 11781.849999999999,
@@ -18,6 +23,12 @@
             }
         },
         "transactions": {
+            "050aee6f-15e3-4e12-b5f1-113dd882c074": {
+                "amount": 70739.23999999999,
+                "date": "Tue Nov 26 21:24:45 2024\n",
+                "paymentMethod": "Wallet Deduction",
+                "type": "DEBIT"
+            },
             "11e22ca0-7ca9-4b2d-8cf0-392a9a8f8b4b": {
                 "amount": 56000.0,
                 "date": "Sat Nov 23 12:31:37 2024\n",
@@ -49,7 +60,7 @@
                 "type": "CREDIT"
             }
         },
-        "walletBalance": 153840.59,
+        "walletBalance": 83101.35,
         "watchlist": {
             "StockId": ""
         }
@@ -102,6 +113,12 @@
             "date": "Sat Nov 23 22:17:53 2024\n",
             "paymentMethod": "Wallet",
             "stock_name": "GOOGL"
+        },
+        "de670b22-732e-4a30-8fea-5bb2d802d30d": {
+            "amount": 70739.23999999999,
+            "date": "Tue Nov 26 21:24:45 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "MSFT"
         },
         "fb95dbb6-5b8e-465d-9c70-ea51e3aeacad": {
             "amount": 13675.08,

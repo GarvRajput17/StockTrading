@@ -1,154 +1,153 @@
-#include <bits/stdc++.h>
-#include <Stock.cpp>
-using namespace std;
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+#include "Stock.hpp"
+#include <nlohmann/json.hpp>
 
-class Portfolio
-{
+using json = nlohmann::json;
+
+class Portfolio {
 private:
     int numberOfStocks;
     double totalPortfolioInvestment;
     double currentValue;
     double returns;
     vector<OwnedStock> holdings;
-    unordered_map<string, OwnedStock> holdingsmap;
-    string fileName = "transaction.json";
+    unordered_map<string, OwnedStock> holdingsMap;
+    const string fileName = "test.json";
     string userID;
 
-    public : void addStock(OwnedStock stock);
-    bool removeStock(string stockID);
+public:
+    Portfolio(int numberOfStocks, double totalInvested, double currentValue, 
+             double returns, vector<OwnedStock> holdings, string userID)
+        : numberOfStocks(numberOfStocks),
+          totalPortfolioInvestment(totalInvested),
+          currentValue(currentValue),
+          returns(returns),
+          holdings(holdings),
+          userID(userID) {}
+
     void displayPortfolio() {
         int uniqueStocks = 0;
-        double totalInvested = 0;
-        double totalProfit = 0;
-        double totalLoss = 0;
-        double totalReturns = 0;
+        double totalInvested = 0.0;
+        double totalProfit = 0.0;
+        double totalReturns = 0.0;
+        double currentPortfolioValue = 0.0;
 
-        for (int i = 0; i < holdings.size(); i++) {
+        cout << "\n=== Portfolio Summary ===\n";
+        cout << "----------------------------------------\n";
+
+        for (const auto& stock : holdings) {
             uniqueStocks++;
-            totalInvested += holdings[i].totalInvested;
-            totalProfit += holdings[i].getProfit();
-            totalLoss += holdings[i].getLoss();
-            totalReturns += holdings[i].getReturns();
+            double investment = stock.getBuyPrice() * stock.getQuantity();
+            double currentStockValue = stock.getPrice() * stock.getQuantity();
+            
+            totalInvested += investment;
+            totalProfit += (currentStockValue - investment);
+            currentPortfolioValue += currentStockValue;
+
+            stock.printStockInfo();
         }
 
-        cout << "Portfolio Details: " << endl;
-        cout << "Number of Stocks: " << uniqueStocks << endl;
-        cout << "Total Invested: " << totalInvested << endl;
-        cout << "Total Profit: " << totalProfit << endl;
-        cout << "Total Loss: " << totalLoss << endl;
-        cout << "Total Returns: " << totalReturns << endl;
-        cout << "Current Portfolio Value: " << currentValue << endl;
+        totalReturns = (totalInvested > 0) ? (totalProfit / totalInvested) * 100 : 0;
+
+        cout << "\n=== Overall Portfolio Metrics ===\n";
+        cout << "Number of Unique Stocks: " << uniqueStocks << "\n";
+        cout << "Total Investment: ₹" << fixed << setprecision(2) << totalInvested << "\n";
+        cout << "Current Portfolio Value: ₹" << currentPortfolioValue << "\n";
+        cout << "Total Profit/Loss: ₹" << totalProfit << "\n";
+        cout << "Overall Returns: " << totalReturns << "%\n";
+        cout << "----------------------------------------\n";
     }
 
-    void calculateMetrics() {
-        for (auto &stock : holdings) {
-            // Recalculate metrics for each stock
-            // Similarly, update based on quantity
-
-            // These values will be updated for each stock
-            double profit = stock.getProfit();
-            double loss = stock.getLoss();
-            double returns = stock.getReturns();
-
-            // Store these in the stock object or update wherever needed
-            stock.profit = profit;
-            stock.loss = loss;
-            stock.returns = returns;
-        }
-    }
-    // void autoUpdate();
-    // Sort portfolio by profit
-    void sortByProfit() {
-        sort(holdings.begin(), holdings.end(), [](const OwnedStock& a, const OwnedStock& b) {
-            return a.getProfit() > b.getProfit();
-        });
-    }
-
-    // Sort portfolio by loss
-    void sortByLoss() {
-        sort(holdings.begin(), holdings.end(), [](const OwnedStock& a, const OwnedStock& b) {
-            return a.getLoss() > b.getLoss();
-        });
-    }
-
-    // Sort portfolio by total invested
-    void sortByAmountInvested() {
-        sort(holdings.begin(), holdings.end(), [](const OwnedStock& a, const OwnedStock& b) {
-            return a.totalInvested > b.totalInvested;
-        });
-    }
-
-    // Sort portfolio by returns
-    void sortByReturns() {
-        sort(holdings.begin(), holdings.end(), [](const OwnedStock& a, const OwnedStock& b) {
-            return a.getReturns() > b.getReturns();
-        });
-    }
-
-    // Helper Methods
-    // void updateHoldings(OwnedStock stock);
-    // void adjustInvestmentValues(double changeAmount);
-
-    Portfolio(int numberOfStocks, double totalInvested, double currentValue, double returns, vector<OwnedStock> holdings,string UserID)
-    {
-        this->numberOfStocks = numberOfStocks;
-        this->totalInvested = totalInvested;
-        this->currentValue = currentValue;
-        this->returns = returns;
-        this->holdings = holdings;
-        this->userID = userID;
-    }
-
-    void loadPortfolio()
-    {
+    void loadPortfolio() {
         ifstream inFile(fileName);
-        if (!inFile.is_open())
-        {
-            cerr << "Error opening file: " << fileName << endl;
-            return;
+        if (!inFile.is_open()) {
+            throw runtime_error("Unable to open " + fileName);
         }
 
         json data;
         inFile >> data;
         inFile.close();
 
-        if (data["users"].contains(userID) && data["users"][userID].contains("portfolio"))
-        {
-            json portfolioData = data["users"][userID]["portfolio"];
+        if (!data.contains(userID) || !data[userID].contains("portfolio")) {
+            return;
+        }
 
-            for (auto &[stockID, stockData] : portfolioData)
-            {
-                double quantity = stockData["quantity"];
-                double invested = stockData["totalInvested"];
+        json portfolioData = data[userID]["portfolio"];
+        
+        for (const auto& [stockID, stockData] : portfolioData.items()) {
+            if (stockID == "OwnedStockId") continue;
 
-                OwnedStock *temp = new OwnedStock(stockID, quantity, invested);
-                holdings.push_back(&temp);
-                holdingsmap[stockID] = temp;
-                numberOfStocks++;
-                totalPortfolioInvestment += temp.totalInvested;
+            int quantity = stockData["Quantity"].get<int>();
+            double averagePrice = stockData["AveragePrice"].get<double>();
+            double currentPrice = stockData["CurrentPrice"].get<double>();
 
-            }
+            OwnedStock stock(
+                stockID,                    // stockID
+                stockID,                    // using stockID as name temporarily
+                currentPrice,               // currentPrice
+                userID,                     // userID
+                quantity,                   // quantity
+                averagePrice               // buyPrice
+            );
+
+            holdings.push_back(stock);
+            holdingsMap[stockID] = stock;
+            
+            numberOfStocks++;
+            totalPortfolioInvestment += (averagePrice * quantity);
         }
     }
 
     void savePortfolio() {
-
         json data;
-        for (const auto &[stockID, stock] : holdingsmap) {
-            data["users"][userID]["portfolio"][stockID] = {
-                {"quantity", stock.quantity},
-                {"totalInvested", stock.totalInvested}
+        ifstream inFile(fileName);
+        if (inFile.good()) {
+            inFile >> data;
+        }
+        inFile.close();
+
+        for (const auto& [stockID, stock] : holdingsMap) {
+            data[userID]["portfolio"][stockID] = {
+                {"Quantity", stock.getQuantity()},
+                {"AveragePrice", stock.getBuyPrice()},
+                {"CurrentPrice", stock.getPrice()}
             };
         }
 
-        std::ofstream outFile(filename);
-        if (!outFile) {
-            std::cerr << "Error opening file for writing: " << filename << std::endl;
-            return;
-        }
-
-        outFile << jsonData.dump(4); // Pretty print with 4-space indentation
+        ofstream outFile(fileName);
+        outFile << setw(4) << data << endl;
         outFile.close();
-        }
+    }
 
+    void sortByProfit() {
+        sort(holdings.begin(), holdings.end(), 
+             [](const OwnedStock& a, const OwnedStock& b) {
+                 return a.getProfit() > b.getProfit();
+             });
+    }
+
+    void sortByLoss() {
+        sort(holdings.begin(), holdings.end(), 
+             [](const OwnedStock& a, const OwnedStock& b) {
+                 return a.getProfit() < b.getProfit();
+             });
+    }
+
+    void sortByAmountInvested() {
+        sort(holdings.begin(), holdings.end(), 
+             [](const OwnedStock& a, const OwnedStock& b) {
+                 return a.getTotalInvested() > b.getTotalInvested();
+             });
+    }
+
+    void sortByReturns() {
+        sort(holdings.begin(), holdings.end(), 
+             [](const OwnedStock& a, const OwnedStock& b) {
+                 return a.getReturns() > b.getReturns();
+             });
+    }
 };

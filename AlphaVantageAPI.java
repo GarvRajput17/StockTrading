@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import org.json.JSONObject;  // This should work now with the downloaded jar
 
 public class AlphaVantageAPI {
-    private static final String API_KEY = "your_api_key";  // Replace with your Alpha Vantage API key
+    private static final String API_KEY = "";  // Replace with your Alpha Vantage API key
 
     public static void main(String[] args) {
         if (args.length == 0) {

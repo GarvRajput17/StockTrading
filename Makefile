@@ -1,16 +1,66 @@
+#CXX = g++-14
+#CXXFLAGS = -std=c++17 -stdlib=libstdc++ -I. -I/opt/homebrew/Cellar/openssl@3/3.4.0/include -I/opt/homebrew/Cellar/gcc/14.2.0/include/c++/14 -I/opt/homebrew/Cellar/nlohmann-json/3.11.3/include
+#LDFLAGS = -L/opt/homebrew/Cellar/openssl@3/3.4.0/lib -lssl -lcrypto -lcurl
+
+#TARGET = program
+#SOURCES = main1.cpp user.cpp Stock.cpp authentication/auth.cpp utils/utils.cpp Transaction.cpp portfolio.cpp
+#OBJECTS = $(SOURCES:.cpp=.o)
+
+#$(TARGET): $(OBJECTS)
+#	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
+
+#%.o: %.cpp
+#	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+#clean:
+#	rm -f $(TARGET) $(OBJECTS)
+
 CXX = g++-14
-CXXFLAGS = -std=c++17 -stdlib=libstdc++ -I. -I/opt/homebrew/Cellar/openssl@3/3.4.0/include -I/opt/homebrew/Cellar/gcc/14.2.0/include/c++/14 -I/opt/homebrew/Cellar/nlohmann-json/3.11.3/include
-LDFLAGS = -L/opt/homebrew/Cellar/openssl@3/3.4.0/lib -lssl -lcrypto -lcurl
+CXXFLAGS = -std=c++17 -stdlib=libstdc++ -I. -I/opt/homebrew/Cellar/openssl@3/3.4.0/include -I/opt/homebrew/Cellar/gcc/14.2.0/include/c++/14 -I/opt/homebrew/Cellar/nlohmann-json/3.11.3/include -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/darwin -fPIC
 
-TARGET = program
-SOURCES = main1.cpp user.cpp Stock.cpp authentication/auth.cpp utils/utils.cpp Transaction.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
+LDFLAGS = -L/opt/homebrew/Cellar/openssl@3/3.4.0/lib -lssl -lcrypto -lcurl -shared
 
-$(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
+JAVAC = javac
+JAVA = java
 
+# C++ sources
+CPP_SOURCES = Helper.cpp user.cpp Stock.cpp authentication/auth.cpp utils/utils.cpp Transaction.cpp portfolio.cpp
+CPP_OBJECTS = $(CPP_SOURCES:.cpp=.o)
+
+# Java sources
+JAVA_SOURCES = Main.java Helper.java
+JAVA_CLASSES = $(JAVA_SOURCES:.java=.class)
+
+# Target shared library
+LIB_TARGET = libstocktrading.dylib
+
+# Final executable
+all: $(LIB_TARGET) $(JAVA_CLASSES)
+	@echo "Build complete. Run with: make run"
+
+# Compile Java files and generate JNI header
+$(JAVA_CLASSES): $(JAVA_SOURCES)
+	$(JAVAC) $(JAVA_SOURCES)
+	$(JAVAC) -h . Helper.java
+
+# Create shared library
+$(LIB_TARGET): $(CPP_OBJECTS)
+	$(CXX) $(CPP_OBJECTS) $(LDFLAGS) -o $@
+
+# Compile C++ files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Run the program
+
+
+# Update the run target to use the correct path
+run: all
+	export DYLD_LIBRARY_PATH=.:$$DYLD_LIBRARY_PATH && $(JAVA) Main
+
 clean:
-	rm -f $(TARGET) $(OBJECTS)
+	rm -f $(CPP_OBJECTS) $(JAVA_CLASSES) $(LIB_TARGET) *.class
+
+
+.PHONY: all clean run
+

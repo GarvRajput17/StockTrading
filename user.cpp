@@ -47,11 +47,10 @@ void User::loadUserData() {
     if (inFile.good()) {
         json userData;
         inFile >> userData;
-        string currentUserID = getUserID();  // Get current logged in user
-        
+        string currentUserID = getUserID();
         if (userData.contains(currentUserID)) {
             walletBalance = userData[currentUserID]["walletBalance"].get<double>();
-            cout << "Loaded wallet balance: Rs." << walletBalance << endl;
+            cout << "Loaded wallet balance: $" << walletBalance << endl;
         }
     }
     inFile.close();
@@ -126,7 +125,7 @@ bool User::deleteAccount() {
 
 void User::processPayment(double amount) {
     cout << "\n=== Payment Gateway ===\n";
-    cout << "Amount to be added: Rs." << amount << "\n";
+    cout << "Amount to be added: $" << amount << "\n";
     cout << "Choose payment method:\n";
     cout << "1. Credit Card\n";
     cout << "2. Debit Card\n";
@@ -222,8 +221,8 @@ void User::processPayment(double amount) {
     
 
     cout << "\nPayment successful! ✅\n";
-    cout << "Rs." << amount << " added to wallet successfully\n";
-    cout << "Current wallet balance: Rs." << walletBalance << "\n";
+    cout << "$" << amount << " added to wallet successfully\n";
+    cout << "Current wallet balance: $" << walletBalance << "\n";
 }
 
 void User::addMoneyToWallet(double amount) {
@@ -235,11 +234,11 @@ void User::addMoneyToWallet(double amount) {
     int c5 = 10000;
     
     cout << "Choose amount:\n";
-    cout << "1. Rs." << c1 << "\n";
-    cout << "2. Rs." << c2 << "\n";
-    cout << "3. Rs." << c3 << "\n";
-    cout << "4. Rs." << c4 << "\n";
-    cout << "5. Rs." << c5 << "\n";
+    cout << "1. $" << c1 << "\n";
+    cout << "2. $" << c2 << "\n";
+    cout << "3. $" << c3 << "\n";
+    cout << "4. $" << c4 << "\n";
+    cout << "5. $" << c5 << "\n";
     cout << "6. Enter custom amount\n";
     
     int choice;
@@ -254,7 +253,7 @@ void User::addMoneyToWallet(double amount) {
         case 4: selectedAmount = c4; break;
         case 5: selectedAmount = c5; break;
         case 6:
-            cout << "Enter custom amount: Rs.";
+            cout << "Enter custom amount: $";
             cin >> selectedAmount;
             break;
         default:
@@ -302,9 +301,9 @@ void User::removeMoneyfromWallet(double amount) {
         transactionManager.recordTransaction(userID, transactionId, "DEBIT", amount, timestamp, "Wallet Deduction");
         
         cout << "Transaction successful! ✅\n";
-        cout << "Your updated wallet balance is Rs." << walletBalance << "\n";
+        cout << "Your updated wallet balance is $" << walletBalance << "\n";
     } else {
-        cout << "Insufficient funds. Current balance: Rs." << walletBalance << "\n";
+        cout << "Insufficient funds. Current balance: $" << walletBalance << "\n";
     }
 }
 
@@ -326,3 +325,139 @@ void User::displayTransactionHistory() {
     //transactionManager.loadTransactions(userID);
     transactionManager.displayTransaction();
 }
+
+void User::displayWatchlist() {
+    loadUserData();  // Ensure the latest data is loaded
+
+    cout << "\n=== Your Watchlist ===\n";
+
+    // Load `test.json` to get the user's data and watchlist
+    ifstream testFile("test.json");
+    if (!testFile.is_open()) {
+        cout << "Failed to load user data. Please try again.\n";
+        return;
+    }
+
+    json userData;
+    testFile >> userData;
+    testFile.close();
+
+    // Get the current user ID and check their watchlist
+    string currentUserID = getUserID();
+    if (!userData.contains(currentUserID) || !userData[currentUserID].contains("watchlist")) {
+        cout << "Your watchlist is empty.\n";
+        return;
+    }
+
+    auto watchlist = userData[currentUserID]["watchlist"];
+    if (watchlist["StockId"].empty()) {
+        cout << "Your watchlist is empty.\n";
+        return;
+    }
+
+    string stockId = watchlist["StockId"].get<string>() + ":NASDAQ";
+
+
+
+    // Load `stockdetails.json` to fetch the stock's details
+    ifstream stockDetailsFile("stockdetails.json");
+    if (!stockDetailsFile.is_open()) {
+        cout << "Failed to load stock details. Please try again.\n";
+        return;
+    }
+
+    json stockDetails;
+    stockDetailsFile >> stockDetails;
+    stockDetailsFile.close();
+
+    // Retrieve and display the stock's details
+    if (stockDetails.contains(stockId)) {
+    cout << "Stock ID: " << stockId << "\n";
+    cout << "Current Price: $" << stockDetails[stockId]["price_info"]["current_price"] << "\n";
+    cout << "Price Change: " << stockDetails[stockId]["price_info"]["price_change"]["amount"] 
+         << " (" << stockDetails[stockId]["price_info"]["price_change"]["percentage"] << "%)\n";
+    cout << "Movement: " << stockDetails[stockId]["price_info"]["price_change"]["movement"] << "\n";
+    cout << "Currency: " << stockDetails[stockId]["price_info"]["currency"] << "\n";
+}
+
+     else {
+        cout << "Stock details not found for ID: " << stockId << "\n";
+    }
+}
+void User::addToWatchlist(Stock stock) {
+    loadUserData();
+
+    json userData;
+    ifstream inFile("test.json");
+    if (inFile.good()) {
+        inFile >> userData;
+    }
+    inFile.close();
+
+    string currentUserID = getUserID();
+    if (!userData.contains(currentUserID)) {
+        cout << "User data not found.\n";
+        return;
+    }
+
+    if (!userData[currentUserID].contains("watchlist")) {
+        userData[currentUserID]["watchlist"] = json::object();
+    }
+
+    string stockName = stock.getstockname();
+    userData[currentUserID]["watchlist"]["StockId"] = stockName;
+
+    ofstream outFile("test.json");
+    if (outFile.is_open()) {
+        outFile << setw(4) << userData << endl;
+        outFile.close();
+        cout << "Stock '" << stockName << "' added to your watchlist.\n";
+    } else {
+        cout << "Failed to update the watchlist. Please try again.\n";
+    }
+}
+
+void User::removeFromWatchlist(string stockId) {
+    loadUserData();  // Ensure the latest data is loaded
+
+    // Open `test.json` to load user data
+    json userData;
+    ifstream inFile("test.json");
+    if (inFile.good()) {
+        inFile >> userData;
+    } else {
+        cout << "Failed to load user data. Please try again.\n";
+        return;
+    }
+    inFile.close();
+
+    // Get the current user's data
+    string currentUserID = getUserID();
+    if (!userData.contains(currentUserID)) {
+        cout << "User data not found.\n";
+        return;
+    }
+
+    // Check if the user has a watchlist and if the stock ID matches
+    if (userData[currentUserID].contains("watchlist") &&
+        userData[currentUserID]["watchlist"]["StockId"] == stockId) {
+        
+        // Remove the stock ID from the watchlist
+        userData[currentUserID]["watchlist"]["StockId"] = "";
+
+        // Save the updated data back to `test.json`
+        ofstream outFile("test.json");
+        if (outFile.is_open()) {
+            outFile << setw(4) << userData << endl;
+            outFile.close();
+            cout << "Stock with ID '" << stockId << "' removed from your watchlist.\n";
+        } else {
+            cout << "Failed to update watchlist. Please try again.\n";
+        }
+    } else {
+        cout << "Stock with ID '" << stockId << "' not found in your watchlist.\n";
+    }
+}
+
+
+

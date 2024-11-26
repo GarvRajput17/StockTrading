@@ -2,6 +2,12 @@
 #include <chrono>
 #include <uuid/uuid.h>
 #include <sstream>
+#include <array>
+#include <memory>
+#include <stdexcept>
+#include <string>
+#include <cstdio>
+
 
 string gettime() {
     auto now = std::chrono::system_clock::now();
@@ -16,3 +22,6 @@ string guuid() {
     uuid_unparse_lower(uuid, uuid_str);
     return string(uuid_str);
 }
+
+
+

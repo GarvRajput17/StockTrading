@@ -2,46 +2,62 @@
     "AAPL:NASDAQ": {
         "price_info": {
             "price_change": {
-                "amount": 3.0200043,
-                "percentage": 1.3422241,
+                "amount": 2.1900024,
+                "percentage": 0.94043994,
                 "movement": "Up"
             },
             "currency": "USD",
             "52_week_low": "",
-            "current_price": "228.02",
+            "current_price": "235.06",
             "52_week_high": ""
         },
         "news": [
             {
-                "title": "Top news",
+                "title": "NFL star Rob Gronkowski says Apple stock was his best investment",
                 "articles": [
                     {
-                        "snippet": "Billionaire Warren Buffett Sold 67% of Berkshire's Stake in Apple and Is Piling Into a Beloved Consumer Brand Whose Stock Has Soared by 7,000% Since Its IPO",
-                        "date": "23 hours ago",
-                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTscKskEgcdNQIRliyUngloO6JogU49TG2L2LHo9iI7kPhGALMrM3FFeDmdyn8",
-                        "link": "https://finance.yahoo.com/news/billionaire-warren-buffett-sold-67-094100137.html",
+                        "snippet": "NFL legend Rob Gronkowski\u2019s best-ever investment: $69,000 worth of Apple stock he bought on advice from his contractor",
+                        "date": "12 hours ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT4-L8tXiDL4eE7_GfAAlh12QbZOZmrQWopf5Q83cTT5kXwJRAFm8DjlnL7AU4",
+                        "link": "https://fortune.com/2024/11/26/rob-gronkowski-net-worth-apple-stock/",
+                        "source": "Fortune"
+                    },
+                    {
+                        "snippet": "Rob Gronkowski says he's invested in Apple, labels the stock his 'best investment'",
+                        "date": "1 hour ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRgsCNyVPw_VpJ6lxUerp924Uy6ZJxH2KRAFYek2eBiNn8iTkfwWy5sBK0csZg",
+                        "link": "https://www.foxbusiness.com/markets/gronk-says-invested-apple-labels-stock-best-investment",
+                        "source": "Fox Business"
+                    },
+                    {
+                        "snippet": "NFL legend Rob Gronkowski\u2019s best-ever investment: $69,000 worth of Apple stock",
+                        "date": "3 hours ago",
+                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTiTYKEm4kc-OKzcQzuPHW4M8U0HswoiQVYm28Xeghq-ZvSM--524Xw04bIqRY",
+                        "link": "https://www.msn.com/en-us/sports/nfl/nfl-legend-rob-gronkowski-s-best-ever-investment-69-000-worth-of-apple-stock/vi-AA1uNAzz",
+                        "source": "MSN"
+                    }
+                ]
+            },
+            {
+                "title": "Indonesia rejects Apple's $100 million investment",
+                "articles": [
+                    {
+                        "snippet": "Indonesia rejects Apple's $100m investment to lift iPhone 16 sales ban",
+                        "date": "1 day ago",
+                        "link": "https://asia.nikkei.com/Business/Technology/Indonesia-rejects-Apple-s-100m-investment-to-lift-iPhone-16-sales-ban",
+                        "source": "Nikkei Asia"
+                    },
+                    {
+                        "snippet": "Indonesia says Apple's $100 mln investment proposal inadequate",
+                        "date": "1 day ago",
+                        "link": "https://www.reuters.com/technology/indonesia-says-apples-100-mln-investment-proposal-inadequate-2024-11-25/",
+                        "source": "Reuters"
+                    },
+                    {
+                        "snippet": "Apple's $100M Investment Rejected, Indonesia Slams iPhone 16 Sale Ban",
+                        "date": "6 hours ago",
+                        "link": "https://finance.yahoo.com/news/apples-100m-investment-rejected-indonesia-151347655.html",
                         "source": "Yahoo Finance"
-                    },
-                    {
-                        "snippet": "Watch Tesla Boosts Stocks, Apple's Tariff Game Plan | Bloomberg Technology",
-                        "date": "10 hours ago",
-                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR0HNFSMTO3NQ2gSVO4PnYfSMKsSnGRcUBPowZCZ53Ecjk4fafvPyC-lyl0RU",
-                        "link": "https://www.bloomberg.com/news/videos/2024-11-18/bloomberg-technology-11-18-2024-video",
-                        "source": "Bloomberg"
-                    },
-                    {
-                        "snippet": "Apple exec explains the company's 'secret weapon' when making its own chips",
-                        "date": "13 hours ago",
-                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRYUkvL7OWn0P8kvFitoCCpkAgAT_sqQDF7vuS0vpT5xErq8I34MSvK1OcNuY",
-                        "link": "https://www.businessinsider.com/apple-chip-design-silicon-secret-weapon-2024-11",
-                        "source": "Business Insider"
-                    },
-                    {
-                        "snippet": "Breakout Watch: Warren Buffett Stock Smashes Apple And Amazon",
-                        "date": "11 hours ago",
-                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQUoKXtKtLc_54P60LJR_s_UbciPl1l35Fchtage3rgvW8tyg6zS-hPXU4BqYg",
-                        "link": "https://www.investors.com/research/how-to-find-the-best-stocks-to-buy/heico-hei-stock-warren-buffett-stocks/",
-                        "source": "Investor's Business Daily"
                     }
                 ]
             },
@@ -49,22 +65,51 @@
                 "title": "Q4 earnings report for Apple",
                 "articles": [
                     {
-                        "snippet": "Apple supplier Foxconn's Q3 profit rises 14%, beats forecasts",
-                        "date": "5 days ago",
-                        "link": "https://www.reuters.com/technology/apple-supplier-foxconns-q3-profit-rises-14-beats-forecasts-2024-11-14/",
-                        "source": "Reuters"
+                        "snippet": "Warren Buffett is sitting on over $325 billion cash as Berkshire Hathaway keeps selling Apple stock",
+                        "date": "3 weeks ago",
+                        "link": "https://apnews.com/article/warren-buffett-berkshire-hathaway-earnings-profit-6f2772721d5d8f00578f8265c70db3d1",
+                        "source": "AP News"
                     },
                     {
-                        "snippet": "Apple reports better-than-anticipated Q4 revenue, earnings hurt by EU tax payment",
-                        "date": "2 weeks ago",
-                        "link": "https://finance.yahoo.com/news/apple-reports-better-than-anticipated-q4-revenue-earnings-hurt-by-eu-tax-payment-203155159.html",
+                        "snippet": "Apple (AAPL) Surged After Solid Earnings Report",
+                        "date": "1 day ago",
+                        "link": "https://finance.yahoo.com/news/apple-aapl-surged-solid-earnings-155244765.html",
                         "source": "Yahoo Finance"
                     },
                     {
-                        "snippet": "Skyworks Stock Drops After Earnings Beat. Does It Have an Apple Problem?",
-                        "date": "5 days ago",
-                        "link": "https://www.barrons.com/articles/skyworks-stock-price-earnings-apple-2f78a702",
-                        "source": "Barron's"
+                        "snippet": "Apple Sales Hit Quarterly Record as iPhone Business Rebounds",
+                        "date": "3 weeks ago",
+                        "link": "https://www.wsj.com/tech/apple-earnings-q4-aapl-stock-8552e5b6",
+                        "source": "WSJ"
+                    }
+                ]
+            },
+            {
+                "title": "Opinion",
+                "articles": [
+                    {
+                        "snippet": "Best MacBooks 2024: We help you pick the right model",
+                        "date": "1 week ago",
+                        "link": "https://www.tomsguide.com/best-picks/best-macbook",
+                        "source": "Tom's Guide"
+                    },
+                    {
+                        "snippet": "Apple Should Have Learned a Chinese Lesson on EVs",
+                        "date": "2 days ago",
+                        "link": "https://www.bloomberg.com/opinion/articles/2024-11-24/apple-should-have-learned-a-chinese-lesson-on-evs",
+                        "source": "Bloomberg.com"
+                    },
+                    {
+                        "snippet": "Apple AirPods 4 review: First-of-its-kind open-ear style earphones with ANC",
+                        "date": "12 hours ago",
+                        "link": "https://www.business-standard.com/technology/tech-reviews/apple-airpods-4-review-first-of-its-kind-open-ear-style-earphones-with-anc-124112600604_1.html",
+                        "source": "Business Standard"
+                    },
+                    {
+                        "snippet": "The Best Tablets for Work and Play",
+                        "date": "4 days ago",
+                        "link": "https://www.wired.com/gallery/the-best-tablets/",
+                        "source": "WIRED"
                     }
                 ]
             },
@@ -72,22 +117,22 @@
                 "title": "News about Apple CEO Tim Cook",
                 "articles": [
                     {
-                        "snippet": "Apple\u2019s Tim Cook Has Ways to Cope With the Looming Trump Tariffs",
+                        "snippet": "How Tim Cook Cracked the Code on Working With Trump",
+                        "date": "2 days ago",
+                        "link": "https://www.wsj.com/politics/elections/tim-cook-ceo-trump-relationship-ad106f36",
+                        "source": "WSJ"
+                    },
+                    {
+                        "snippet": "Apple\u2019s Cook Joins CEO Summit With Chinese Premier on Trade",
                         "date": "1 day ago",
-                        "link": "https://www.bloomberg.com/news/newsletters/2024-11-17/how-will-president-donald-trump-s-new-tariffs-affect-apple-products-and-prices-m3lnfx64",
+                        "link": "https://www.bloomberg.com/news/articles/2024-11-25/apple-chief-returns-to-china-as-beijing-prepares-to-fete-ceos",
                         "source": "Bloomberg"
                     },
                     {
-                        "snippet": "100 Most Powerful People in Business",
-                        "date": "6 days ago",
-                        "link": "https://fortune.com/ranking/most-powerful-people/2024/tim-cook/",
-                        "source": "Fortune"
-                    },
-                    {
-                        "snippet": "The Trump, Musk and Tim Cook triangle: how Apple will try for tariff exemptions",
+                        "snippet": "Tim Cook heads to China for the 3rd time this year as Apple prepares for Trump trade policies",
                         "date": "1 day ago",
-                        "link": "https://www.phonearena.com/news/trump-musk-tim-cook-triangle-apple-tariff-exemptions_id164895",
-                        "source": "PhoneArena"
+                        "link": "https://www.yahoo.com/tech/tim-cook-heads-china-3rd-114934301.html",
+                        "source": "Yahoo"
                     }
                 ]
             }
@@ -96,12 +141,12 @@
             "2024": {
                 "price_to_book": {
                     "price_change": {
-                        "amount": 3.431697612732094,
+                        "amount": 3.551730769230772,
                         "percentage": 6.1008,
                         "movement": "Up"
                     },
-                    "last_year_value": 56.25,
-                    "value": 59.68169761273209
+                    "last_year_value": 58.2175,
+                    "value": 61.76923076923077
                 },
                 "operating_expense": {
                     "price_change": {
@@ -251,12 +296,12 @@
             "2023": {
                 "price_to_book": {
                     "price_change": {
-                        "amount": -14.50471698113208,
+                        "amount": -15.01205974842767,
                         "percentage": -20.5,
                         "movement": "Down"
                     },
-                    "last_year_value": 70.75471698113208,
-                    "value": 56.25
+                    "last_year_value": 73.22955974842768,
+                    "value": 58.2175
                 },
                 "operating_expense": {
                     "price_change": {
@@ -405,16 +450,18 @@
             }
         }
     },
+    "IBM:NASDAQ": {},
+    "DIS:NASDAQ": {},
     "GOOGL:NASDAQ": {
         "price_info": {
             "price_change": {
-                "amount": -2.8700104,
-                "percentage": -1.7121102,
-                "movement": "Down"
+                "amount": 1.4700012,
+                "percentage": 0.8768275,
+                "movement": "Up"
             },
             "currency": "USD",
             "52_week_low": "",
-            "current_price": "164.76",
+            "current_price": "169.12",
             "52_week_high": ""
         },
         "news": [
@@ -422,40 +469,31 @@
                 "title": "Top news",
                 "articles": [
                     {
-                        "snippet": "Buy Google Stock. Alphabet Will Survive AI and Breakup Calls\u2014and Soar by 50%.",
-                        "date": "21 hours ago",
-                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSxuuaCWaPe7lqS-7OB7WZnTHjwIQ83ml-g1zBPi9squ9bw2bpI8mjCmHQ-DBo",
-                        "link": "https://www.barrons.com/articles/buy-google-alphabet-stock-price-ai-doj-break-up-calls-3ea5d918",
+                        "snippet": "1 Unstoppable Growth Stock That Could Join Nvidia, Apple, Amazon, Alphabet, Meta Platforms, and Microsoft in the Trillion-Dollar Club By 2040",
+                        "date": "3 days ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRKmTpGz2G92BNhLih5gM858SgIhTRN3jxOTufP95iPBG9ZTg3UFc11w2KVcUE",
+                        "link": "https://finance.yahoo.com/news/1-unstoppable-growth-stock-could-160500948.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "\u2018Ignore the Noise,\u2019 Says Colin Sebastian About Alphabet Stock",
+                        "date": "17 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT8p6ZEFdVwLUcjoQoRWkPcRqr_xkLPtrUlHt793_X8Sa0UlsRaVLQwtLE7pE8",
+                        "link": "https://www.tipranks.com/news/ignore-the-noise-says-colin-sebastian-about-alphabet-stock",
+                        "source": "TipRanks"
+                    },
+                    {
+                        "snippet": "Google Search Will Be Unrecognizable in the Future. That\u2019s Just Fine for Alphabet Stock.",
+                        "date": "1 day ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSa6orXd0HxiHgYKkyuv8yDerh3PTzhwrlnlV1JQvfy42_QxHM0dxtQH4gzqcc",
+                        "link": "https://www.barrons.com/articles/google-stock-alphabet-google-search-00da6430",
                         "source": "Barron's"
                     },
                     {
-                        "snippet": "What the DOJ\u2019s breakup of Google would mean for Chrome and the internet",
-                        "date": "1 day ago",
-                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTV_dA73mMzy2SDy_IbFBoByJEnUG8nyjRQPz2_mg7gg_Gmy80hLZPsupchxRw",
-                        "link": "https://www.washingtonpost.com/business/2024/11/21/google-chrome-doj-antitrust/",
-                        "source": "Washington Post"
-                    }
-                ]
-            },
-            {
-                "title": "US Justice Department asks court to force Google to sell Chrome",
-                "articles": [
-                    {
-                        "snippet": "Google stock hammered after DOJ calls for Chrome sale",
-                        "date": "1 day ago",
-                        "link": "https://fortune.com/2024/11/21/google-stock-plunges-doj-chrome/",
-                        "source": "Fortune"
-                    },
-                    {
-                        "snippet": "Google Chrome Should Be Sold, DOJ Says. Alphabet Stock Tanks.",
-                        "date": "1 day ago",
-                        "link": "https://www.barrons.com/articles/google-chrome-breakup-alphabet-stock-2675d39a",
-                        "source": "Barron's"
-                    },
-                    {
-                        "snippet": "Why Alphabet Stock Was Sliding Today",
-                        "date": "1 day ago",
-                        "link": "https://www.fool.com/investing/2024/11/21/why-alphabet-stock-was-sliding-today/",
+                        "snippet": "Better Internet Stock: Alphabet vs. Meta Platforms",
+                        "date": "2 days ago",
+                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSnJQWDZPyFGUe8MSZfb_B6rv9-UT-sk9N3P466rSbDpEEdwQmncJvR4NTi9As",
+                        "link": "https://www.fool.com/investing/2024/11/24/better-internet-stock-alphabet-vs-meta-platforms/",
                         "source": "The Motley Fool"
                     }
                 ]
@@ -464,28 +502,28 @@
                 "title": "Q3 earnings report for Alphabet Inc.",
                 "articles": [
                     {
+                        "snippet": "Alphabet Inc.'s (NASDAQ:GOOGL) Stock Has Been Sliding But Fundamentals Look Strong: Is The Market Wrong?",
+                        "date": "10 hours ago",
+                        "link": "https://finance.yahoo.com/news/alphabet-inc-nasdaq-googl-stock-110018272.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "Alphabet Q3 earnings call: CEO Sundar Pichai's remarks",
+                        "date": "4 weeks ago",
+                        "link": "https://blog.google/inside-google/message-ceo/alphabet-earnings-q3-2024/",
+                        "source": "Google Blog"
+                    },
+                    {
                         "snippet": "Nvidia, Alphabet, Super Micro, Snowflake, Deere, MicroStrategy, and More Stock Movers",
-                        "date": "1 day ago",
+                        "date": "5 days ago",
                         "link": "https://www.barrons.com/articles/stock-market-movers-bc09ccc8",
                         "source": "Barron's"
                     },
                     {
                         "snippet": "S&P 500 Gains and Losses Today: Stocks Rise After Nvidia Earnings; Alphabet Falls",
-                        "date": "1 day ago",
+                        "date": "4 days ago",
                         "link": "https://www.investopedia.com/sandp-gains-and-losses-today-stocks-rise-after-nvidia-earnings-alphabet-falls-8749474",
                         "source": "Investopedia"
-                    },
-                    {
-                        "snippet": "Alphabet's AI Investments Pay Off",
-                        "date": "1 day ago",
-                        "link": "https://finance.yahoo.com/news/alphabets-ai-investments-pay-off-205504558.html",
-                        "source": "Yahoo Finance"
-                    },
-                    {
-                        "snippet": "Alphabet Q3 earnings call: CEO Sundar Pichai's remarks",
-                        "date": "3 weeks ago",
-                        "link": "https://blog.google/inside-google/message-ceo/alphabet-earnings-q3-2024/",
-                        "source": "Google Blog"
                     }
                 ]
             },
@@ -493,22 +531,22 @@
                 "title": "News about Alphabet Inc. CEO Sundar Pichai",
                 "articles": [
                     {
-                        "snippet": "Google CEO Sundar Pichai sells $3.98 million in stock under this rule he adopted in August 2023",
-                        "date": "1 day ago",
-                        "link": "https://timesofindia.indiatimes.com/technology/tech-news/google-ceo-sundar-pichai-sells-3-98-million-in-stock-under-this-rule-he-adopted-in-august-2023/articleshow/115558460.cms",
-                        "source": "Times of India"
+                        "snippet": "Elon Musk\u2019s \u2018first buddy\u2019 role: Tesla CEO joins Trump, Google\u2019s Sundar Pichai on call, strengthens political ties",
+                        "date": "5 days ago",
+                        "link": "https://www.livemint.com/companies/people/elon-musk-s-first-buddy-role-tesla-ceo-joins-trump-google-s-sundar-pichai-on-call-strengthens-political-ties-11732162567189.html",
+                        "source": "Livemint"
                     },
                     {
                         "snippet": "Insider Selling: Alphabet Inc. (NASDAQ:GOOG) CEO Sells 22,500 Shares of Stock",
-                        "date": "1 day ago",
+                        "date": "4 days ago",
                         "link": "https://www.marketbeat.com/instant-alerts/insider-selling-alphabet-inc-nasdaqgoog-ceo-sells-22500-shares-of-stock-2024-11-21/",
                         "source": "MarketBeat"
                     },
                     {
-                        "snippet": "100 Most Powerful People in Business",
-                        "date": "1 week ago",
-                        "link": "https://fortune.com/ranking/most-powerful-people/2024/sundar-pichai/",
-                        "source": "Fortune"
+                        "snippet": "Sundar Pichai dials Donald Trump to congratulate, Elon Musk joins call",
+                        "date": "5 days ago",
+                        "link": "https://www.business-standard.com/world-news/sundar-pichai-dials-donald-trump-to-congratulate-elon-musk-joins-call-124112100680_1.html",
+                        "source": "Business Standard"
                     }
                 ]
             }
@@ -516,12 +554,12 @@
         "financials": {"2023": {
             "price_to_book": {
                 "price_change": {
-                    "amount": -1.039346375462755,
+                    "amount": -1.039470380279968,
                     "percentage": -12.3571,
                     "movement": "Down"
                 },
-                "last_year_value": 8.410938283993978,
-                "value": 7.371591908531223
+                "last_year_value": 8.411941796287005,
+                "value": 7.372471416007037
             },
             "operating_expense": {
                 "price_change": {
@@ -672,36 +710,36 @@
     "MSFT:NASDAQ": {
         "price_info": {
             "price_change": {
-                "amount": 7.350006,
-                "percentage": 1.7550577,
+                "amount": 9.199982,
+                "percentage": 2.1968007,
                 "movement": "Up"
             },
             "currency": "USD",
             "52_week_low": "",
-            "current_price": "426.14",
+            "current_price": "427.99",
             "52_week_high": ""
         },
         "news": [
             {
-                "title": "Microsoft reporting outages across Exchange and Teams",
+                "title": "Microsoft Outlook outage",
                 "articles": [
                     {
                         "snippet": "Microsoft Outages: Most Users Recover As Company Works To Fix Final Email Issues",
-                        "date": "16 hours ago",
+                        "date": "22 hours ago",
                         "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBotfKuCurLg21lfkTmaVuJQ5HKp5sXIx0iuCPEbzgsSJKYNyj5ouPcnLZCKc",
                         "link": "https://www.forbes.com/sites/maryroeloffs/2024/11/25/microsoft-outages-some-outlook-and-teams-users-recover-as-company-deploys-fix/",
                         "source": "Forbes"
                     },
                     {
                         "snippet": "Microsoft\u2019s Response to Its Major Outage Is the 1 Thing No Company Should Ever Do",
-                        "date": "13 hours ago",
+                        "date": "19 hours ago",
                         "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQPNlvpCp5k91U1IxbqOxu3VQeVhCVlKVCjTTp5ojTr-rSKCokAbjCU3EeHjZE",
                         "link": "https://www.inc.com/jason-aten/microsoft-outlook-teams-outage-response/91024484",
                         "source": "Inc.com"
                     },
                     {
                         "snippet": "Microsoft says massive Outlook and Teams outage is mostly resolved",
-                        "date": "11 hours ago",
+                        "date": "17 hours ago",
                         "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdHVv7BC4JTtW3Su5wYEm4IMEg-wNpf6t4kiu_9FBCmYATgyysRNPia4esK9A",
                         "link": "https://www.cnn.com/2024/11/25/tech/microsofts-outlook-teams-outage/index.html",
                         "source": "CNN"
@@ -712,16 +750,16 @@
                 "title": "News about Microsoft CEO Satya Nadella",
                 "articles": [
                     {
-                        "snippet": "Does Billionaire Ken Griffin Know Something Wall Street Doesn't? The Citadel CEO Dumps $750 Million in Microsoft Stock",
-                        "date": "2 days ago",
-                        "link": "https://www.fool.com/investing/2024/11/24/does-billionaire-ken-griffin-know-something-wall/",
-                        "source": "The Motley Fool"
-                    },
-                    {
                         "snippet": "Microsoft at 50: An AI Giant. A Kinder Culture. And Still Hellbent on Domination",
                         "date": "5 days ago",
                         "link": "https://www.wired.com/story/at-age-50-microsoft-is-an-ai-giant-an-open-source-lover-and-bad-as-it-ever-was/",
                         "source": "WIRED"
+                    },
+                    {
+                        "snippet": "Does Billionaire Ken Griffin Know Something Wall Street Doesn't? The Citadel CEO Dumps $750 Million in Microsoft Stock",
+                        "date": "2 days ago",
+                        "link": "https://www.fool.com/investing/2024/11/24/does-billionaire-ken-griffin-know-something-wall/",
+                        "source": "The Motley Fool"
                     },
                     {
                         "snippet": "Inside Microsoft's struggles with Copilot",
@@ -1048,13 +1086,13 @@
     "NVDA:NASDAQ": {
         "price_info": {
             "price_change": {
-                "amount": -4.720001,
-                "percentage": -3.2181096,
-                "movement": "Down"
+                "amount": 0.8999939,
+                "percentage": 0.6616629,
+                "movement": "Up"
             },
             "currency": "USD",
             "52_week_low": "",
-            "current_price": "141.95",
+            "current_price": "136.92",
             "52_week_high": ""
         },
         "news": [
@@ -1062,41 +1100,41 @@
                 "title": "Top news",
                 "articles": [
                     {
-                        "snippet": "Nvidia Stock Falls 3% On Rare Downgrade, Missed 'Bullish Whispers'",
-                        "date": "19 hours ago",
-                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSyaLgWun1FGtThgro4eIispNHxvhIEpHKHgrdMFODjZbHf06c-bsKTv2REJ8A",
-                        "link": "https://www.investors.com/news/technology/nvidia-stock-nvda-earnings-downgrade-whisper-numbers/",
+                        "snippet": "Futures Mixed After Trump Tariff Threat",
+                        "date": "6 hours ago",
+                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTzUgD_5xOBD9_lVTcIUM9ogENCiX1eZfBGRIk9BJTMmL8yUysfZtQilgLwSVQ",
+                        "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-nvidia-stock-nvda/",
                         "source": "Investor's Business Daily"
                     },
                     {
-                        "snippet": "4 Monster Stocks to Hold for the Next 10 Years -- Including Nvidia",
-                        "date": "1 day ago",
-                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRc9Q9F34uiQ_WiLPvjrXB8k5eeWZbTJDuy7Q_8tVOQVQbxDTsTcme3vfFUcys",
-                        "link": "https://www.yahoo.com/finance/news/4-monster-stocks-hold-next-130000049.html",
-                        "source": "Yahoo"
+                        "snippet": "Jensen Huang Just Delivered Incredible News for Nvidia Stock Investors",
+                        "date": "11 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTG7-ZMIigc1C0MjZ66ZP55vk_xSEjcnf8wTaSy8BKdngmiX_dcM4Y0fFHb0g0",
+                        "link": "https://finance.yahoo.com/news/jensen-huang-just-delivered-incredible-095300156.html",
+                        "source": "Yahoo Finance"
                     }
                 ]
             },
             {
-                "title": "Nvidia earnings report",
+                "title": "Nvidia's third-quarter earnings",
                 "articles": [
                     {
-                        "snippet": "Why Nvidia\u2019s Earnings Weren\u2019t All That Great for Stocks",
+                        "snippet": "1 Unbelievable Metric That Could Make Nvidia Stock a Screaming Buy",
+                        "date": "6 hours ago",
+                        "link": "https://www.fool.com/investing/2024/11/26/1-unbelievable-metric-that-could-make-nvidia-stock/",
+                        "source": "The Motley Fool"
+                    },
+                    {
+                        "snippet": "Where Will Nvidia Stock Be in 3 Years?",
                         "date": "22 hours ago",
-                        "link": "https://www.barrons.com/articles/nvidia-earnings-great-for-stock-market-c9d870f2",
-                        "source": "Barron's"
+                        "link": "https://finance.yahoo.com/news/where-nvidia-stock-3-years-231500110.html",
+                        "source": "Yahoo Finance"
                     },
                     {
-                        "snippet": "Nvidia earnings adjust chances for S&P 500 record year",
-                        "date": "1 day ago",
-                        "link": "https://www.thestreet.com/investing/nvidia-earnings-adjust-chances-for-s-p-500-record-year",
-                        "source": "TheStreet"
-                    },
-                    {
-                        "snippet": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2025",
-                        "date": "2 days ago",
-                        "link": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025",
-                        "source": "NVIDIA Newsroom"
+                        "snippet": "Cracks Emerge In Nvidia's AI Armor. What's An Investor To Do?",
+                        "date": "6 hours ago",
+                        "link": "https://www.investors.com/research/how-to-find-the-best-stocks-to-buy/nvidia-stock-sell-and-buy-rules/",
+                        "source": "Investor's Business Daily"
                     }
                 ]
             },
@@ -1104,28 +1142,28 @@
                 "title": "Q3 earnings report for Nvidia",
                 "articles": [
                     {
-                        "snippet": "Wall Street avoids Nvidia selloff after blowout earnings call",
-                        "date": "2 days ago",
-                        "link": "https://fortune.com/2024/11/20/wall-street-nvidia-earnings-call/",
-                        "source": "Fortune"
+                        "snippet": "The 5 biggest takeaways following Nvidia's earnings",
+                        "date": "22 hours ago",
+                        "link": "https://www.thestreet.com/investing/five-things-we-learned-from-nvidias-earnings-report",
+                        "source": "TheStreet"
                     },
                     {
-                        "snippet": "Nvidia Earnings Were a Blowout. Why The Stock Will Be Higher in 12 Months",
+                        "snippet": "NVIDIA Earnings, OpenAI, SpaceX & More",
+                        "date": "23 hours ago",
+                        "link": "https://finance.yahoo.com/news/nvidia-earnings-openai-spacex-more-220700756.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "Nvidia Stock Drop: Why Shares Are Still Down Today",
                         "date": "1 day ago",
-                        "link": "https://www.barrons.com/articles/nvidia-nvda-stock-price-after-earnings-7266d3a7",
+                        "link": "https://www.barrons.com/articles/nvidia-stock-china-apple-trump-election-a9203db9",
                         "source": "Barron's"
                     },
                     {
-                        "snippet": "Nvidia Guidance Called Conservative As Blackwell AI Chip Production Ramps",
-                        "date": "1 day ago",
-                        "link": "https://www.investors.com/news/technology/nvidia-stock-nvda-wall-street-reactions-q3-earnings/",
-                        "source": "Investor's Business Daily"
-                    },
-                    {
-                        "snippet": "Nvidia\u2019s earnings cleared our lofty bar. Here\u2019s our new price target on the AI chip king",
-                        "date": "2 days ago",
-                        "link": "https://www.cnbc.com/2024/11/20/nvidias-earnings-cleared-our-lofty-bar-heres-our-new-price-target-on-the-ai-chip-king.html",
-                        "source": "CNBC"
+                        "snippet": "What Nvidia\u2019s Earnings Say About the AI Semiconductor Stock Trade",
+                        "date": "4 days ago",
+                        "link": "https://www.morningstar.com/stocks/what-nvidias-earnings-say-about-ai-semiconductor-stock-trade",
+                        "source": "Morningstar"
                     }
                 ]
             },
@@ -1133,16 +1171,22 @@
                 "title": "Opinion",
                 "articles": [
                     {
-                        "snippet": "Nvidia\u2019s stunning 2024 return has all the makings of a stock-market dynasty",
-                        "date": "3 days ago",
-                        "link": "https://www.marketwatch.com/story/why-nvidias-championship-season-has-all-the-makings-of-an-ai-dynasty-d8919955",
+                        "snippet": "My Favorite Artificial Intelligence Stock to Buy Right Now (Hint: It's Not Nvidia)",
+                        "date": "6 days ago",
+                        "link": "https://www.fool.com/investing/2024/11/20/my-favorite-artificial-intelligence-stock-to-buy/",
+                        "source": "The Motley Fool"
+                    },
+                    {
+                        "snippet": "Nvidia booting Intel from the Dow could end this proven stock-trading strategy",
+                        "date": "4 days ago",
+                        "link": "https://www.marketwatch.com/story/how-nvidia-booting-intel-from-the-dow-could-break-a-proven-stock-trading-strategy-ac84c8fa",
                         "source": "MarketWatch"
                     },
                     {
-                        "snippet": "My Favorite Artificial Intelligence Stock to Buy Right Now (Hint: It's Not Nvidia)",
-                        "date": "3 days ago",
-                        "link": "https://www.fool.com/investing/2024/11/20/my-favorite-artificial-intelligence-stock-to-buy/",
-                        "source": "The Motley Fool"
+                        "snippet": "The best graphics card in 2024: our picks for all budgets",
+                        "date": "1 day ago",
+                        "link": "https://www.techradar.com/news/computing-components/graphics-cards/best-graphics-cards-1291458",
+                        "source": "TechRadar"
                     },
                     {
                         "snippet": "The Best Graphics Cards for 2024",
@@ -1156,20 +1200,20 @@
                 "title": "By the numbers",
                 "articles": [
                     {
-                        "snippet": "Dow Surges Over 450 Points As Nvidia Climbs Post-Earnings, Google, Amazon Slip: Fear Index Shifts To 'Greed' Zone",
-                        "date": "1 day ago",
-                        "link": "https://finance.yahoo.com/news/dow-surges-over-450-points-104513979.html",
-                        "source": "Yahoo Finance"
+                        "snippet": "Nvidia Earnings: Stock Slumps Despite Another Record Quarter For AI Leader",
+                        "date": "6 days ago",
+                        "link": "https://www.forbes.com/sites/dereksaul/2024/11/20/nvidia-earnings-another-record-quarter-for-ai-leader/",
+                        "source": "Forbes"
                     },
                     {
                         "snippet": "Nvidia nearly doubles revenue on strong AI demand",
-                        "date": "2 days ago",
+                        "date": "6 days ago",
                         "link": "https://www.cnbc.com/2024/11/20/nvidia-nvda-earnings-report-q3-2025.html",
                         "source": "CNBC"
                     },
                     {
                         "snippet": "Nvidia, Target, Super Micro, Williams-Sonoma, Keysight, Fabrinet, Ford, and More Movers",
-                        "date": "2 days ago",
+                        "date": "6 days ago",
                         "link": "https://www.barrons.com/articles/stock-market-movers-e34fda3c",
                         "source": "Barron's"
                     }
@@ -1179,22 +1223,22 @@
                 "title": "News about Nvidia CEO Jensen Huang",
                 "articles": [
                     {
+                        "snippet": "Three mystery whales have each spent $10 billion\u2013plus on Nvidia\u2019s AI chips so far this year",
+                        "date": "4 days ago",
+                        "link": "https://fortune.com/2024/11/21/nvidia-jensen-huang-ai-training-chips-microsoft-google-amazon-tesla-meta-hyperscalers-cloud-computing/",
+                        "source": "Fortune"
+                    },
+                    {
                         "snippet": "Nvidia CEO says global cooperation in tech will continue under Trump administration",
-                        "date": "8 hours ago",
-                        "link": "https://finance.yahoo.com/news/nvidia-ceo-huang-says-age-032740949.html",
-                        "source": "Yahoo Finance"
+                        "date": "3 days ago",
+                        "link": "https://www.reuters.com/technology/artificial-intelligence/nvidia-ceo-huang-says-the-age-ai-has-started-2024-11-23/",
+                        "source": "Reuters"
                     },
                     {
-                        "snippet": "Nvidia Boss Urges Global Cooperation During Hong Kong Trip",
-                        "date": "13 hours ago",
-                        "link": "https://www.bloomberg.com/news/articles/2024-11-23/nvidia-boss-urges-global-cooperation-during-hong-kong-trip",
-                        "source": "Bloomberg"
-                    },
-                    {
-                        "snippet": "Nvidia says it will sell more of its next-generation Blackwell chips than previously anticipated",
-                        "date": "2 days ago",
-                        "link": "https://www.cnbc.com/2024/11/20/nvidia-expects-to-sell-more-blackwell-chips-than-previously-anticipated.html",
-                        "source": "CNBC"
+                        "snippet": "Nvidia Working As Fast As It Can to Certify Samsung\u2019s AI Memory",
+                        "date": "3 days ago",
+                        "link": "https://www.bloomberg.com/news/articles/2024-11-23/nvidia-working-as-fast-as-it-can-to-certify-samsung-s-ai-memory",
+                        "source": "Bloomberg.com"
                     }
                 ]
             }
@@ -1203,12 +1247,12 @@
             "2024": {
                 "price_to_book": {
                     "price_change": {
-                        "amount": -78.67356321839078,
+                        "amount": -72.9609195402299,
                         "percentage": -48.2759,
                         "movement": "Down"
                     },
-                    "last_year_value": 162.9666666666666,
-                    "value": 84.29310344827586
+                    "last_year_value": 151.1333333333334,
+                    "value": 78.17241379310346
                 },
                 "operating_expense": {
                     "price_change": {
@@ -1358,12 +1402,12 @@
             "2023": {
                 "price_to_book": {
                     "price_change": {
-                        "amount": 24.59874213836477,
+                        "amount": 22.81257861635223,
                         "percentage": 17.7778,
                         "movement": "Up"
                     },
-                    "last_year_value": 138.3679245283019,
-                    "value": 162.9666666666666
+                    "last_year_value": 128.3207547169811,
+                    "value": 151.1333333333334
                 },
                 "operating_expense": {
                     "price_change": {
@@ -1511,5 +1555,895 @@
                 }
             }
         }
+    },
+    "TSLA:NASDAQ": {
+        "price_info": {
+            "price_change": {
+                "amount": 0.05999756,
+                "percentage": 0.017719826,
+                "movement": "Up"
+            },
+            "currency": "USD",
+            "52_week_low": "",
+            "current_price": "338.65",
+            "52_week_high": ""
+        },
+        "news": [
+            {
+                "title": "Tesla may lose California EV tax credit",
+                "articles": [
+                    {
+                        "snippet": "California may exclude Tesla from EV rebate program",
+                        "date": "2 hours ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTNYwhOyeMV7GQ2xt2dXCASBQQpDpTThX2N972Q0ptw1btbuQj0Ub5IHBqwMSM",
+                        "link": "https://www.foxbusiness.com/economy/california-may-exclude-tesla-from-ev-rebate-program",
+                        "source": "Fox Business"
+                    },
+                    {
+                        "snippet": "Tesla Excluded From EV Buyer Credits in California Proposal",
+                        "date": "22 hours ago",
+                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUaKIAxePDbVnp5dW5Qxv9MrVexqEWuQrkQZ19sfprzvi7UOHhBDLKisPMAA",
+                        "link": "https://finance.yahoo.com/news/california-pledges-ev-buyer-rebate-152405490.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "Tesla would likely be excluded from new California EV tax credits, governor's office says",
+                        "date": "7 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRXrGulUDMNlBEs1HUMNXlCAAJ1OTzuOkWLhuauFF216sPHYIN0L3MfcCeyAX0",
+                        "link": "https://www.reuters.com/business/autos-transportation/california-governor-newsom-propose-clean-vehicle-rebate-if-trump-cuts-ev-tax-2024-11-25/",
+                        "source": "Reuters"
+                    }
+                ]
+            },
+            {
+                "title": "Tesla stock news",
+                "articles": [
+                    {
+                        "snippet": "Tesla stock lower as UBS says 'animal spirits' rather than fundamentals driving monster rally",
+                        "date": "1 day ago",
+                        "link": "https://finance.yahoo.com/news/tesla-stock-lower-as-ubs-says-animal-spirits-rather-than-fundamentals-driving-monster-rally-191533286.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "Tesla\u2019s $350 billion stock surge driven by \u2018animal spirits,\u2019 UBS says",
+                        "date": "1 day ago",
+                        "link": "https://fortune.com/2024/11/25/elon-musk-tesla-stock-surge-market-ubs-shares-fall/",
+                        "source": "Fortune"
+                    },
+                    {
+                        "snippet": "Watch These Tesla Price Levels as Stock Hits Brakes on Post-Election Rally",
+                        "date": "5 hours ago",
+                        "link": "https://www.investopedia.com/watch-these-tesla-price-levels-as-stock-hits-brakes-on-post-election-rally-8751868",
+                        "source": "Investopedia"
+                    }
+                ]
+            },
+            {
+                "title": "By the numbers",
+                "articles": [
+                    {
+                        "snippet": "Futures Advance; Bitcoin Stock Jumps",
+                        "date": "1 day ago",
+                        "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-tesla-tsla-bitcoin-microstrategy-mstr/",
+                        "source": "Investor's Business Daily"
+                    },
+                    {
+                        "snippet": "Trending tickers: Tesla, Dell, Zoom, Kingfisher and Anglo American",
+                        "date": "1 day ago",
+                        "link": "https://uk.finance.yahoo.com/news/tesla-dell-zoom-kingfisher-anglo-american-trending-tickers-105916948.html",
+                        "source": "Yahoo"
+                    },
+                    {
+                        "snippet": "China EV insurance registrations for week ending Nov 17: Nio 3,800, Tesla 17,100, Xiaomi 5,700, BYD 94,700",
+                        "date": "1 week ago",
+                        "link": "https://cnevpost.com/2024/11/19/china-ev-insurance-registrations-week-ending-nov-17-2024/",
+                        "source": "CnEVPost"
+                    }
+                ]
+            },
+            {
+                "title": "News about Tesla CEO Elon Musk",
+                "articles": [
+                    {
+                        "snippet": "Musk Says He Wants to Save the Planet. Tesla\u2019s Factories Are Making It Dirtier.",
+                        "date": "1 day ago",
+                        "link": "https://www.wsj.com/business/autos/elon-musk-tesla-environment-1263cd60",
+                        "source": "WSJ"
+                    },
+                    {
+                        "snippet": "Elon Musk\u2019s Net Worth Hits Record High Thanks To $70 Billion Post-Election Windfall",
+                        "date": "3 days ago",
+                        "link": "https://www.forbes.com/sites/dereksaul/2024/11/22/elon-musks-net-worth-hits-record-high-thanks-to-57-billion-post-election-windfall/",
+                        "source": "Forbes"
+                    },
+                    {
+                        "snippet": "Why Does Elon Musk Support Ending EV Tax Credits? Here Are Two Reasons",
+                        "date": "6 days ago",
+                        "link": "https://www.investopedia.com/why-does-elon-musk-support-ending-ev-tax-credits-two-reasons-8747418",
+                        "source": "Investopedia"
+                    }
+                ]
+            }
+        ],
+        "financials": {"2023": {
+            "price_to_book": {
+                "price_change": {
+                    "amount": -6.748968021901359,
+                    "percentage": -28.1647,
+                    "movement": "Down"
+                },
+                "last_year_value": 23.96249115357395,
+                "value": 17.21352313167259
+            },
+            "operating_expense": {
+                "price_change": {
+                    "amount": 1572000000,
+                    "percentage": 21.8424,
+                    "movement": "Up"
+                },
+                "last_year_value": 7197000000,
+                "value": 8769000000
+            },
+            "total_assets": {
+                "price_change": {
+                    "amount": 24280000000,
+                    "percentage": 29.4882,
+                    "movement": "Up"
+                },
+                "last_year_value": 82338000000,
+                "value": 106618000000
+            },
+            "total_liabilities": {
+                "price_change": {
+                    "amount": 6569000000,
+                    "percentage": 18.0269,
+                    "movement": "Up"
+                },
+                "last_year_value": 36440000000,
+                "value": 43009000000
+            },
+            "free_cash_flow": {
+                "price_change": {
+                    "amount": -1955250000,
+                    "percentage": -46.7135,
+                    "movement": "Down"
+                },
+                "last_year_value": 4185625000,
+                "value": 2230375000
+            },
+            "cash_from_operations": {
+                "price_change": {
+                    "amount": -1468000000,
+                    "percentage": -9.9701,
+                    "movement": "Down"
+                },
+                "last_year_value": 14724000000,
+                "value": 13256000000
+            },
+            "shares_outstanding": {
+                "price_change": {
+                    "amount": 20687714,
+                    "percentage": 0.6538,
+                    "movement": "Up"
+                },
+                "last_year_value": 3164102701,
+                "value": 3184790415
+            },
+            "revenue": {
+                "price_change": {
+                    "amount": 15311000000,
+                    "percentage": 18.7953,
+                    "movement": "Up"
+                },
+                "last_year_value": 81462000000,
+                "value": 96773000000
+            },
+            "net_profit_margin": {
+                "price_change": {
+                    "amount": 0.08999999999999986,
+                    "percentage": 0.584,
+                    "movement": "Up"
+                },
+                "last_year_value": 15.41,
+                "value": 15.5
+            },
+            "earnings_per_share": {
+                "price_change": {
+                    "amount": 0.6799999999999997,
+                    "percentage": 18.7845,
+                    "movement": "Up"
+                },
+                "last_year_value": 3.62,
+                "value": 4.3
+            },
+            "net_change_in_cash": {
+                "price_change": {
+                    "amount": 1485000000,
+                    "percentage": -121.7213,
+                    "movement": "Up"
+                },
+                "last_year_value": -1220000000,
+                "value": 265000000
+            },
+            "total_equity": {
+                "price_change": {
+                    "amount": 17711000000,
+                    "percentage": 38.5877,
+                    "movement": "Up"
+                },
+                "last_year_value": 45898000000,
+                "value": 63609000000
+            },
+            "return_on_assets_percentage": {
+                "price_change": {
+                    "amount": -5.94,
+                    "percentage": -50.2538,
+                    "movement": "Down"
+                },
+                "last_year_value": 11.82,
+                "value": 5.88
+            },
+            "cash_and_short_investments": {
+                "price_change": {
+                    "amount": 6909000000,
+                    "percentage": 31.1427,
+                    "movement": "Up"
+                },
+                "last_year_value": 22185000000,
+                "value": 29094000000
+            },
+            "cash_from_financing": {
+                "price_change": {
+                    "amount": 6116000000,
+                    "percentage": -173.4052,
+                    "movement": "Up"
+                },
+                "last_year_value": -3527000000,
+                "value": 2589000000
+            },
+            "cash_from_investing": {
+                "price_change": {
+                    "amount": -3611000000,
+                    "percentage": 30.1595,
+                    "movement": "Down"
+                },
+                "last_year_value": -11973000000,
+                "value": -15584000000
+            },
+            "net_income": {
+                "price_change": {
+                    "amount": 2441000000,
+                    "percentage": 19.4409,
+                    "movement": "Up"
+                },
+                "last_year_value": 12556000000,
+                "value": 14997000000
+            }
+        }}
+    },
+    "AMD:NASDAQ": {
+        "price_info": {
+            "price_change": {
+                "amount": -4.257202,
+                "percentage": -3.016511,
+                "movement": "Down"
+            },
+            "currency": "USD",
+            "52_week_low": "",
+            "current_price": "136.8728",
+            "52_week_high": ""
+        },
+        "news": [
+            {
+                "title": "Top news",
+                "articles": [
+                    {
+                        "snippet": "Goldman Sachs: Advanced Micro Devices, Inc. (NASDAQ:AMD) Is A Top AI Growth Investor Stock",
+                        "date": "2 days ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT0Ci4HDFQW8KdyKVC7IjzASqDvxNA-beKHUClk_cts8Oq2RQHgSwdGG3zxygk",
+                        "link": "https://finance.yahoo.com/news/goldman-sachs-advanced-micro-devices-131333819.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "AMD Quantitative Stock Analysis - Martin Zweig",
+                        "date": "6 hours ago",
+                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8lcaRUHBs1yG3Z3A4xxEVndyt2LzdlwK8fqG4dHYbxwl_U_1s2fa81EuRCK0",
+                        "link": "https://www.nasdaq.com/articles/amd-quantitative-stock-analysis-martin-zweig-14",
+                        "source": "Nasdaq"
+                    },
+                    {
+                        "snippet": "AMD Struggles Below Critical Levels: Can Market Share Growth Turn The Tide?",
+                        "date": "3 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS3QMtPhiIxUOXDIWPvGivSHDXFSXq6TvwbfEeY2IQbULevhNZpMtnCNOdPSKY",
+                        "link": "https://www.benzinga.com/24/11/42193158/amds-downward-spiral-is-a-reversal-on-the-horizon-or-just-a-blip",
+                        "source": "Benzinga"
+                    },
+                    {
+                        "snippet": "Better Artificial Intelligence Stock: Broadcom vs. AMD",
+                        "date": "2 days ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDU6JIo0-wmEfO_8hCm3QqKo8Xsl740grjFCzF0KKU58s_G_BAC4XUA_3ftTA",
+                        "link": "https://www.fool.com/investing/2024/11/24/better-artificial-intelligence-stock-broadcom-vs-a/",
+                        "source": "The Motley Fool"
+                    }
+                ]
+            },
+            {
+                "title": "Opinion",
+                "articles": [
+                    {
+                        "snippet": "The best graphics card in 2024: our picks for all budgets",
+                        "date": "1 day ago",
+                        "link": "https://www.techradar.com/news/computing-components/graphics-cards/best-graphics-cards-1291458",
+                        "source": "TechRadar"
+                    },
+                    {
+                        "snippet": "The Best Graphics Cards for 2024",
+                        "date": "4 years ago",
+                        "link": "https://www.pcmag.com/picks/the-best-graphics-cards",
+                        "source": "PCMag"
+                    }
+                ]
+            },
+            {
+                "title": "News about AMD CEO Lisa Su",
+                "articles": [
+                    {
+                        "snippet": "AMD Boosts India Presence With $400 Million Investment, Supercomputers For Weather Forecasting",
+                        "date": "1 day ago",
+                        "link": "https://www.benzinga.com/24/11/42166116/amd-boosts-india-investments-400-million-pledged-supercomputers-in-the-works",
+                        "source": "Benzinga"
+                    },
+                    {
+                        "snippet": "Advanced Micro Devices, Inc. (AMD) CEO Lisa Su Highlights India\u2019s Role in AI Revolution During Visit, Outlines Semiconductor Plans",
+                        "date": "3 days ago",
+                        "link": "https://finance.yahoo.com/news/advanced-micro-devices-inc-amd-232238062.html",
+                        "source": "Yahoo Finance"
+                    }
+                ]
+            }
+        ],
+        "financials": {"2023": {
+            "price_to_book": {
+                "price_change": {
+                    "amount": -0.07569054762656346,
+                    "percentage": -1.8213,
+                    "movement": "Down"
+                },
+                "last_year_value": 4.155771495877502,
+                "value": 4.080080948250939
+            },
+            "operating_expense": {
+                "price_change": {
+                    "amount": 214000000,
+                    "percentage": 1.9839,
+                    "movement": "Up"
+                },
+                "last_year_value": 10787000000,
+                "value": 11001000000
+            },
+            "total_assets": {
+                "price_change": {
+                    "amount": 305000000,
+                    "percentage": 0.4513,
+                    "movement": "Up"
+                },
+                "last_year_value": 67580000000,
+                "value": 67885000000
+            },
+            "total_liabilities": {
+                "price_change": {
+                    "amount": -837000000,
+                    "percentage": -6.5238,
+                    "movement": "Down"
+                },
+                "last_year_value": 12830000000,
+                "value": 11993000000
+            },
+            "free_cash_flow": {
+                "price_change": {
+                    "amount": -1674625000,
+                    "percentage": -43.1604,
+                    "movement": "Down"
+                },
+                "last_year_value": 3880000000,
+                "value": 2205375000
+            },
+            "cash_from_operations": {
+                "price_change": {
+                    "amount": -1898000000,
+                    "percentage": -53.2398,
+                    "movement": "Down"
+                },
+                "last_year_value": 3565000000,
+                "value": 1667000000
+            },
+            "shares_outstanding": {
+                "price_change": {
+                    "amount": 4398624,
+                    "percentage": 0.273,
+                    "movement": "Up"
+                },
+                "last_year_value": 1611388217,
+                "value": 1615786841
+            },
+            "revenue": {
+                "price_change": {
+                    "amount": -921000000,
+                    "percentage": -3.9024,
+                    "movement": "Down"
+                },
+                "last_year_value": 23601000000,
+                "value": 22680000000
+            },
+            "net_profit_margin": {
+                "price_change": {
+                    "amount": -1.82,
+                    "percentage": -32.5581,
+                    "movement": "Down"
+                },
+                "last_year_value": 5.59,
+                "value": 3.77
+            },
+            "earnings_per_share": {
+                "price_change": {
+                    "amount": -0.30999999999999994,
+                    "percentage": -36.9048,
+                    "movement": "Down"
+                },
+                "last_year_value": 0.84,
+                "value": 0.53
+            },
+            "net_change_in_cash": {
+                "price_change": {
+                    "amount": -3202000000,
+                    "percentage": -139.2174,
+                    "movement": "Down"
+                },
+                "last_year_value": 2300000000,
+                "value": -902000000
+            },
+            "total_equity": {
+                "price_change": {
+                    "amount": 1142000000,
+                    "percentage": 2.0858,
+                    "movement": "Up"
+                },
+                "last_year_value": 54750000000,
+                "value": 55892000000
+            },
+            "return_on_assets_percentage": {
+                "price_change": {
+                    "amount": -1.61,
+                    "percentage": -81.3131,
+                    "movement": "Down"
+                },
+                "last_year_value": 1.98,
+                "value": 0.37
+            },
+            "cash_and_short_investments": {
+                "price_change": {
+                    "amount": -82000000,
+                    "percentage": -1.4005,
+                    "movement": "Down"
+                },
+                "last_year_value": 5855000000,
+                "value": 5773000000
+            },
+            "cash_from_financing": {
+                "price_change": {
+                    "amount": 2118000000,
+                    "percentage": -64.8897,
+                    "movement": "Up"
+                },
+                "last_year_value": -3264000000,
+                "value": -1146000000
+            },
+            "cash_from_investing": {
+                "price_change": {
+                    "amount": -3422000000,
+                    "percentage": -171.1856,
+                    "movement": "Down"
+                },
+                "last_year_value": 1999000000,
+                "value": -1423000000
+            },
+            "net_income": {
+                "price_change": {
+                    "amount": -466000000,
+                    "percentage": -35.303,
+                    "movement": "Down"
+                },
+                "last_year_value": 1320000000,
+                "value": 854000000
+            }
+        }}
+    },
+    "AMZN:NASDAQ": {
+        "price_info": {
+            "price_change": {
+                "amount": 4.529999,
+                "percentage": 2.2486963,
+                "movement": "Up"
+            },
+            "currency": "USD",
+            "52_week_low": "",
+            "current_price": "205.98",
+            "52_week_high": ""
+        },
+        "news": [
+            {
+                "title": "Top news",
+                "articles": [
+                    {
+                        "snippet": "Cathie Wood Goes Bargain Hunting: 3 Stocks She Just Bought",
+                        "date": "2 hours ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQr2h9eNPxgFJWORgTkrJpndJdcRqIzgnIahbQ5rtsKQqJPN86EXDUdSdkEDaY",
+                        "link": "https://www.fool.com/investing/2024/11/26/cathie-wood-goes-bargain-hunting-3-stocks-she-just/",
+                        "source": "The Motley Fool"
+                    },
+                    {
+                        "snippet": "Amazon Black Friday Gets Early Start. Why E-Commerce Could Outpace Total Holiday Spending Growth..",
+                        "date": "1 day ago",
+                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTu3Ia3K6gf9PbMuM7Ilmm8oNbNOAFe8Ui0S7E11q5QJsy7WZ49PRIXCZ1AgzY",
+                        "link": "https://www.investors.com/news/technology/amazon-stock-amazon-black-friday-sales-ecommerce/",
+                        "source": "Investor's Business Daily"
+                    },
+                    {
+                        "snippet": "Dan Niles Says Amazon.com (AMZN)\u2019s Latest Earnings Was \u2018Real Surprise\u2019 For Him",
+                        "date": "18 hours ago",
+                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWyzXnDMq9blXBjSHZe8I9xeLMVvtMyAgQck974zYJDQgO4DwHpwT4XtHxdEo",
+                        "link": "https://finance.yahoo.com/news/dan-niles-says-amazon-com-012112926.html",
+                        "source": "Yahoo Finance"
+                    },
+                    {
+                        "snippet": "\u2018Load Up Ahead of Holiday Season,\u2019 Says Youssef Squali on Amazon Stock",
+                        "date": "15 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTbAV0kzDxDnzO6W5hH1iN0Dliq8qg17ZTjAqUcbiHBw_Jwc1D74pXXYil9kRs",
+                        "link": "https://www.tipranks.com/news/load-up-ahead-of-holiday-season-says-youssef-squali-on-amazon-stock",
+                        "source": "TipRanks"
+                    }
+                ]
+            },
+            {
+                "title": "News about Amazon.com CEO Andy Jassy",
+                "articles": [
+                    {
+                        "snippet": "\u2018Worried\u2019: Biggest threat to Coles, Woolies",
+                        "date": "5 days ago",
+                        "link": "https://www.news.com.au/finance/business/retail/coles-ceo-leah-weckert-flags-amazon-threat-at-accc-supermarkets-inquiry/news-story/887a5e6bf712a760b7c582e991776291",
+                        "source": "News.com.au"
+                    },
+                    {
+                        "snippet": "Zepto CEO Aadit Palicha: Zepto is not an \u201cAmazon or Walmart\u201d but an Indian company with ...",
+                        "date": "4 days ago",
+                        "link": "https://timesofindia.indiatimes.com/technology/tech-news/zepto-is-not-an-amazon-or-walmart-but-an-indian-company-with-zepto-ceo-aadit-palicha/articleshow/115540600.cms",
+                        "source": "Times of India"
+                    }
+                ]
+            }
+        ],
+        "financials": {"2023": {
+            "price_to_book": {
+                "price_change": {
+                    "amount": -3.764274150260594,
+                    "percentage": -26.6461,
+                    "movement": "Down"
+                },
+                "last_year_value": 14.12692847124825,
+                "value": 10.36265432098765
+            },
+            "operating_expense": {
+                "price_change": {
+                    "amount": 21390000000,
+                    "percentage": 10.099,
+                    "movement": "Up"
+                },
+                "last_year_value": 211804000000,
+                "value": 233194000000
+            },
+            "total_assets": {
+                "price_change": {
+                    "amount": 65179000000,
+                    "percentage": 14.0874,
+                    "movement": "Up"
+                },
+                "last_year_value": 462675000000,
+                "value": 527854000000
+            },
+            "total_liabilities": {
+                "price_change": {
+                    "amount": 9347000000,
+                    "percentage": 2.952,
+                    "movement": "Up"
+                },
+                "last_year_value": 316632000000,
+                "value": 325979000000
+            },
+            "free_cash_flow": {
+                "price_change": {
+                    "amount": 44780625000,
+                    "percentage": 6442.0967,
+                    "movement": "Up"
+                },
+                "last_year_value": 695125000,
+                "value": 45475750000
+            },
+            "cash_from_operations": {
+                "price_change": {
+                    "amount": 38194000000,
+                    "percentage": 81.6949,
+                    "movement": "Up"
+                },
+                "last_year_value": 46752000000,
+                "value": 84946000000
+            },
+            "shares_outstanding": {
+                "price_change": {
+                    "amount": 140121534,
+                    "percentage": 1.3674,
+                    "movement": "Up"
+                },
+                "last_year_value": 10247259757,
+                "value": 10387381291
+            },
+            "revenue": {
+                "price_change": {
+                    "amount": 60802000000,
+                    "percentage": 11.8296,
+                    "movement": "Up"
+                },
+                "last_year_value": 513983000000,
+                "value": 574785000000
+            },
+            "net_profit_margin": {
+                "price_change": {
+                    "amount": 5.82,
+                    "percentage": -1098.1132,
+                    "movement": "Up"
+                },
+                "last_year_value": -0.53,
+                "value": 5.29
+            },
+            "earnings_per_share": {
+                "price_change": {
+                    "amount": 3.17,
+                    "percentage": -1174.0741,
+                    "movement": "Up"
+                },
+                "last_year_value": -0.27,
+                "value": 2.9
+            },
+            "net_change_in_cash": {
+                "price_change": {
+                    "amount": 1861000000,
+                    "percentage": 10.4692,
+                    "movement": "Up"
+                },
+                "last_year_value": 17776000000,
+                "value": 19637000000
+            },
+            "total_equity": {
+                "price_change": {
+                    "amount": 55832000000,
+                    "percentage": 38.2298,
+                    "movement": "Up"
+                },
+                "last_year_value": 146043000000,
+                "value": 201875000000
+            },
+            "return_on_assets_percentage": {
+                "price_change": {
+                    "amount": 2.7600000000000007,
+                    "percentage": 146.0317,
+                    "movement": "Up"
+                },
+                "last_year_value": 1.89,
+                "value": 4.65
+            },
+            "cash_and_short_investments": {
+                "price_change": {
+                    "amount": 16754000000,
+                    "percentage": 23.9254,
+                    "movement": "Up"
+                },
+                "last_year_value": 70026000000,
+                "value": 86780000000
+            },
+            "cash_from_financing": {
+                "price_change": {
+                    "amount": -25597000000,
+                    "percentage": -263.3978,
+                    "movement": "Down"
+                },
+                "last_year_value": 9718000000,
+                "value": -15879000000
+            },
+            "cash_from_investing": {
+                "price_change": {
+                    "amount": -12232000000,
+                    "percentage": 32.531,
+                    "movement": "Down"
+                },
+                "last_year_value": -37601000000,
+                "value": -49833000000
+            },
+            "net_income": {
+                "price_change": {
+                    "amount": 33147000000,
+                    "percentage": -1217.7443,
+                    "movement": "Up"
+                },
+                "last_year_value": -2722000000,
+                "value": 30425000000
+            }
+        }}
+    },
+    "ADBE:NASDAQ": {
+        "price_info": {
+            "price_change": {
+                "amount": 4.494995,
+                "percentage": 0.8665385,
+                "movement": "Up"
+            },
+            "currency": "USD",
+            "52_week_low": "",
+            "current_price": "523.225",
+            "52_week_high": ""
+        },
+        "financials": {"2023": {
+            "price_to_book": {
+                "price_change": {
+                    "amount": -2.767793054155195,
+                    "percentage": -16.2259,
+                    "movement": "Down"
+                },
+                "last_year_value": 17.0578756987833,
+                "value": 14.2900826446281
+            },
+            "operating_expense": {
+                "price_change": {
+                    "amount": 1062000000,
+                    "percentage": 11.3668,
+                    "movement": "Up"
+                },
+                "last_year_value": 9343000000,
+                "value": 10405000000
+            },
+            "total_assets": {
+                "price_change": {
+                    "amount": 2614000000,
+                    "percentage": 9.6227,
+                    "movement": "Up"
+                },
+                "last_year_value": 27165000000,
+                "value": 29779000000
+            },
+            "total_liabilities": {
+                "price_change": {
+                    "amount": 147000000,
+                    "percentage": 1.1209,
+                    "movement": "Up"
+                },
+                "last_year_value": 13114000000,
+                "value": 13261000000
+            },
+            "free_cash_flow": {
+                "price_change": {
+                    "amount": 338375000,
+                    "percentage": 5.3948,
+                    "movement": "Up"
+                },
+                "last_year_value": 6272250000,
+                "value": 6610625000
+            },
+            "cash_from_operations": {
+                "price_change": {
+                    "amount": -536000000,
+                    "percentage": -6.8385,
+                    "movement": "Down"
+                },
+                "last_year_value": 7838000000,
+                "value": 7302000000
+            },
+            "shares_outstanding": {
+                "price_change": {
+                    "amount": -5800000,
+                    "percentage": -1.2669,
+                    "movement": "Down"
+                },
+                "last_year_value": 457800000,
+                "value": 452000000
+            },
+            "revenue": {
+                "price_change": {
+                    "amount": 1803000000,
+                    "percentage": 10.2408,
+                    "movement": "Up"
+                },
+                "last_year_value": 17606000000,
+                "value": 19409000000
+            },
+            "net_profit_margin": {
+                "price_change": {
+                    "amount": 0.9599999999999973,
+                    "percentage": 3.5542,
+                    "movement": "Up"
+                },
+                "last_year_value": 27.01,
+                "value": 27.97
+            },
+            "earnings_per_share": {
+                "price_change": {
+                    "amount": 1.7200000000000006,
+                    "percentage": 17.0297,
+                    "movement": "Up"
+                },
+                "last_year_value": 10.1,
+                "value": 11.82
+            },
+            "net_change_in_cash": {
+                "price_change": {
+                    "amount": 2513000000,
+                    "percentage": 641.0714,
+                    "movement": "Up"
+                },
+                "last_year_value": 392000000,
+                "value": 2905000000
+            },
+            "total_equity": {
+                "price_change": {
+                    "amount": 2467000000,
+                    "percentage": 17.5575,
+                    "movement": "Up"
+                },
+                "last_year_value": 14051000000,
+                "value": 16518000000
+            },
+            "return_on_assets_percentage": {
+                "price_change": {
+                    "amount": 0.5899999999999999,
+                    "percentage": 4.2113,
+                    "movement": "Up"
+                },
+                "last_year_value": 14.01,
+                "value": 14.6
+            },
+            "cash_and_short_investments": {
+                "price_change": {
+                    "amount": 1746000000,
+                    "percentage": 28.6417,
+                    "movement": "Up"
+                },
+                "last_year_value": 6096000000,
+                "value": 7842000000
+            },
+            "cash_from_financing": {
+                "price_change": {
+                    "amount": 1643000000,
+                    "percentage": -24.0733,
+                    "movement": "Up"
+                },
+                "last_year_value": -6825000000,
+                "value": -5182000000
+            },
+            "cash_from_investing": {
+                "price_change": {
+                    "amount": 1346000000,
+                    "percentage": -236.1404,
+                    "movement": "Up"
+                },
+                "last_year_value": -570000000,
+                "value": 776000000
+            },
+            "net_income": {
+                "price_change": {
+                    "amount": 672000000,
+                    "percentage": 14.1295,
+                    "movement": "Up"
+                },
+                "last_year_value": 4756000000,
+                "value": 5428000000
+            }
+        }}
     }
 }

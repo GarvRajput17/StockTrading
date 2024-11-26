@@ -6,7 +6,7 @@
 #include <nlohmann/json.hpp>
 
 using std::string;
-
+class User;
 struct StockMetrics {
     string stockName;
     int quantity;
@@ -31,10 +31,11 @@ private:
     std::string userID;
 
 public:
-    User user;
+    //User user;
     Stock();
     Stock(std::string stockID, std::string stockName, double currentPrice, std::string userId);
-    std::string getstockname();
+    std::string getstockname() const;
+    string getstockname();
     void setUserID(const std::string& id);
     std::string getUserID();
     void setStockName(const std::string& name);
@@ -48,6 +49,7 @@ public:
 
 class OwnedStock : public Stock {
 private:
+    //string stockID;
     int quantity;
     double buyPrice;
 

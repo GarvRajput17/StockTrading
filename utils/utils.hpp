@@ -7,4 +7,6 @@ using std::string;
 string gettime();
 string guuid();
 
+
+
 #endif

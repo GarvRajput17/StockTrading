@@ -38,8 +38,7 @@ public:
     void deletePortfolio();
 
     // Transaction history operations
-    void addTransaction(Transaction transaction);
-    void removeTransaction(Transaction transaction);
+    
 
     // Helper Methods
     bool authenticate(string userID, string password);
@@ -87,9 +86,8 @@ public:
     void displayDetails();
 
     // Update Methods
-    void updatePrice(double newPrice);
-    void update52WeekHigh(double newHigh);
-    void update52WeekLow(double newLow);
+    
+    
 };
 
 

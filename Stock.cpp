@@ -2,41 +2,48 @@
 #include <fstream>
 #include <iomanip>
 #include <stdexcept>
+#include<thread>
 #include "stock.hpp"
 #include "utils/utils.hpp"
 #include <nlohmann/json.hpp>
 
+// Color definitions
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define BLUE "\033[34m"
+#define YELLOW "\033[33m"
+#define CYAN "\033[36m"
+#define RESET "\033[0m"
+#define BOLD "\033[1m"
+
 using json = nlohmann::json;
+using namespace std::this_thread;
+using namespace std::chrono;
 
-// Updated constructor to match header
-// Stock constructors
-Stock::Stock() : stockID(""), 
-                 stockName(""), 
-                 currentPrice(0.0), 
-                 fiftyTwoWeekHigh(0.0), 
-                 fiftyTwoWeekLow(0.0), 
-                 userID("") {}
+Stock::Stock() : stockID(""),
+    stockName(""),
+    currentPrice(0.0),
+    fiftyTwoWeekHigh(0.0),
+    fiftyTwoWeekLow(0.0),
+    userID("") {}
 
-Stock::Stock(string stockID, string stockName, double currentPrice, string userId) 
+Stock::Stock(string stockID, string stockName, double currentPrice, string userId)
     : stockID(stockID),
-      stockName(stockName), 
+      stockName(stockName),
       currentPrice(currentPrice),
       fiftyTwoWeekHigh(0.0),
       fiftyTwoWeekLow(0.0),
       userID(userId) {}
 
-// OwnedStock constructors
-OwnedStock::OwnedStock() : Stock(), 
-                           quantity(0), 
-                           buyPrice(0.0) {}
+OwnedStock::OwnedStock() : Stock(),
+    quantity(0),
+    buyPrice(0.0) {}
 
-OwnedStock::OwnedStock(string stockID, string stockName, double currentPrice, 
-                       string userId, int quantity, double buyPrice)
+OwnedStock::OwnedStock(string stockID, string stockName, double currentPrice,
+    string userId, int quantity, double buyPrice)
     : Stock(stockID, stockName, currentPrice, userId),
       quantity(quantity),
       buyPrice(buyPrice) {}
-
-
 
 void Stock::setUserID(const string& id) {
     userID = id;
@@ -44,6 +51,10 @@ void Stock::setUserID(const string& id) {
 
 string Stock::getUserID() {
     return userID;
+}
+
+string Stock::getstockname() const {
+    return stockName;
 }
 
 string Stock::getstockname() {
@@ -58,7 +69,6 @@ double Stock::getPrice() const {
     return currentPrice;
 }
 
-
 void Stock::setCurrentPrice(double price) {
     currentPrice = price;
 }
@@ -68,7 +78,6 @@ void Stock::displayDetails() {
     system(command.c_str());
 }
 
-// Updated buyStock implementation
 void Stock::buyStock(string stockName, int quantity) {
     json stockDetails;
     ifstream stockFile("stockdetails.json");
@@ -81,24 +90,35 @@ void Stock::buyStock(string stockName, int quantity) {
     setStockName(stockName);
     auto stockInfo = stockDetails[getstockname() + ":NASDAQ"]["price_info"];
     double currentPrice = stod(stockInfo["current_price"].get<string>());
-    const double USD_TO_INR = 83.0;
-    double priceInRupees = currentPrice * USD_TO_INR;
-    double totalPriceInRupees = priceInRupees * quantity;
+    double totalCost = currentPrice * quantity;
 
-    cout << "Stock Purchase Details:\n";
-    cout << "Current Price: " << currentPrice << " USD (Rs." << priceInRupees << ")\n";
-    cout << "Quantity: " << quantity << "\n";
-    cout << "Total Cost: Rs." << totalPriceInRupees << "\n";
-    cout << "Confirm purchase? (y/n): ";
+    cout << BOLD << "\n=== 🛒 Stock Purchase Details 🛒 ===\n" << RESET;
+    cout << "Loading current price";
+    for(int i = 0; i < 3; i++) {
+        sleep_for(milliseconds(300));
+        cout << "." << flush;
+    }
+    cout << endl;
+    
+    cout << CYAN << "📈 Current Price: $" << currentPrice << RESET << endl;
+    cout << BLUE << "📦 Quantity: " << quantity << RESET << endl;
+    cout << GREEN << "💰 Total Cost: $" << totalCost << RESET << endl;
+    cout << YELLOW << "\n🤔 Confirm purchase? (y/n): " << RESET;
     char choice;
     cin >> choice;
 
     if (choice == 'y') {
+        cout << "\n🔄 Processing transaction";
+        for(int i = 0; i < 4; i++) {
+            sleep_for(milliseconds(300));
+            cout << "." << flush;
+        }
+        cout << endl;
         User currentUser;
         currentUser.setUserID(userID);
         double walletBalance = currentUser.checkWalletBalance();
         
-        if (walletBalance >= totalPriceInRupees) {
+        if (walletBalance >= totalCost) {
             json userData;
             ifstream inFile("test.json");
             if (inFile.good()) {
@@ -106,19 +126,30 @@ void Stock::buyStock(string stockName, int quantity) {
             }
             inFile.close();
 
-            // Update portfolio
+            // Get existing portfolio data
+            int existingQuantity = 0;
+            double existingAvgPrice = 0.0;
+            
+            if (userData[userID]["portfolio"].contains(stockName)) {
+                existingQuantity = userData[userID]["portfolio"][stockName]["Quantity"].get<int>();
+                existingAvgPrice = userData[userID]["portfolio"][stockName]["AveragePrice"].get<double>();
+            }
+
+            // Calculate new weighted average price
+            double newAveragePrice = ((existingAvgPrice * existingQuantity) + (currentPrice * quantity)) / 
+                                   (existingQuantity + quantity);
+
+            // Update portfolio with new average and total quantity
             userData[userID]["portfolio"][stockName] = {
-                {"AveragePrice", currentPrice},
+                {"AveragePrice", newAveragePrice},
                 {"CurrentPrice", currentPrice},
-                {"Quantity", quantity}
+                {"Quantity", existingQuantity + quantity}
             };
 
-            // Record in stock_transactions section
             string transactionId = guuid();
-            string timestamp = gettime();
             userData["stock_transactions"][transactionId] = {
-                {"amount", totalPriceInRupees},
-                {"date", timestamp},
+                {"amount", totalCost},
+                {"date", gettime()},
                 {"paymentMethod", "Wallet"},
                 {"stock_name", stockName}
             };
@@ -127,15 +158,15 @@ void Stock::buyStock(string stockName, int quantity) {
             outFile << setw(4) << userData << endl;
             outFile.close();
 
-            currentUser.removeMoneyfromWallet(totalPriceInRupees);
-
-            cout << "Successfully purchased " << quantity << " shares of " << stockName << "\n";
-            //cout << "Your updated wallet balance is Rs." << currentUser.checkWalletBalance() << "\n";
+            currentUser.removeMoneyfromWallet(totalCost);
+            cout << "✅ Successfully purchased " << quantity << " shares of " << stockName << "\n";
         } else {
-            cout << "Insufficient funds. Current balance: Rs." << walletBalance << "\n";
+            cout << "❌ Insufficient funds. Current balance: $" << walletBalance << "\n";
         }
     }
 }
+
+
 
 void Stock::saveStockDataToLocal(string stockName, int quantity) {
     json userData;
@@ -143,14 +174,12 @@ void Stock::saveStockDataToLocal(string stockName, int quantity) {
     string timestamp = gettime();
     string transactionId = guuid();
 
-    // Load user data
     ifstream inFile("test.json");
     if (inFile.good()) {
         inFile >> userData;
     }
     inFile.close();
 
-    // Load stock details and get current price
     ifstream stockFile("stockdetails.json");
     if (stockFile.good()) {
         stockFile >> stockDetails;
@@ -158,21 +187,15 @@ void Stock::saveStockDataToLocal(string stockName, int quantity) {
     stockFile.close();
 
     double currentPrice = stod(stockDetails[stockName + ":NASDAQ"]["price_info"]["current_price"].get<string>());
-    const double USD_TO_INR = 83.0;
-    double priceInRupees = currentPrice * USD_TO_INR;
 
-    // Update portfolio
-    // Update portfolio
     userData[userID]["portfolio"][stockName] = {
-        {"AveragePrice", priceInRupees * quantity / quantity},  // Average price in INR
-        {"CurrentPrice", priceInRupees},  // Current price in INR
+        {"AveragePrice", currentPrice},
+        {"CurrentPrice", currentPrice},
         {"Quantity", quantity}
     };
 
-
-    // Record in stock_transactions
     userData["stock_transactions"][transactionId] = {
-        {"amount", priceInRupees * quantity},
+        {"amount", currentPrice * quantity},
         {"date", timestamp},
         {"paymentMethod", "Wallet"},
         {"stock_name", stockName}
@@ -192,7 +215,6 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
     inFile >> userData;
     inFile.close();
 
-    // Check if user owns the stock and has sufficient quantity
     if (!userData[getUserID()]["portfolio"].contains(stockid)) {
         cout << "You don't own any shares of " << stockid << "\n";
         return;
@@ -204,7 +226,6 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
         return;
     }
 
-    // Get current price
     string command = "java -cp lib/json-20240303.jar currentprice.java " + stockid;
     system(command.c_str());
 
@@ -216,16 +237,22 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
     stockFile.close();
 
     double updatedPrice = stod(stockDetails[stockid + ":NASDAQ"]["price_info"]["current_price"].get<string>());
-    const double USD_TO_INR = 83.0;
-    double priceInRupees = updatedPrice * USD_TO_INR;
-    double saleProceeds = sellQuantity * priceInRupees;
+    double saleProceeds = sellQuantity * updatedPrice;
 
-    // Show sale details and get confirmation
+
+
     cout << "\nStock Sale Details:\n";
-    cout << "Current Price: " << updatedPrice << " USD (Rs." << priceInRupees << ")\n";
-    cout << "Quantity to Sell: " << sellQuantity << "\n";
-    cout << "Total Sale Value: Rs." << saleProceeds << "\n";
-    cout << "Confirm sale? (y/n): ";
+    cout << BOLD << "\n=== 💹 Stock Sale Details 💹 ===\n" << RESET;
+    cout << "Fetching current market price";
+    for(int i = 0; i < 3; i++) {
+        sleep_for(milliseconds(300));
+        cout << "." << flush;
+    }
+    cout << endl;
+    cout << CYAN << "📈 Current Price: $" << updatedPrice << RESET << endl;
+    cout << BLUE << "📦 Quantity to Sell: " << sellQuantity << RESET << endl;
+    cout << GREEN << "💰 Total Sale Value: $" << saleProceeds << RESET << endl;
+    cout << YELLOW << "\n🤔 Confirm sale? (y/n): " << RESET;
     
     char choice;
     cin >> choice;
@@ -233,22 +260,22 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
         cout << "Sale cancelled.\n";
         return;
     }
+    cout << "\n🔄 Processing sale";
+        for(int i = 0; i < 4; i++) {
+            sleep_for(milliseconds(300));
+            cout << "." << flush;
+        }
+    cout << endl;
 
-    User currentUser;
-    currentUser.setUserID(getUserID());
 
-    // Update portfolio quantity
     int remainingQuantity = currentQuantity - sellQuantity;
     if (remainingQuantity == 0) {
-        // Remove stock entry completely if quantity becomes 0
         userData[getUserID()]["portfolio"].erase(stockid);
     } else {
         userData[getUserID()]["portfolio"][stockid]["Quantity"] = remainingQuantity;
-        userData[getUserID()]["portfolio"][stockid]["CurrentPrice"] = priceInRupees;  // Store in INR
-        // Average price remains unchanged as it's historical
+        userData[getUserID()]["portfolio"][stockid]["CurrentPrice"] = updatedPrice;
     }
 
-    // Record sell transaction
     string transactionId = guuid();
     userData["stock_transactions"][transactionId] = {
         {"amount", saleProceeds},
@@ -257,19 +284,17 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
         {"stock_name", stockid}
     };
 
-    // Instead of currentUser.addMoneyToWallet(saleProceeds);
-double currentBalance = userData[getUserID()]["walletBalance"].get<double>();
-userData[getUserID()]["walletBalance"] = currentBalance + saleProceeds;
+    double currentBalance = userData[getUserID()]["walletBalance"].get<double>();
+    userData[getUserID()]["walletBalance"] = currentBalance + saleProceeds;
 
-ofstream outFile("test.json");
-outFile << setw(4) << userData << endl;
-outFile.close();
+    ofstream outFile("test.json");
+    outFile << setw(4) << userData << endl;
+    outFile.close();
 
-cout << "Successfully sold " << sellQuantity << " shares of " << stockid << "\n";
-cout << "Sale proceeds: Rs." << saleProceeds << " added to wallet\n";
-cout << "Updated wallet balance: Rs." << (currentBalance + saleProceeds) << "\n";
+    cout << GREEN << "✅ Successfully sold " << sellQuantity << " shares of " << stockid << RESET << endl;
+    cout << BLUE << "💵 Sale proceeds: $" << saleProceeds << " added to wallet" << RESET << endl;
+    cout << CYAN << "🏦 Updated wallet balance: $" << (currentBalance + saleProceeds) << RESET << endl;
 }
-
 
 vector<StockMetrics> OwnedStock::calculateIndividualReturns() {
     vector<StockMetrics> returns;
@@ -294,17 +319,13 @@ vector<StockMetrics> OwnedStock::calculateIndividualReturns() {
                         to_string(quantity) + " " + 
                         to_string(averagePrice);
         
-        //cout << "Executing command: " << command << endl;
-        
         FILE* pipe = popen(command.c_str(), "r");
         char buffer[1024];
         string result = "";
         while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
             result += buffer;
         }
-        int status = pclose(pipe);
-        
-        //cout << "Java output: " << result << endl;
+        pclose(pipe);
         
         try {
             json metricsJson = json::parse(result);
@@ -319,13 +340,49 @@ vector<StockMetrics> OwnedStock::calculateIndividualReturns() {
             metrics.profitLossPercentage = metricsJson["profitLossPercentage"];
             metrics.dayChange = metricsJson["dayChange"];
             metrics.dayChangePercentage = metricsJson["dayChangePercentage"];
-            //metrics.profitLossType = metricsJson["profitLossType"];
             returns.push_back(metrics);
         } catch (const json::exception& e) {
             cout << "JSON parsing error: " << e.what() << endl;
             cout << "Raw output: " << result << endl;
         }
     }
-
     return returns;
+}
+
+double OwnedStock::getReturns() const {
+    double totalInvestment = buyPrice * quantity;
+    double currentValue = getPrice() * quantity;
+    return ((currentValue - totalInvestment) / totalInvestment) * 100;
+}
+
+double OwnedStock::getBuyPrice() const {
+    return buyPrice;
+}
+
+int OwnedStock::getQuantity() const {
+    return quantity;
+}
+
+void OwnedStock::printStockInfo() const {
+    cout << BOLD << "\n=== 📊 Stock Information 📊 ===\n" << RESET;
+    cout << BLUE << "🏢 Stock: " << getstockname() << RESET << endl;
+    cout << "📦 Quantity: " << quantity << endl;
+    cout << "💰 Buy Price: $" << fixed << setprecision(2) << buyPrice << endl;
+    cout << "📈 Current Price: $" << getPrice() << endl;
+    cout << "💸 Total Investment: $" << getTotalInvested() << endl;
+    cout << "💎 Current Value: $" << (getPrice() * quantity) << endl;
+    
+    double returns = getReturns();
+    if(returns >= 0) {
+        cout << GREEN << "📈 Returns: +" << returns << "%" << RESET << endl;
+    } else {
+        cout << RED << "📉 Returns: " << returns << "%" << RESET << endl;
+    }
+}
+double OwnedStock::getTotalInvested() const {
+    return buyPrice * quantity;
+}
+
+double OwnedStock::getProfit() const {
+    return (getPrice() * quantity) - (buyPrice * quantity);
 }

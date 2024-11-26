@@ -1,29 +1,47 @@
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <iomanip>
 #include <stdexcept>
 #include "stock.hpp"
-#include <utils/utils.hpp>
+#include "utils/utils.hpp"
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
-using namespace std;
 
-Stock::Stock() : user() {}
+// Updated constructor to match header
+// Stock constructors
+Stock::Stock() : stockID(""), 
+                 stockName(""), 
+                 currentPrice(0.0), 
+                 fiftyTwoWeekHigh(0.0), 
+                 fiftyTwoWeekLow(0.0), 
+                 userID("") {}
 
-Stock::Stock(const string& id, const string& name, double price) 
-    : stockID(id), 
-      stockName(name), 
-      currentPrice(price),
+Stock::Stock(string stockID, string stockName, double currentPrice, string userId) 
+    : stockID(stockID),
+      stockName(stockName), 
+      currentPrice(currentPrice),
       fiftyTwoWeekHigh(0.0),
       fiftyTwoWeekLow(0.0),
-      userID("") {}
+      userID(userId) {}
+
+// OwnedStock constructors
+OwnedStock::OwnedStock() : Stock(), 
+                           quantity(0), 
+                           buyPrice(0.0) {}
+
+OwnedStock::OwnedStock(string stockID, string stockName, double currentPrice, 
+                       string userId, int quantity, double buyPrice)
+    : Stock(stockID, stockName, currentPrice, userId),
+      quantity(quantity),
+      buyPrice(buyPrice) {}
+
 
 
 void Stock::setUserID(const string& id) {
     userID = id;
 }
+
 string Stock::getUserID() {
     return userID;
 }
@@ -36,11 +54,21 @@ void Stock::setStockName(const string& name) {
     stockName = name;
 }
 
+double Stock::getPrice() const {
+    return currentPrice;
+}
+
+
+void Stock::setCurrentPrice(double price) {
+    currentPrice = price;
+}
+
 void Stock::displayDetails() {
-    string command = "java -cp lib/json-20240303.jar searchapi.java ";
+    string command = "java -cp lib/json-20240303.jar searchapi.java " + stockID;
     system(command.c_str());
 }
 
+// Updated buyStock implementation
 void Stock::buyStock(string stockName, int quantity) {
     json stockDetails;
     ifstream stockFile("stockdetails.json");
@@ -108,7 +136,6 @@ void Stock::buyStock(string stockName, int quantity) {
         }
     }
 }
-
 
 void Stock::saveStockDataToLocal(string stockName, int quantity) {
     json userData;
@@ -241,7 +268,6 @@ outFile.close();
 cout << "Successfully sold " << sellQuantity << " shares of " << stockid << "\n";
 cout << "Sale proceeds: Rs." << saleProceeds << " added to wallet\n";
 cout << "Updated wallet balance: Rs." << (currentBalance + saleProceeds) << "\n";
-
 }
 
 
@@ -291,6 +317,8 @@ vector<StockMetrics> OwnedStock::calculateIndividualReturns() {
             metrics.currentValue = metricsJson["currentValue"];
             metrics.profitLoss = metricsJson["profitLoss"];
             metrics.profitLossPercentage = metricsJson["profitLossPercentage"];
+            metrics.dayChange = metricsJson["dayChange"];
+            metrics.dayChangePercentage = metricsJson["dayChangePercentage"];
             //metrics.profitLossType = metricsJson["profitLossType"];
             returns.push_back(metrics);
         } catch (const json::exception& e) {

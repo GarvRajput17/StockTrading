@@ -1,0 +1,628 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradePro - Stock Trading System</title>
+<style>
+:root {
+  /* Light theme variables */
+  --primary-light: #2563eb;
+  --primary-dark-light: #1d4ed8;
+  --secondary-light: #64748b;
+  --success-light: #22c55e;
+  --danger-light: #ef4444;
+  --warning-light: #f59e0b;
+  --background-light: #f8fafc;
+  --text-light: #1e293b;
+  
+  /* Dark theme variables */
+  --primary-dark: #3b82f6;
+  --primary-dark-dark: #60a5fa;
+  --secondary-dark: #94a3b8;
+  --success-dark: #4ade80;
+  --danger-dark: #f87171;
+  --warning-dark: #fbbf24;
+  --background-dark: #0f172a;
+  --text-dark: #e2e8f0;
+  
+  /* Default to light theme */
+  --primary: var(--primary-light);
+  --primary-hover: var(--primary-dark-light);
+  --secondary: var(--secondary-light);
+  --success: var(--success-light);
+  --danger: var(--danger-light);
+  --warning: var(--warning-light);
+  --background: var(--background-light);
+  --text: var(--text-light);
+  --card-bg: white;
+  --border-color: #cbd5e1;
+}
+
+/* Dark theme class */
+.dark-theme {
+  --primary: var(--primary-dark);
+  --primary-hover: var(--primary-dark-dark);
+  --secondary: var(--secondary-dark);
+  --success: var(--success-dark);
+  --danger: var(--danger-dark);
+  --warning: var(--warning-dark);
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --card-bg: #1e293b;
+  --border-color: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  background: var(--card-bg);
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.sidebar-nav a:hover {
+  background: var(--background);
+}
+
+.main-content {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.wallet-balance {
+  background: var(--primary);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+  background: var(--background);
+  font-weight: 600;
+}
+
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.footer {
+  background: var(--card-bg);
+  padding: 2rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">TradePro</a>
+      <div class="nav-links">
+        <a href="#" data-page="dashboard">Dashboard</a>
+        <a href="#" data-page="addMoney">Add Money</a>
+        <a href="#" data-page="viewStocks">View Stocks</a>
+        <a href="#" data-page="buyStocks">Buy Stocks</a>
+        <a href="#" data-page="sellStocks">Sell Stocks</a>
+        <a href="#" data-page="portfolio">Portfolio</a>
+        <a href="#" data-page="history">Transaction History</a>
+        <a href="#" data-page="logout">Logout</a>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Router System -->
+  <div id="pageContent" class="container">
+    <div class="auth-container">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="userId">User ID</label>
+          <input type="text" id="userId" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <p>Already have an account? <a href="#" data-page="login">Login here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2024 TradePro. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="mailto:support@tradepro.com">Support</a>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+  
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    themeToggle.textContent = '☀️';
+  }
+
+  themeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-theme');
+    const isDark = body.classList.contains('dark-theme');
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Page Content Templates
+  const pages = {
+    dashboard: `
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="sidebar-nav">
+            <a href="#" data-page="dashboard">Dashboard</a>
+            <a href="#" data-page="addMoney">Add Money</a>
+            <a href="#" data-page="viewStocks">View Stocks</a>
+            <a href="#" data-page="buyStocks">Buy Stocks</a>
+            <a href="#" data-page="sellStocks">Sell Stocks</a>
+            <a href="#" data-page="portfolio">Portfolio</a>
+            <a href="#" data-page="history">Transaction History</a>
+            <a href="#" data-page="logout">Logout</a>
+          </div>
+        </aside>
+        <main class="main-content">
+          <div class="wallet-balance">
+            <h3>Wallet Balance</h3>
+            <h2>$10,000.00</h2>
+          </div>
+        </main>
+      </div>
+    `,
+    addMoney: `
+      <div class="auth-container">
+        <h2>Add Money to Wallet</h2>
+        <form id="addMoneyForm">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" class="form-control" required min="1">
+          </div>
+          <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod" class="form-control">
+              <option value="card">Credit/Debit Card</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Money</button>
+        </form>
+      </div>
+    `,
+    viewStocks: `
+      <div class="main-content">
+        <div class="search-bar">
+          <input type="text" placeholder="Search stocks...">
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Company</th>
+              <th>Price</th>
+              <th>Change</th>
+              <th>Market Cap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AAPL</td>
+              <td>Apple Inc.</td>
+              <td>$150.25</td>
+              <td>+2.5%</td>
+              <td>2.5T</td>
+            </tr>
+            <!-- More stock rows -->
+          </tbody>
+        </table>
+      </div>
+    `,
+    buyStocks: `
+      <div class="auth-container">
+        <h2>Buy Stocks</h2>
+        <form id="buyStockForm">
+          <div class="form-group">
+            <label for="stockSymbol">Stock Symbol</label>
+            <input type="text" id="stockSymbol" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" class="form-control" required min="1">
+          </div>
+          <div class="form-group">
+            <p>Current Price: $150.25</p>
+            <p>Total Cost: $0.00</p>
+          </div>
+          <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+      </div>
+    `,
+    sellStocks: `
+      <div class="auth-container">
+        <h2>Sell Stocks</h2>
+        <form id="sellStockForm">
+          <div class="form-group">
+            <label for="stockSelect">Select Stock</label>
+            <select id="stockSelect" class="form-control">
+              <option value="AAPL">AAPL - 10 shares</option>
+              <!-- More stock options -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sellQuantity">Quantity</label>
+            <input type="number" id="sellQuantity" class="form-control" required min="1">
+          </div>
+          <div class="form-group">
+            <p>Current Price: $150.25</p>
+            <p>Total Value: $0.00</p>
+          </div>
+          <button type="submit" class="btn btn-primary">Sell</button>
+        </form>
+      </div>
+    `,
+    portfolio: `
+      <div class="main-content">
+        <h2>Your Portfolio</h2>
+        <div class="wallet-balance">
+          <h3>Total Value</h3>
+          <h2>$15,750.00</h2>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Shares</th>
+              <th>Avg Price</th>
+              <th>Current Price</th>
+              <th>Profit/Loss</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Portfolio items -->
+          </tbody>
+        </table>
+      </div>
+    `,
+    history: `
+      <div class="main-content">
+        <h2>Transaction History</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Symbol</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Transaction history items -->
+          </tbody>
+        </table>
+      </div>
+    `,
+    login: `
+      <div class="auth-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginUserId">User ID</label>
+            <input type="text" id="loginUserId" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <p>Don't have an account? <a href="#" data-page="register">Register here</a></p>
+        </form>
+      </div>
+    `,
+    register: `
+      <div class="auth-container">
+        <h2>Create Account</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="userId">User ID</label>
+            <input type="text" id="userId" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+          <p>Already have an account? <a href="#" data-page="login">Login here</a></p>
+        </form>
+      </div>
+    `,
+    about: `
+      <div class="auth-container">
+        <h2>About TradePro</h2>
+        <p>TradePro is a cutting-edge stock trading platform designed to make investing accessible to everyone. Our platform provides real-time market data, advanced trading tools, and a user-friendly interface to help you make informed investment decisions.</p>
+        <h3>Features</h3>
+        <ul>
+          <li>Real-time market data</li>
+          <li>Commission-free trading</li>
+          <li>Advanced charting tools</li>
+          <li>Portfolio management</li>
+          <li>24/7 customer support</li>
+        </ul>
+      </div>
+    `
+  };
+
+  // Page routing function
+  function showPage(pageName) {
+    const pageContent = document.getElementById('pageContent');
+    pageContent.innerHTML = pages[pageName] || pages.dashboard;
+    
+    // Initialize page-specific functionality
+    if (pageName === 'buyStocks') {
+      initializeBuyForm();
+    } else if (pageName === 'sellStocks') {
+      initializeSellForm();
+    }
+  }
+
+  // Add click event listeners for navigation
+  document.addEventListener('click', function(e) {
+    if (e.target.dataset.page) {
+      e.preventDefault();
+      showPage(e.target.dataset.page);
+    }
+  });
+
+  // Initialize buy form functionality
+  function initializeBuyForm() {
+    const buyForm = document.getElementById('buyStockForm');
+    if (buyForm) {
+      buyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add buy stock logic here
+        console.log('Buy order submitted');
+      });
+    }
+  }
+
+  // Initialize sell form functionality
+  function initializeSellForm() {
+    const sellForm = document.getElementById('sellStockForm');
+    if (sellForm) {
+      sellForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add sell stock logic here
+        console.log('Sell order submitted');
+      });
+    }
+  }
+
+  // Show initial page (dashboard)
+  showPage('register');
+});
+</script>
+</body>
+</html>

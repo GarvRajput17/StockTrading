@@ -3,8 +3,21 @@
 
 #include <vector>
 #include <unordered_map>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <nlohmann/json.hpp>
 #include "Stock.hpp"
 
+
+class Stock;
+class OwnedStock;
+
+
+using std::vector;
+using std::string;
+using std::unordered_map;
+using json = nlohmann::json;
 class Portfolio {
 private:
     int numberOfStocks;

@@ -25,6 +25,7 @@ authentication/*.o
 Firebase_files/*.o
 program
 main
+main1.o
 
 
 # IDE and system files
@@ -59,4 +60,19 @@ authentication/*.cache
 .firebase/
 firebase-debug.log
 
-# 
+# Extra files
+ver1/auth1.cpp
+ver1/user1.cpp
+authentication_database.json
+libstocktrading.dylib
+libstocktrading.so
+t.txt
+thread.java
+test.cpp
+output.txt
+helpercommands.txt
+Graph Widgets/av.html
+Graph Widgets/av1.html
+main.cpp
+
+

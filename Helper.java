@@ -5,7 +5,7 @@ public class Helper {
         System.loadLibrary("stocktrading"); // Native library name
     }
 
-    // Native method declarations for C++ calls
+    // Native method declarations for the options code calls
     private native void displayMenuBeforeLogin();
     private native void displayMenuAfterLogin();
     private native void displayStockOperationsMenu();
@@ -13,7 +13,7 @@ public class Helper {
     private native String getUserID();
     private native String getPassword();
     
-    // User related native methods
+    // User related native methods 
     private native boolean registerUser(String userID, String password);
     private native boolean login(String userID, String password);
     private native void logout();

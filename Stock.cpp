@@ -76,6 +76,8 @@ void Stock::setCurrentPrice(double price) {
 void Stock::displayDetails() {
     string command = "java -cp lib/json-20240303.jar searchapi.java " + stockID;
     system(command.c_str());
+    // The c_str() converts the C++ string to a C-style string that system() can use.
+    // command passed to the shell to execute by itself.
 }
 
 void Stock::buyStock(string stockName, int quantity) {

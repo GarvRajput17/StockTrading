@@ -1,5 +1,5 @@
-#ifndef STOCK_HPP
-#define STOCK_HPP
+#ifndef STOCK_HPP // check if stock.hpp is not defined
+#define STOCK_HPP // if not defined, define it
 
 #include <string>
 #include "user.hpp"

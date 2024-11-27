@@ -4,12 +4,13 @@
 #include "portfolio.hpp"
 #include <string>
 #include <iostream>
-#include <thread>
+#include <thread> // thread is being used for the loading effect in the terminal 
 #include <unistd.h>
 #include <chrono>
 using namespace std::this_thread;
 using namespace std::chrono;
 
+// defining the regexes codes for the colors for the terminal
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define BLUE "\033[34m"
@@ -20,6 +21,7 @@ using namespace std::chrono;
 
 using namespace std;
 
+// to track the current user and stock 
 static User* currentUser = nullptr;
 static Stock* currentStock = nullptr;
 
@@ -33,6 +35,9 @@ void displayLogo() {
 
 
 JNIEXPORT void JNICALL Java_Helper_displayMenuBeforeLogin(JNIEnv* env, jobject obj) {
+    // JNIEXPORT Is the macro for the Java Native Interface (JNI) that defines the signature of the function.
+    // JNIEnv * env is a pointer to the JNI environment.
+    // jobject obj is a reference to the Java object that called the native method.
     displayLogo();
     cout << BOLD << "\n=== 📈 StockGo Trading System 📊 ===\n" << RESET;
     cout << GREEN << "1. 🆕 Register New User\n";
@@ -42,6 +47,9 @@ JNIEXPORT void JNICALL Java_Helper_displayMenuBeforeLogin(JNIEnv* env, jobject o
 }
 
 JNIEXPORT void JNICALL Java_Helper_displayMenuAfterLogin(JNIEnv* env, jobject obj) {
+    // JNIEXPORT Is the macro for the Java Native Interface (JNI) that defines the signature of the function.
+    // JNIEnv * env is a pointer to the JNI environment.
+    // jobject obj is a reference to the Java object that called the native method.
     cout << BOLD << "\n=== 📈 StockGo Trading Menu 📊 ===\n" << RESET;
     cout << "1. 💰 Add Money to Wallet\n";
     cout << "2. 💵 Check Wallet Balance\n";
@@ -66,6 +74,10 @@ void showSpinner(const string& message) {
         for(char c : spinner) {
             cout << "\r" << c << " " << message << "..." << flush;
             usleep(100000);
+            // usleep is a unix system call that pauses program execution 
+            //for a specified number of microseconds (by default)
+            // used here for creating a loading effect in the terminal and showing latency
+            //it's used to create deliberate delays for better user experience and system performance.
         }
     }
     cout << "\r✅ " << message << " Complete!" << endl;
@@ -78,6 +90,11 @@ void loadingEffect(const string& message) {
         cout << "\r" << message;
         for(int j = 0; j <= 3; j++) {
             cout << dots.substr(0, j) << flush;
+            // dots.substr(0, j) is a string operation that returns a 
+            //substring of the string dots,
+            // starting at index 0 and ending at index j.
+            // This is used to create a loading effect in the terminal.
+            // flush is used to print the output immediately to the terminal and avoid buffering.
             this_thread::sleep_for(chrono::milliseconds(200));
         }
     }
@@ -99,11 +116,19 @@ JNIEXPORT jstring JNICALL Java_Helper_getPassword(JNIEnv* env, jobject obj) {
     cout << BLUE << BOLD << "🔑 Enter Password: " << RESET;
     getline(cin, password);
     return env->NewStringUTF(password.c_str());
+    // NewStringUTF is a method that creates a new Java string object from a C-style string.
+    // Returns a jstring that Java can work with.
 }
 
 JNIEXPORT jboolean JNICALL Java_Helper_registerUser(JNIEnv* env, jobject obj, jstring juserID, jstring jpassword) {
     const char* userID = env->GetStringUTFChars(juserID, 0);
+    // getStringUTFChars is a method that returns a pointer to the 
+    //underlying C-style string representation of the Java string.
+    //Returns a const char* that C++ can work with
     const char* password = env->GetStringUTFChars(jpassword, 0);
+
+    // Java → C++: GetStringUTFChars
+    // C++ → Java: NewStringUTF
     
     loadingEffect("Creating your account");
     
@@ -141,6 +166,17 @@ JNIEXPORT jboolean JNICALL Java_Helper_login(JNIEnv* env, jobject obj, jstring j
     }
     
     env->ReleaseStringUTFChars(juserID, userID);
+    // Releases memory allocated by GetStringUTFChars
+    // Must be called after you're done with the C string
+    // Prevents memory leaks
+    //Takes two parameters:
+    //Original Java string (jstring)
+    //C string pointer to release
+    //Best practice is to always pair:
+
+    //GetStringUTFChars with ReleaseStringUTFChars
+    //Like malloc/free or new/delete
+
     env->ReleaseStringUTFChars(jpassword, password);
     return result;
 }

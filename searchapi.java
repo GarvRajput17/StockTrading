@@ -1,16 +1,16 @@
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.net.URI; // used to connect the html files to generate a local server
+import java.net.http.HttpClient; // used to generate a client to send a request to the API
+import java.net.http.HttpRequest; // used to send a request to the API
+import java.net.http.HttpResponse; // used to fetch the response to the API
 import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.JSONArray; // use to parse the json file as an array
+import org.json.JSONObject; // use to parse the json file as an object
 import java.awt.Desktop; // used to connect the html files to generate a local server
 import java.io.BufferedReader;
 import java.io.File; // file input output
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
+import java.io.IOException; // used for generating the json file
 
 
 public class searchapi {
@@ -44,19 +44,45 @@ public class searchapi {
         try {
             scanner = new Scanner(System.in);
             System.out.print(BOLD + "🔍 Enter stock symbol: " + RESET);
+            // here trim is used to remove the spaces and make the input case sensitive
             String stockSymbol = scanner.nextLine().trim().toUpperCase() + ":NASDAQ";
 
             System.out.println(CYAN + "\n⌛ Fetching stock data..." + RESET);
             HttpClient client = HttpClient.newHttpClient();
+
+            // creates a new http instance
+            // manages the connection to the API and sends the request to the API
+
             HttpRequest request = HttpRequest.newBuilder()
+
+            // creates a builder to create a request
+            // allows fluent configuration of the request properties
+            // builds the request object
+            // supports method chaining
+
                 .uri(URI.create(BASE_URL + stockSymbol + "&api_key=" + API_KEY))
+
+                // building the complete URL with the stock symbol and API key
+
                 .build();
 
+                // builds the final HTTP request object
+
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // sends the HTTP request to the API and retrieves the response
+            // BodyHandlers.ofString() converts the response to string format
+
             String jsonResponseStr = response.body();
+
+            // Extracts the raw JSON String from the response
+            
             saveToJson(stockSymbol, jsonResponseStr);
 
+            // saves the data locally using method
+
             JSONObject jsonResponse = new JSONObject(response.body());
+            // Parse raw JSON string into JSONN object for easy data access
             JSONObject summary = jsonResponse.getJSONObject("summary");
             JSONObject priceChange = summary.getJSONObject("price_change");
 
@@ -115,12 +141,23 @@ public class searchapi {
                     case "5":
                         System.out.println(CYAN + "\n📊 Opening Stock Graph..." + RESET);
                         try {
+
                             ProcessBuilder pb = new ProcessBuilder("python", "-m", "http.server", "8000");
+                            // starts a python http reauest server on port 8000
+
                             pb.redirectError(ProcessBuilder.Redirect.DISCARD);
+                            // serves local files for graph display
+
                             serverProcess = pb.start();
+                            // starts the server and discards output for clean console
+
                             // Extract the symbol without :NASDAQ suffix for the graph URL
                             String graphSymbol = stockSymbol.split(":")[0];
+                            // Extracting only the symbol part from the complete name 
+
                             Desktop.getDesktop().browse(new URI("http://localhost:8000/Graph%20Widgets/av2.html?symbol=" + graphSymbol));
+                            // opens the default browser to display the graph
+                            // Loads HTML file with stock data visualisation
 
                             System.out.println(GREEN + "✨ Graph opened successfully!" + RESET);
                             System.out.println(YELLOW + "Press enter to continue" + RESET);
@@ -172,14 +209,27 @@ public class searchapi {
         if (jsonfile.exists()) {
             try {
                 FileReader reader = new FileReader(jsonfile);
+                // read the file content into a string
+
                 BufferedReader bufferedReader = new BufferedReader(reader);
+                // read the file line by line and append to a string
+                // Wraps it in BufferedReader for efficient reading
+
                 StringBuilder content = new StringBuilder();
+                // Initializes StringBuilder to store file content
+                // builds the string by appending each line of the file
+
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     content.append(line);
+                    // Reads file line by line until end
+                    // Appends each line to StringBuilder
+                    // Builds complete JSON content
                 }
                 bufferedReader.close();
                 reader.close();
+                // properly close the readers for memory management
+                
                 stockdata = new JSONObject(content.toString());
             } catch (IOException e) {
                 System.out.println("Error reading file: " + e.getMessage());

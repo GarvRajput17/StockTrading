@@ -11,6 +11,15 @@
 using namespace std;
 using json = nlohmann::json;
 
+const string RESET = "\033[0m";
+const string BOLD = "\033[1m";
+const string CYAN = "\033[36m";
+const string GREEN = "\033[32m";
+const string YELLOW = "\033[33m";
+const string BLUE = "\033[34m";
+const string MAGENTA = "\033[35m";
+
+
 
 void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
     string transactionId = guuid();
@@ -372,13 +381,27 @@ void User::displayWatchlist() {
 
     // Retrieve and display the stock's details
     if (stockDetails.contains(stockId)) {
-    cout << "Stock ID: " << stockId << "\n";
-    cout << "Current Price: $" << stockDetails[stockId]["price_info"]["current_price"] << "\n";
-    cout << "Price Change: " << stockDetails[stockId]["price_info"]["price_change"]["amount"] 
-         << " (" << stockDetails[stockId]["price_info"]["price_change"]["percentage"] << "%)\n";
-    cout << "Movement: " << stockDetails[stockId]["price_info"]["price_change"]["movement"] << "\n";
-    cout << "Currency: " << stockDetails[stockId]["price_info"]["currency"] << "\n";
-}
+        cout << "\n" << BOLD << "=== 📊 Stock Details 📈 ===" << RESET << "\n\n";
+        
+        cout << CYAN << "🔍 Stock ID: " << RESET 
+            << stockId << "\n";
+        
+        cout << GREEN << "💰 Current Price: " << RESET 
+            << "$" << stockDetails[stockId]["price_info"]["current_price"] << "\n";
+        
+        cout << YELLOW << "📊 Price Change: " << RESET 
+            << stockDetails[stockId]["price_info"]["price_change"]["amount"]
+            << " (" << stockDetails[stockId]["price_info"]["price_change"]["percentage"] << "%)\n";
+        
+        cout << BLUE << "📈 Movement: " << RESET 
+            << stockDetails[stockId]["price_info"]["price_change"]["movement"] << "\n";
+        
+        cout << MAGENTA << "💱 Currency: " << RESET 
+            << stockDetails[stockId]["price_info"]["currency"] << "\n";
+            
+        cout << "\n" << string(50, '─') << "\n";
+    }
+
 
      else {
         cout << "Stock details not found for ID: " << stockId << "\n";

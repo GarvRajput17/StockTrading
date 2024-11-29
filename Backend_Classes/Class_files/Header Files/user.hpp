@@ -4,12 +4,12 @@
 #include <string>
 #include <nlohmann/json.hpp>
 #include "authentication/auth.hpp"
-#include "Transaction.hpp"
-#include "stock.hpp"  // Add this for Stock class
+#include "Backend_Classes/Class_files/Header Files/Transaction.hpp" // Add this for Transaction class
+#include "Backend_Classes/Class_files/Header Files/stock.hpp"  // Add this for Stock class
 
-using json = nlohmann::json;
-using std::string;
-class Stock;
+using json = nlohmann::json; // json object
+using std::string; // for string 
+class Stock; // forward declaration for avioding Circular dependencies
 class User {
 private:
     string userID;

@@ -8,7 +8,7 @@ import org.json.JSONObject;  // JSON parsing library
 import java.util.Scanner;
 
 public class alphavantagetest {
-    private static final String API_KEY = "your_api_key";  // Replace with your Alpha Vantage API key
+    private static final String API_KEY = "";  // Replace with your Alpha Vantage API key
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

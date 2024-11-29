@@ -17,6 +17,7 @@ firebase.json
 firestore.rules
 
 # Compiled files
+Makefile
 *.class
 AlphaVantageAPI.class
 a.out

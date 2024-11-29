@@ -13,28 +13,28 @@
         },
         "news": [
             {
-                "title": "NFL star Rob Gronkowski says Apple stock was his best investment",
+                "title": "NFL legend Rob Gronkowski says Apple stock is his best investment",
                 "articles": [
                     {
                         "snippet": "NFL legend Rob Gronkowski\u2019s best-ever investment: $69,000 worth of Apple stock he bought on advice from his contractor",
-                        "date": "12 hours ago",
-                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT4-L8tXiDL4eE7_GfAAlh12QbZOZmrQWopf5Q83cTT5kXwJRAFm8DjlnL7AU4",
+                        "date": "21 hours ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRtTzmKymN1jFOM_gVzEQo09cbO3ZyBkLiw9XJRiC-9vPuUL5YR8czrv8Fm_90",
                         "link": "https://fortune.com/2024/11/26/rob-gronkowski-net-worth-apple-stock/",
                         "source": "Fortune"
                     },
                     {
-                        "snippet": "Rob Gronkowski says he's invested in Apple, labels the stock his 'best investment'",
-                        "date": "1 hour ago",
-                        "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRgsCNyVPw_VpJ6lxUerp924Uy6ZJxH2KRAFYek2eBiNn8iTkfwWy5sBK0csZg",
-                        "link": "https://www.foxbusiness.com/markets/gronk-says-invested-apple-labels-stock-best-investment",
-                        "source": "Fox Business"
-                    },
-                    {
                         "snippet": "NFL legend Rob Gronkowski\u2019s best-ever investment: $69,000 worth of Apple stock",
-                        "date": "3 hours ago",
+                        "date": "13 hours ago",
                         "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTiTYKEm4kc-OKzcQzuPHW4M8U0HswoiQVYm28Xeghq-ZvSM--524Xw04bIqRY",
                         "link": "https://www.msn.com/en-us/sports/nfl/nfl-legend-rob-gronkowski-s-best-ever-investment-69-000-worth-of-apple-stock/vi-AA1uNAzz",
                         "source": "MSN"
+                    },
+                    {
+                        "snippet": "Former NFL star Rob Gronkowski says Apple stock was his best investment ever, turning $69,000 into $600,000",
+                        "date": "10 hours ago",
+                        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8JKcgO8PDPWiTO_Sud33oh6L6PD3yjj-BiQm4d0gr9ifIBu59WEbcFwdTgFg",
+                        "link": "https://markets.businessinsider.com/news/stocks/rob-gronkowski-says-apple-stock-was-his-best-investment-ever-2024-11",
+                        "source": "markets.businessinsider.com"
                     }
                 ]
             },
@@ -42,22 +42,22 @@
                 "title": "Indonesia rejects Apple's $100 million investment",
                 "articles": [
                     {
+                        "snippet": "Indonesia says Apple's $100 million investment proposal inadequate",
+                        "date": "1 day ago",
+                        "link": "https://www.yahoo.com/tech/indonesia-says-apples-100-million-115001333.html",
+                        "source": "Yahoo"
+                    },
+                    {
+                        "snippet": "Indonesia calls Apple\u2019s $100-million investment offer unfair",
+                        "date": "1 day ago",
+                        "link": "https://fortune.com/asia/2024/11/25/indonesia-calls-apple-100-million-investment-offer-unfair/",
+                        "source": "Fortune"
+                    },
+                    {
                         "snippet": "Indonesia rejects Apple's $100m investment to lift iPhone 16 sales ban",
                         "date": "1 day ago",
                         "link": "https://asia.nikkei.com/Business/Technology/Indonesia-rejects-Apple-s-100m-investment-to-lift-iPhone-16-sales-ban",
                         "source": "Nikkei Asia"
-                    },
-                    {
-                        "snippet": "Indonesia says Apple's $100 mln investment proposal inadequate",
-                        "date": "1 day ago",
-                        "link": "https://www.reuters.com/technology/indonesia-says-apples-100-mln-investment-proposal-inadequate-2024-11-25/",
-                        "source": "Reuters"
-                    },
-                    {
-                        "snippet": "Apple's $100M Investment Rejected, Indonesia Slams iPhone 16 Sale Ban",
-                        "date": "6 hours ago",
-                        "link": "https://finance.yahoo.com/news/apples-100m-investment-rejected-indonesia-151347655.html",
-                        "source": "Yahoo Finance"
                     }
                 ]
             },
@@ -65,22 +65,16 @@
                 "title": "Q4 earnings report for Apple",
                 "articles": [
                     {
-                        "snippet": "Warren Buffett is sitting on over $325 billion cash as Berkshire Hathaway keeps selling Apple stock",
-                        "date": "3 weeks ago",
-                        "link": "https://apnews.com/article/warren-buffett-berkshire-hathaway-earnings-profit-6f2772721d5d8f00578f8265c70db3d1",
-                        "source": "AP News"
-                    },
-                    {
                         "snippet": "Apple (AAPL) Surged After Solid Earnings Report",
                         "date": "1 day ago",
                         "link": "https://finance.yahoo.com/news/apple-aapl-surged-solid-earnings-155244765.html",
                         "source": "Yahoo Finance"
                     },
                     {
-                        "snippet": "Apple Sales Hit Quarterly Record as iPhone Business Rebounds",
+                        "snippet": "Warren Buffett is sitting on over $325 billion cash as Berkshire Hathaway keeps selling Apple stock",
                         "date": "3 weeks ago",
-                        "link": "https://www.wsj.com/tech/apple-earnings-q4-aapl-stock-8552e5b6",
-                        "source": "WSJ"
+                        "link": "https://apnews.com/article/warren-buffett-berkshire-hathaway-earnings-profit-6f2772721d5d8f00578f8265c70db3d1",
+                        "source": "AP News"
                     }
                 ]
             },
@@ -88,20 +82,14 @@
                 "title": "Opinion",
                 "articles": [
                     {
-                        "snippet": "Best MacBooks 2024: We help you pick the right model",
-                        "date": "1 week ago",
-                        "link": "https://www.tomsguide.com/best-picks/best-macbook",
-                        "source": "Tom's Guide"
-                    },
-                    {
                         "snippet": "Apple Should Have Learned a Chinese Lesson on EVs",
                         "date": "2 days ago",
                         "link": "https://www.bloomberg.com/opinion/articles/2024-11-24/apple-should-have-learned-a-chinese-lesson-on-evs",
-                        "source": "Bloomberg.com"
+                        "source": "Bloomberg"
                     },
                     {
                         "snippet": "Apple AirPods 4 review: First-of-its-kind open-ear style earphones with ANC",
-                        "date": "12 hours ago",
+                        "date": "21 hours ago",
                         "link": "https://www.business-standard.com/technology/tech-reviews/apple-airpods-4-review-first-of-its-kind-open-ear-style-earphones-with-anc-124112600604_1.html",
                         "source": "Business Standard"
                     },
@@ -126,7 +114,7 @@
                         "snippet": "Apple\u2019s Cook Joins CEO Summit With Chinese Premier on Trade",
                         "date": "1 day ago",
                         "link": "https://www.bloomberg.com/news/articles/2024-11-25/apple-chief-returns-to-china-as-beijing-prepares-to-fete-ceos",
-                        "source": "Bloomberg"
+                        "source": "Bloomberg.com"
                     },
                     {
                         "snippet": "Tim Cook heads to China for the 3rd time this year as Apple prepares for Trump trade policies",
@@ -469,18 +457,11 @@
                 "title": "Top news",
                 "articles": [
                     {
-                        "snippet": "1 Unstoppable Growth Stock That Could Join Nvidia, Apple, Amazon, Alphabet, Meta Platforms, and Microsoft in the Trillion-Dollar Club By 2040",
-                        "date": "3 days ago",
-                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRKmTpGz2G92BNhLih5gM858SgIhTRN3jxOTufP95iPBG9ZTg3UFc11w2KVcUE",
-                        "link": "https://finance.yahoo.com/news/1-unstoppable-growth-stock-could-160500948.html",
+                        "snippet": "3 Artificial Intelligence (AI) Stocks That Are Screaming Buys in November",
+                        "date": "18 hours ago",
+                        "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9tMGkXB7VOAm3XSfbsBKJpjV4rmr3-gZWxjUtI-RI189HxM5MDE0CFhz13Xs",
+                        "link": "https://finance.yahoo.com/news/3-artificial-intelligence-ai-stocks-120000027.html",
                         "source": "Yahoo Finance"
-                    },
-                    {
-                        "snippet": "\u2018Ignore the Noise,\u2019 Says Colin Sebastian About Alphabet Stock",
-                        "date": "17 hours ago",
-                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT8p6ZEFdVwLUcjoQoRWkPcRqr_xkLPtrUlHt793_X8Sa0UlsRaVLQwtLE7pE8",
-                        "link": "https://www.tipranks.com/news/ignore-the-noise-says-colin-sebastian-about-alphabet-stock",
-                        "source": "TipRanks"
                     },
                     {
                         "snippet": "Google Search Will Be Unrecognizable in the Future. That\u2019s Just Fine for Alphabet Stock.",
@@ -488,6 +469,13 @@
                         "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSa6orXd0HxiHgYKkyuv8yDerh3PTzhwrlnlV1JQvfy42_QxHM0dxtQH4gzqcc",
                         "link": "https://www.barrons.com/articles/google-stock-alphabet-google-search-00da6430",
                         "source": "Barron's"
+                    },
+                    {
+                        "snippet": "\u2018Ignore the Noise,\u2019 Says Colin Sebastian About Alphabet Stock",
+                        "date": "1 day ago",
+                        "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT8p6ZEFdVwLUcjoQoRWkPcRqr_xkLPtrUlHt793_X8Sa0UlsRaVLQwtLE7pE8",
+                        "link": "https://www.tipranks.com/news/ignore-the-noise-says-colin-sebastian-about-alphabet-stock",
+                        "source": "TipRanks"
                     },
                     {
                         "snippet": "Better Internet Stock: Alphabet vs. Meta Platforms",
@@ -503,7 +491,7 @@
                 "articles": [
                     {
                         "snippet": "Alphabet Inc.'s (NASDAQ:GOOGL) Stock Has Been Sliding But Fundamentals Look Strong: Is The Market Wrong?",
-                        "date": "10 hours ago",
+                        "date": "19 hours ago",
                         "link": "https://finance.yahoo.com/news/alphabet-inc-nasdaq-googl-stock-110018272.html",
                         "source": "Yahoo Finance"
                     },
@@ -514,16 +502,16 @@
                         "source": "Google Blog"
                     },
                     {
+                        "snippet": "Google parent Alphabet sees double-digit growth as AI bets boost cloud business",
+                        "date": "4 weeks ago",
+                        "link": "https://www.theguardian.com/technology/2024/oct/29/alphabet-google-earnings-report",
+                        "source": "The Guardian"
+                    },
+                    {
                         "snippet": "Nvidia, Alphabet, Super Micro, Snowflake, Deere, MicroStrategy, and More Stock Movers",
                         "date": "5 days ago",
                         "link": "https://www.barrons.com/articles/stock-market-movers-bc09ccc8",
                         "source": "Barron's"
-                    },
-                    {
-                        "snippet": "S&P 500 Gains and Losses Today: Stocks Rise After Nvidia Earnings; Alphabet Falls",
-                        "date": "4 days ago",
-                        "link": "https://www.investopedia.com/sandp-gains-and-losses-today-stocks-rise-after-nvidia-earnings-alphabet-falls-8749474",
-                        "source": "Investopedia"
                     }
                 ]
             },
@@ -531,22 +519,22 @@
                 "title": "News about Alphabet Inc. CEO Sundar Pichai",
                 "articles": [
                     {
+                        "snippet": "Google CEO Sundar Pichai sells $3.98 million in stock under this rule he adopted in August 2023",
+                        "date": "4 days ago",
+                        "link": "https://timesofindia.indiatimes.com/technology/tech-news/google-ceo-sundar-pichai-sells-3-98-million-in-stock-under-this-rule-he-adopted-in-august-2023/articleshow/115558460.cms",
+                        "source": "Times of India"
+                    },
+                    {
                         "snippet": "Elon Musk\u2019s \u2018first buddy\u2019 role: Tesla CEO joins Trump, Google\u2019s Sundar Pichai on call, strengthens political ties",
-                        "date": "5 days ago",
+                        "date": "6 days ago",
                         "link": "https://www.livemint.com/companies/people/elon-musk-s-first-buddy-role-tesla-ceo-joins-trump-google-s-sundar-pichai-on-call-strengthens-political-ties-11732162567189.html",
                         "source": "Livemint"
                     },
                     {
                         "snippet": "Insider Selling: Alphabet Inc. (NASDAQ:GOOG) CEO Sells 22,500 Shares of Stock",
-                        "date": "4 days ago",
+                        "date": "5 days ago",
                         "link": "https://www.marketbeat.com/instant-alerts/insider-selling-alphabet-inc-nasdaqgoog-ceo-sells-22500-shares-of-stock-2024-11-21/",
                         "source": "MarketBeat"
-                    },
-                    {
-                        "snippet": "Sundar Pichai dials Donald Trump to congratulate, Elon Musk joins call",
-                        "date": "5 days ago",
-                        "link": "https://www.business-standard.com/world-news/sundar-pichai-dials-donald-trump-to-congratulate-elon-musk-joins-call-124112100680_1.html",
-                        "source": "Business Standard"
                     }
                 ]
             }
@@ -1101,14 +1089,14 @@
                 "articles": [
                     {
                         "snippet": "Futures Mixed After Trump Tariff Threat",
-                        "date": "6 hours ago",
+                        "date": "15 hours ago",
                         "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTzUgD_5xOBD9_lVTcIUM9ogENCiX1eZfBGRIk9BJTMmL8yUysfZtQilgLwSVQ",
                         "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-nvidia-stock-nvda/",
                         "source": "Investor's Business Daily"
                     },
                     {
                         "snippet": "Jensen Huang Just Delivered Incredible News for Nvidia Stock Investors",
-                        "date": "11 hours ago",
+                        "date": "20 hours ago",
                         "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTG7-ZMIigc1C0MjZ66ZP55vk_xSEjcnf8wTaSy8BKdngmiX_dcM4Y0fFHb0g0",
                         "link": "https://finance.yahoo.com/news/jensen-huang-just-delivered-incredible-095300156.html",
                         "source": "Yahoo Finance"
@@ -1116,25 +1104,25 @@
                 ]
             },
             {
-                "title": "Nvidia's third-quarter earnings",
+                "title": "Nvidia earnings preview",
                 "articles": [
                     {
-                        "snippet": "1 Unbelievable Metric That Could Make Nvidia Stock a Screaming Buy",
-                        "date": "6 hours ago",
-                        "link": "https://www.fool.com/investing/2024/11/26/1-unbelievable-metric-that-could-make-nvidia-stock/",
-                        "source": "The Motley Fool"
+                        "snippet": "Cracks Emerge In Nvidia's AI Armor. What's An Investor To Do?",
+                        "date": "9 hours ago",
+                        "link": "https://www.investors.com/research/how-to-find-the-best-stocks-to-buy/nvidia-stock-sell-and-buy-rules/",
+                        "source": "Investor's Business Daily"
                     },
                     {
                         "snippet": "Where Will Nvidia Stock Be in 3 Years?",
-                        "date": "22 hours ago",
-                        "link": "https://finance.yahoo.com/news/where-nvidia-stock-3-years-231500110.html",
-                        "source": "Yahoo Finance"
+                        "date": "1 day ago",
+                        "link": "https://www.fool.com/investing/2024/11/25/where-will-nvidia-stock-be-in-3-years/",
+                        "source": "The Motley Fool"
                     },
                     {
-                        "snippet": "Cracks Emerge In Nvidia's AI Armor. What's An Investor To Do?",
-                        "date": "6 hours ago",
-                        "link": "https://www.investors.com/research/how-to-find-the-best-stocks-to-buy/nvidia-stock-sell-and-buy-rules/",
-                        "source": "Investor's Business Daily"
+                        "snippet": "Should You Buy Nvidia Before Dec. 3?",
+                        "date": "21 hours ago",
+                        "link": "https://finance.yahoo.com/news/buy-nvidia-dec-3-090200190.html",
+                        "source": "Yahoo Finance"
                     }
                 ]
             },
@@ -1142,14 +1130,8 @@
                 "title": "Q3 earnings report for Nvidia",
                 "articles": [
                     {
-                        "snippet": "The 5 biggest takeaways following Nvidia's earnings",
-                        "date": "22 hours ago",
-                        "link": "https://www.thestreet.com/investing/five-things-we-learned-from-nvidias-earnings-report",
-                        "source": "TheStreet"
-                    },
-                    {
                         "snippet": "NVIDIA Earnings, OpenAI, SpaceX & More",
-                        "date": "23 hours ago",
+                        "date": "1 day ago",
                         "link": "https://finance.yahoo.com/news/nvidia-earnings-openai-spacex-more-220700756.html",
                         "source": "Yahoo Finance"
                     },
@@ -1160,22 +1142,22 @@
                         "source": "Barron's"
                     },
                     {
-                        "snippet": "What Nvidia\u2019s Earnings Say About the AI Semiconductor Stock Trade",
-                        "date": "4 days ago",
-                        "link": "https://www.morningstar.com/stocks/what-nvidias-earnings-say-about-ai-semiconductor-stock-trade",
-                        "source": "Morningstar"
+                        "snippet": "Nvidia Doubles Profit as A.I. Chip Sales Soar",
+                        "date": "6 days ago",
+                        "link": "https://www.nytimes.com/2024/11/20/technology/nvidia-earnings-chips-ai.html",
+                        "source": "The New York Times"
+                    },
+                    {
+                        "snippet": "Opinion: How Nvidia earnings affect your stake in other tech stocks",
+                        "date": "1 day ago",
+                        "link": "https://www.marketwatch.com/story/how-nvidia-earnings-affect-your-stake-in-many-other-tech-stocks-194e0464",
+                        "source": "MarketWatch"
                     }
                 ]
             },
             {
                 "title": "Opinion",
                 "articles": [
-                    {
-                        "snippet": "My Favorite Artificial Intelligence Stock to Buy Right Now (Hint: It's Not Nvidia)",
-                        "date": "6 days ago",
-                        "link": "https://www.fool.com/investing/2024/11/20/my-favorite-artificial-intelligence-stock-to-buy/",
-                        "source": "The Motley Fool"
-                    },
                     {
                         "snippet": "Nvidia booting Intel from the Dow could end this proven stock-trading strategy",
                         "date": "4 days ago",
@@ -1184,7 +1166,7 @@
                     },
                     {
                         "snippet": "The best graphics card in 2024: our picks for all budgets",
-                        "date": "1 day ago",
+                        "date": "2 days ago",
                         "link": "https://www.techradar.com/news/computing-components/graphics-cards/best-graphics-cards-1291458",
                         "source": "TechRadar"
                     },
@@ -1200,22 +1182,22 @@
                 "title": "By the numbers",
                 "articles": [
                     {
-                        "snippet": "Nvidia Earnings: Stock Slumps Despite Another Record Quarter For AI Leader",
-                        "date": "6 days ago",
-                        "link": "https://www.forbes.com/sites/dereksaul/2024/11/20/nvidia-earnings-another-record-quarter-for-ai-leader/",
-                        "source": "Forbes"
+                        "snippet": "Nvidia again topped Apple to become Wall Street\u2019s most valuable company. How it got there\u2014by the numbers",
+                        "date": "5 days ago",
+                        "link": "https://fortune.com/2024/11/21/nvidia-topped-apple-wall-street-most-valuable-company/",
+                        "source": "Fortune"
+                    },
+                    {
+                        "snippet": "3 Stocks Set to Gain as Dow Logs 45th Record Close of the Year",
+                        "date": "11 hours ago",
+                        "link": "https://finance.yahoo.com/news/3-stocks-set-gain-dow-190000308.html",
+                        "source": "Yahoo Finance"
                     },
                     {
                         "snippet": "Nvidia nearly doubles revenue on strong AI demand",
                         "date": "6 days ago",
                         "link": "https://www.cnbc.com/2024/11/20/nvidia-nvda-earnings-report-q3-2025.html",
                         "source": "CNBC"
-                    },
-                    {
-                        "snippet": "Nvidia, Target, Super Micro, Williams-Sonoma, Keysight, Fabrinet, Ford, and More Movers",
-                        "date": "6 days ago",
-                        "link": "https://www.barrons.com/articles/stock-market-movers-e34fda3c",
-                        "source": "Barron's"
                     }
                 ]
             },
@@ -1223,22 +1205,22 @@
                 "title": "News about Nvidia CEO Jensen Huang",
                 "articles": [
                     {
+                        "snippet": "Nvidia\u2019s boss dismisses fears that AI has hit a wall",
+                        "date": "5 days ago",
+                        "link": "https://www.economist.com/business/2024/11/21/nvidias-boss-dismisses-fears-that-ai-has-hit-a-wall",
+                        "source": "The Economist"
+                    },
+                    {
+                        "snippet": "Nvidia says it will sell more of its next-generation Blackwell chips than previously anticipated",
+                        "date": "6 days ago",
+                        "link": "https://www.cnbc.com/2024/11/20/nvidia-expects-to-sell-more-blackwell-chips-than-previously-anticipated.html",
+                        "source": "CNBC"
+                    },
+                    {
                         "snippet": "Three mystery whales have each spent $10 billion\u2013plus on Nvidia\u2019s AI chips so far this year",
-                        "date": "4 days ago",
+                        "date": "5 days ago",
                         "link": "https://fortune.com/2024/11/21/nvidia-jensen-huang-ai-training-chips-microsoft-google-amazon-tesla-meta-hyperscalers-cloud-computing/",
                         "source": "Fortune"
-                    },
-                    {
-                        "snippet": "Nvidia CEO says global cooperation in tech will continue under Trump administration",
-                        "date": "3 days ago",
-                        "link": "https://www.reuters.com/technology/artificial-intelligence/nvidia-ceo-huang-says-the-age-ai-has-started-2024-11-23/",
-                        "source": "Reuters"
-                    },
-                    {
-                        "snippet": "Nvidia Working As Fast As It Can to Certify Samsung\u2019s AI Memory",
-                        "date": "3 days ago",
-                        "link": "https://www.bloomberg.com/news/articles/2024-11-23/nvidia-working-as-fast-as-it-can-to-certify-samsung-s-ai-memory",
-                        "source": "Bloomberg.com"
                     }
                 ]
             }

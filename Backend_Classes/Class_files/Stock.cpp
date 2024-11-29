@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <stdexcept>
 #include<thread>
-#include "stock.hpp"
+#include "Backend_Classes/Class_files/Header Files/stock.hpp"
 #include "utils/utils.hpp"
 #include <nlohmann/json.hpp>
 
@@ -82,7 +82,7 @@ void Stock::displayDetails() {
 
 void Stock::buyStock(string stockName, int quantity) {
     json stockDetails;
-    ifstream stockFile("stockdetails.json");
+    ifstream stockFile("Databases/stockdetails.json");
     if (!stockFile.good()) {
         throw runtime_error("Error reading stock details");
     }
@@ -122,7 +122,7 @@ void Stock::buyStock(string stockName, int quantity) {
         
         if (walletBalance >= totalCost) {
             json userData;
-            ifstream inFile("test.json");
+            ifstream inFile("Databases/test.json");
             if (inFile.good()) {
                 inFile >> userData;
             }
@@ -156,7 +156,7 @@ void Stock::buyStock(string stockName, int quantity) {
                 {"stock_name", stockName}
             };
 
-            ofstream outFile("test.json");
+            ofstream outFile("Databases/test.json");
             outFile << setw(4) << userData << endl;
             outFile.close();
 
@@ -176,13 +176,13 @@ void Stock::saveStockDataToLocal(string stockName, int quantity) {
     string timestamp = gettime();
     string transactionId = guuid();
 
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         inFile >> userData;
     }
     inFile.close();
 
-    ifstream stockFile("stockdetails.json");
+    ifstream stockFile("Databases/stockdetails.json");
     if (stockFile.good()) {
         stockFile >> stockDetails;
     }
@@ -203,14 +203,14 @@ void Stock::saveStockDataToLocal(string stockName, int quantity) {
         {"stock_name", stockName}
     };
 
-    ofstream outFile("test.json");
+    ofstream outFile("Databases/test.json");
     outFile << setw(4) << userData << endl;
     outFile.close();
 }
 
 void OwnedStock::sell(string stockid, int sellQuantity) {
     json userData;
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (!inFile.good()) {
         throw runtime_error("Error reading transactions");
     }
@@ -232,7 +232,7 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
     system(command.c_str());
 
     json stockDetails;
-    ifstream stockFile("stockdetails.json");
+    ifstream stockFile("Databases/stockdetails.json");
     if (stockFile.good()) {
         stockFile >> stockDetails;
     }
@@ -289,7 +289,7 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
     double currentBalance = userData[getUserID()]["walletBalance"].get<double>();
     userData[getUserID()]["walletBalance"] = currentBalance + saleProceeds;
 
-    ofstream outFile("test.json");
+    ofstream outFile("Databases/test.json");
     outFile << setw(4) << userData << endl;
     outFile.close();
 
@@ -301,7 +301,7 @@ void OwnedStock::sell(string stockid, int sellQuantity) {
 vector<StockMetrics> OwnedStock::calculateIndividualReturns() {
     vector<StockMetrics> returns;
     json userData;
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (!inFile.good()) {
         return returns;
     }

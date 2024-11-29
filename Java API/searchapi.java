@@ -203,7 +203,7 @@ public class searchapi {
     //private static void saveToJson;
     private static void saveToJson(String stockSymbol, String jsonResponse) {
         JSONObject stockdata = new JSONObject();
-        File jsonfile = new File("stockdetails.json");
+        File jsonfile = new File("Databases/stockdetails.json");
         
         // Read existing data if file exists
         if (jsonfile.exists()) {

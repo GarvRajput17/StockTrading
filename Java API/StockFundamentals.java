@@ -88,7 +88,7 @@ public class StockFundamentals {
     }
 
     public void calculateValuation(String stockName) {
-        String filePath = "stockdetails.json";
+        String filePath = "Databases/stockdetails.json";
         try {
             File inputFile = new File(filePath);
             FileReader fileReader = new FileReader(inputFile);

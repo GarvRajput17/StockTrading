@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iomanip>
 #include <nlohmann/json.hpp>
-#include "Stock.hpp"
+#include "Backend_Classes/Class_files/Header Files/stock.hpp"
 
 
 class Stock;
@@ -26,7 +26,7 @@ private:
     double returns;
     vector<OwnedStock> holdings;
     unordered_map<string, OwnedStock> holdingsMap;
-    const string fileName = "test.json";
+    const string fileName = "Databases/test.json";
     string userID;
 
 public:

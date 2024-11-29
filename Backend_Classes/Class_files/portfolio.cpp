@@ -1,4 +1,4 @@
-#include "Portfolio.hpp"
+#include "Backend_Classes/Class_files/Header Files/Portfolio.hpp"
 #include <iostream>
 #include <iomanip>
 #include <chrono>
@@ -29,29 +29,25 @@ void Portfolio::displayPortfolio() {
     double totalInvested = 0.0, totalProfit = 0.0, totalReturns = 0.0, currentPortfolioValue = 0.0;
 
     cout << BOLD << "\n=== 📊 Portfolio Summary 📊 ===" << RESET << endl;
-    cout << CYAN << string(80, '-') << RESET << endl;
+    cout << CYAN << string(50, '-') << RESET << endl;
 
-
-    // Animated header for holdings
+    // Animated loading header
     cout << BOLD << "Loading Portfolio Details";
     for(int i = 0; i < 3; i++) {
         this_thread::sleep_for(chrono::milliseconds(300));
         cout << "." << flush;
     }
-    cout << RESET << endl << endl;
+    cout << RESET << "\n\n";
 
-    // Holdings Table Header
-    cout << BLUE;
-    cout << "┌──────────────┬───────────┬──────────────┬──────────────┬──────────────┐\n";
-    cout << "│ Stock Symbol │ Quantity  │  Buy Price   │ Current Price│   Returns    │\n";
-    cout << "├──────────────┼───────────┼──────────────┼──────────────┼──────────────┤\n";
-
-    cout << RESET;
+    // Holdings Header
+    cout << BLUE << "Stock Details:" << RESET << "\n";
+    cout << string(50, '-') << "\n";
 
     // Display each stock with a small delay
     for (const auto& stock : holdings) {
         this_thread::sleep_for(chrono::milliseconds(100));
         uniqueStocks++;
+        
         double investment = stock.getBuyPrice() * stock.getQuantity();
         double currentStockValue = stock.getPrice() * stock.getQuantity();
         double stockReturns = ((currentStockValue - investment) / investment) * 100;
@@ -60,39 +56,35 @@ void Portfolio::displayPortfolio() {
         totalProfit += (currentStockValue - investment);
         currentPortfolioValue += currentStockValue;
 
-        cout << "│ " << left << setw(11) << stock.getstockname() 
-        << "│ " << setw(9) << stock.getQuantity()
-        << "│ $" << right << setw(10) << fixed << setprecision(2) << stock.getBuyPrice()
-        << "│ $" << setw(10) << stock.getPrice()
-        << "│ " << setw(10) << stockReturns << "% │\n";
+        cout << CYAN << "Stock Symbol: " << RESET << stock.getstockname() << "\n";
+        cout << BLUE << "Quantity: " << RESET << stock.getQuantity() << "\n";
+        cout << GREEN << "Buy Price: $" << RESET << fixed << setprecision(2) << stock.getBuyPrice() << "\n";
+        cout << YELLOW << "Current Price: $" << RESET << stock.getPrice() << "\n";
+        cout << (stockReturns >= 0 ? GREEN : RED) << "Returns: " << stockReturns << "%" << RESET << "\n";
+        cout << string(50, '-') << "\n";
     }
-    
-    cout << "└──────────────┴───────────┴──────────────┴──────────────┴──────────────┘\n";
 
     totalReturns = (totalInvested > 0) ? (totalProfit / totalInvested) * 100 : 0;
 
-    // Animated loading for portfolio metrics
+    // Animated loading for metrics
     cout << "\n" << BOLD << "Calculating Portfolio Metrics";
     for(int i = 0; i < 3; i++) {
         this_thread::sleep_for(chrono::milliseconds(300));
         cout << "." << flush;
     }
-    cout << RESET << endl << endl;
+    cout << RESET << "\n\n";
 
-    // Portfolio Metrics Table
-    cout << YELLOW;
-    cout << "┌─────────────────────────┬────────────────────────┐\n";
-    cout << "│ Metric                  │ Value                  │\n";
-    cout << "├─────────────────────────┼────────────────────────┤\n";
-    cout << "│ Unique Stocks           │ " << setw(20) << uniqueStocks << " │\n";
-    cout << "│ Total Investment        │ " << setw(19) << fixed << setprecision(2) << totalInvested << " │\n";
-    cout << "│ Current Portfolio Value │ " << setw(19) << currentPortfolioValue << " │\n";
-    cout << "│ Total Profit/Loss       │ " << (totalProfit >= 0 ? GREEN : RED) 
-         << "$" << setw(19) << totalProfit << YELLOW << " │\n";
-    cout << "│ Overall Returns         │ " << (totalReturns >= 0 ? GREEN : RED) 
-         << setw(19) << totalReturns << "%" << YELLOW << " │\n";
-    cout << "└─────────────────────────┴────────────────────────┘" << RESET << endl;
+    // Portfolio Metrics
+    cout << BOLD << "Portfolio Overview:" << RESET << "\n";
+    cout << string(50, '-') << "\n";
+    cout << CYAN << "Unique Stocks: " << RESET << uniqueStocks << "\n";
+    cout << BLUE << "Total Investment: $" << RESET << fixed << setprecision(2) << totalInvested << "\n";
+    cout << YELLOW << "Current Portfolio Value: $" << RESET << currentPortfolioValue << "\n";
+    cout << "Total Profit/Loss: " << (totalProfit >= 0 ? GREEN : RED) << "$" << totalProfit << RESET << "\n";
+    cout << "Overall Returns: " << (totalReturns >= 0 ? GREEN : RED) << totalReturns << "%" << RESET << "\n";
+    cout << string(50, '-') << "\n";
 }
+
 
 
 // Rest of the methods remain the same as they don't involve currency display

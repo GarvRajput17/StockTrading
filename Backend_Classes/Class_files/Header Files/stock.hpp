@@ -2,7 +2,7 @@
 #define STOCK_HPP // if not defined, define it
 
 #include <string>
-#include "user.hpp"
+#include "Backend_Classes/Class_files/Header Files/user.hpp"
 #include <nlohmann/json.hpp>
 
 using std::string;

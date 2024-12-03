@@ -4,9 +4,9 @@
 #include <chrono>
 #include <thread>
 #include <jni.h>
-#include "user.hpp"
-#include "stock.hpp"
-#include"portfolio.hpp"
+#include "Backend_Classes/Class_files/Header Files/user.hpp"
+#include "Backend_Classes/Class_files/Header Files/stock.hpp"
+#include "Backend_Classes/Class_files/Header Files/portfolio.hpp"
 using namespace std;
 
 void displayMenuBeforeLogin() {
@@ -32,7 +32,6 @@ void displayMenuAfterLogin() {
     cout << "11. Exit\n";
     cout << "Choice: ";
 }
-
 
 void displayStockOperationsMenu() {
     cout << "\n=== Stock Operations ===\n";

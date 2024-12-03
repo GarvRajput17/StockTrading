@@ -15,7 +15,7 @@ private:
     double amount;
     string date;
     string type;
-    string fileName = "test.json";
+    string fileName = "Databases/test.json";
     static vector<Transaction> transactions;
 
 public:

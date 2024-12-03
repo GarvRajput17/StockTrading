@@ -1,7 +1,7 @@
-#include "Helper.h"
-#include "user.hpp"
-#include "stock.hpp"
-#include "portfolio.hpp"
+#include "JNI/Helper.h"
+#include "Backend_Classes/Class_files/Header files/user.hpp"
+#include "Backend_Classes/Class_files/Header files/stock.hpp"
+#include "Backend_Classes/Class_files/Header files/portfolio.hpp"
 #include <string>
 #include <iostream>
 #include <thread> // thread is being used for the loading effect in the terminal 

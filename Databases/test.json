@@ -1,18 +1,23 @@
 {
     "ansh@gmail.com": {
         "portfolio": {
+            "AAPL": {
+                "AveragePrice": 235.06,
+                "CurrentPrice": 235.06,
+                "Quantity": 1
+            },
             "GOOGL": {
-                "AveragePrice": 164.76,
+                "AveragePrice": 169.76,
                 "CurrentPrice": 164.76,
                 "Quantity": 1
             },
             "MSFT": {
-                "AveragePrice": 426.14,
+                "AveragePrice": 441.14,
                 "CurrentPrice": 426.14,
                 "Quantity": 2
             },
             "NVDA": {
-                "AveragePrice": 141.95,
+                "AveragePrice": 126.95,
                 "CurrentPrice": 141.95,
                 "Quantity": 5
             },
@@ -53,6 +58,12 @@
                 "paymentMethod": "UPI",
                 "type": "CREDIT"
             },
+            "a9111dbb-5f37-4a25-a740-a2f5891fcab9": {
+                "amount": 470.12,
+                "date": "Wed Nov 27 12:01:54 2024\n",
+                "paymentMethod": "Wallet Deduction",
+                "type": "DEBIT"
+            },
             "c9c28de0-e66f-490f-9411-bb8b0928e90e": {
                 "amount": 1.2,
                 "date": "Sat Nov 23 15:54:46 2024\n",
@@ -60,9 +71,40 @@
                 "type": "CREDIT"
             }
         },
-        "walletBalance": 1601.22,
+        "walletBalance": 1566.1599999999999,
         "watchlist": {
-            "StockId": "NVDA"
+            "StockId": "AMZN"
+        }
+    },
+    "arpit@gmail.com": {
+        "walletBalance": 505.0
+    },
+    "chinmay@gmail.com": {
+        "portfolio": {
+            "OwnedStockId": {
+                "AveragePrice": 0,
+                "CurrentPrice": 0,
+                "Quantity": 0
+            }
+        },
+        "transactions": {},
+        "walletBalance": 0.0,
+        "watchlist": {
+            "StockId": ""
+        }
+    },
+    "pratham@gmail.com": {
+        "portfolio": {
+            "OwnedStockId": {
+                "AveragePrice": 0,
+                "CurrentPrice": 0,
+                "Quantity": 0
+            }
+        },
+        "transactions": {},
+        "walletBalance": 0.0,
+        "watchlist": {
+            "StockId": ""
         }
     },
     "stock_transactions": {
@@ -96,6 +138,12 @@
             "paymentMethod": "Wallet",
             "stock_name": "GOOGL"
         },
+        "a6bfaa55-ae62-4b19-8639-d13984fef67c": {
+            "amount": 235.06,
+            "date": "Wed Nov 27 12:09:22 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "AAPL"
+        },
         "cb5726ab-33af-414a-be93-06d9662cd382": {
             "amount": 164.76,
             "date": "Sat Nov 23 22:04:12 2024\n",
@@ -120,6 +168,12 @@
             "paymentMethod": "Wallet",
             "stock_name": "MSFT"
         },
+        "f7246968-7cfc-4315-a870-5e1ec44fc43e": {
+            "amount": 470.12,
+            "date": "Wed Nov 27 12:01:54 2024\n",
+            "paymentMethod": "Wallet",
+            "stock_name": "AAPL"
+        },
         "fb95dbb6-5b8e-465d-9c70-ea51e3aeacad": {
             "amount": 164.76,
             "date": "Sat Nov 23 22:09:32 2024\n",
@@ -131,6 +185,20 @@
             "date": "",
             "paymentMethod": "",
             "stock_name": ""
+        }
+    },
+    "suryansh@gmail.com": {
+        "portfolio": {
+            "OwnedStockId": {
+                "AveragePrice": 0,
+                "CurrentPrice": 0,
+                "Quantity": 0
+            }
+        },
+        "transactions": {},
+        "walletBalance": 0.0,
+        "watchlist": {
+            "StockId": ""
         }
     }
 }

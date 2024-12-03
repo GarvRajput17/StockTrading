@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <chrono>
 #include <thread>
-#include "user.hpp"
+#include "Backend_Classes/Class_files/Header Files/user.hpp"
 #include<utils/utils.hpp>
 #include <nlohmann/json.hpp>
 //#include"authentication/Auth.hpp"
@@ -26,7 +26,7 @@ void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
     string timestamp = gettime();
     json userData;
     
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         inFile >> userData;
     } else {
@@ -46,13 +46,13 @@ void User::saveTransactionToLocal(double amount, const string& paymentMethod) {
     userData[userID]["walletBalance"] = walletBalance;
     userData[userID]["transactions"][transactionId] = transaction;
 
-    ofstream outFile("test.json");
+    ofstream outFile("Databases/test.json");
     outFile << userData.dump(4);
     outFile.close();
 }
 
 void User::loadUserData() {
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         json userData;
         inFile >> userData;
@@ -110,6 +110,36 @@ bool User::registerUser(string userID, string password) {
     if (auth.registerUser(userID, password)) {
         this->userID = userID;
         isAuthenticated = true;
+        
+        // Initialize new user data structure in JSON
+        json userData;
+        ifstream inFile("Databases/test.json");
+        if (inFile.good()) {
+            inFile >> userData;
+        }
+        inFile.close();
+
+        // Set up default values for new user
+        userData[userID] = {
+            {"portfolio", {
+                {"OwnedStockId", {
+                    {"AveragePrice", 0},
+                    {"CurrentPrice", 0},
+                    {"Quantity", 0}
+                }}
+            }},
+            {"transactions", json::object()},
+            {"walletBalance", 0.0},
+            {"watchlist", {
+                {"StockId", ""}
+            }}
+        };
+
+        // Save updated JSON
+        ofstream outFile("Databases/test.json");
+        outFile << setw(4) << userData << endl;
+        outFile.close();
+
         cout << "Registered successfully!" << endl;
         cout << "Welcome to our platform!" << endl;
         cout << "Start your stock trading journey today!" << endl;
@@ -117,6 +147,7 @@ bool User::registerUser(string userID, string password) {
     }
     return false;
 }
+
 
 bool User::deleteAccount() {
     if (!isAuthenticated) {
@@ -211,7 +242,7 @@ void User::processPayment(double amount) {
 
     walletBalance += amount;
     json userData;
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         inFile >> userData;
     }
@@ -224,7 +255,7 @@ void User::processPayment(double amount) {
     string timestamp = gettime();
     transactionManager.recordTransaction(userID, transactionId, "CREDIT", amount, timestamp, paymentMethod);
     
-    ofstream outFile("test.json");
+    ofstream outFile("Databases/test.json");
     outFile << setw(4) << userData << endl;
     outFile.close();
     
@@ -275,7 +306,7 @@ void User::addMoneyToWallet(double amount) {
 
 double User::checkWalletBalance() {
     string currentUserID = getUserID();
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         json userData;
         inFile >> userData;
@@ -293,14 +324,14 @@ void User::removeMoneyfromWallet(double amount) {
         
         // Save the updated balance immediately
         json userData;
-        ifstream inFile("test.json");
+        ifstream inFile("Databases/test.json");
         if (inFile.good()) {
             inFile >> userData;
         }
         inFile.close();
         
         userData[userID]["walletBalance"] = walletBalance;
-        ofstream outFile("test.json");
+        ofstream outFile("Databases/test.json");
         outFile << setw(4) << userData << endl;
         outFile.close();
 
@@ -340,8 +371,8 @@ void User::displayWatchlist() {
 
     cout << "\n=== Your Watchlist ===\n";
 
-    // Load `test.json` to get the user's data and watchlist
-    ifstream testFile("test.json");
+    // Load `Databases/test.json` to get the user's data and watchlist
+    ifstream testFile("Databases/test.json");
     if (!testFile.is_open()) {
         cout << "Failed to load user data. Please try again.\n";
         return;
@@ -368,8 +399,8 @@ void User::displayWatchlist() {
 
 
 
-    // Load `stockdetails.json` to fetch the stock's details
-    ifstream stockDetailsFile("stockdetails.json");
+    // Load `Databases/stockdetails.json` to fetch the stock's details
+    ifstream stockDetailsFile("Databases/stockdetails.json");
     if (!stockDetailsFile.is_open()) {
         cout << "Failed to load stock details. Please try again.\n";
         return;
@@ -399,7 +430,8 @@ void User::displayWatchlist() {
         cout << MAGENTA << "💱 Currency: " << RESET 
             << stockDetails[stockId]["price_info"]["currency"] << "\n";
             
-        cout << "\n" << string(50, '─') << "\n";
+        cout << "\n" << string(50, '-') << "\n";
+
     }
 
 
@@ -411,7 +443,7 @@ void User::addToWatchlist(Stock stock) {
     loadUserData();
 
     json userData;
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         inFile >> userData;
     }
@@ -430,7 +462,7 @@ void User::addToWatchlist(Stock stock) {
     string stockName = stock.getstockname();
     userData[currentUserID]["watchlist"]["StockId"] = stockName;
 
-    ofstream outFile("test.json");
+    ofstream outFile("Databases/test.json");
     if (outFile.is_open()) {
         outFile << setw(4) << userData << endl;
         outFile.close();
@@ -443,9 +475,9 @@ void User::addToWatchlist(Stock stock) {
 void User::removeFromWatchlist(string stockId) {
     loadUserData();  // Ensure the latest data is loaded
 
-    // Open `test.json` to load user data
+    // Open `Databases/test.json` to load user data
     json userData;
-    ifstream inFile("test.json");
+    ifstream inFile("Databases/test.json");
     if (inFile.good()) {
         inFile >> userData;
     } else {
@@ -468,8 +500,8 @@ void User::removeFromWatchlist(string stockId) {
         // Remove the stock ID from the watchlist
         userData[currentUserID]["watchlist"]["StockId"] = "";
 
-        // Save the updated data back to `test.json`
-        ofstream outFile("test.json");
+        // Save the updated data back to `Databases/test.json`
+        ofstream outFile("Databases/test.json");
         if (outFile.is_open()) {
             outFile << setw(4) << userData << endl;
             outFile.close();
